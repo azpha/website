@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/js/playersBackend.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/js/hidePanel.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/css/form.css">
+    <script src="https://cdn.jsdelivr.net/gh/awexxx/awexxx.github.io/assets/js/medalclips.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" type="image/png" href="assets/img/logo.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,7 +21,7 @@
     <meta content="assets/img/logo.png" property="og:image">
     <meta content="#9c2d1c" data-react-helmet="true" name="theme-color">
 </head>
-<body>
+<body onload="medalClips()">
   <h3 style="padding-top:20px;">Awexx</h3>
   <br>
   <ul id="navbar">
@@ -53,7 +54,7 @@
       
       <form onsubmit="return false">
         <label style="font-size:20px; text-align:center;" for="fname">In-Game Name</label><br />
-            <input style="font-size:20px;" type="text" id="inputBox" name="playerName" onkeypress="checkBoxes()" placeholder="Put 'babyawex' here!" required><br />
+            <input style="font-size:20px;" type="text" id="inputBox" name="playerName" placeholder="Put 'babyawex' here!" required><br />
             <hr style="width:60px";>
             <div id="radioBtns">
             <label style="font-size:20px; display:inline;">Economy</label><br />
@@ -87,8 +88,9 @@
 
         <h2 id="medal">Follow me on <span style="color:orange;"><a href="https://medal.tv/itsawexx" target="_blank">Medal!</a></span></h2>
 
-          <iframe width="640" height="360" style="border: none;" src="https://medal.tv/clip/44844498/vpr34wEBY" allow="autoplay" allowfullscreen></iframe></p>
-
+          <div id="clip"></div><br />
+          <i>Thanks to the Medal API, this stays up to date!</i><br />     
+  
         </section>
 
     <div class="footer-basic">
