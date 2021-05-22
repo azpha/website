@@ -7,9 +7,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/js/playersBackend.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/js/hidePanel.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/css/form.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" type="image/png" href="assets/img/logo.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <meta content="awex" property="og:title">
     <meta content="Name's awex / Alex. I'm the main web developer for the [PlagueCraft Network](https://plaguecraft.xyz), as well as one of the owners." property="og:description">
     <meta content="https://awexxx.github.io/" property="og:url">
@@ -17,20 +21,20 @@
     <meta content="#9c2d1c" data-react-helmet="true" name="theme-color">
 </head>
 <body>
-    <img src="assets/img/logo.png" class="center" length="265"  />
-   <br>
-   <ul id="navbar">
-      <li><a href="#">HOME</a></li>
-      <li><a href="about">ABOUT ME</a></li>
-      <li><a href="contact">CONTACT</a></li>
-   </ul>
+  <h3 style="padding-top:20px;">Awexx</h3>
+  <br>
+  <ul id="navbar">
+     <li><a href="#">HOME</a></li>
+     <li><a href="https://awexxx.github.io/about">ABOUT ME</a></li>
+     <li><a href="https://awexxx.github.io/hivemc">HIVEMC STATS LOOKUP</a></li>
+  </ul>
 </nav>
 <hr>
 
 
 <section id="welcome">
 <h2>Welcome to my website!</h2>
-  <p>Name's awex / Alex. I'm the main web developer for the <a href="https://plaguecraft.xyz" target="_blank">PlagueCraft Network</a>, as well as one of the <a href="https://plaguecraft.xyz/team#owners" target="_blank">owners</a>.</p>
+  <p>Name's awex / Alex. I'm the main web developer for the <a href="https://plaguecraft.xyz" target="_blank">PlagueCraft Network</a>, as well as one of the <a href="https://plaguecraft.xyz/team" target="_blank">owners</a>.</p>
 </section>
 
 <!--The good stuff. My Projects! -->
@@ -38,29 +42,39 @@
   <section id="pcn">
 <h1 style="padding-top:10px;">Projects</h1>
     <hr>
-  <h2>The PlagueCraft Network</h2>
-    <p>The PlagueCraft Network was founded in 2020 and is being developed by me and a few friends as of right now.<br> We've gotten pretty close to rereleasing and allowing people back onto the server, but our work has been successful! We've created around 5 minigames, a backend api, and more in the scale of 3 weeks, we've really been working hard!</p>
-  </section>
-    
-    <hr>
-
-      <section id="pmg">
     <h2>Medal Clip Webhook</h2>
-      <p>One of my side projects is currently a <a href="https://medal.tv">Medal.tv</a> Clip Webhook, that can send webhook messages to Discord, Guilded, or even Slack!<br>
-        <a href="https://awexxx.github.io/medal-clip-webhook/gh-pages">Check it out</a>!</p>
-    </section>
+      <p>Being a Medal user, I've seen some Guilded or even Slack users want Medal clip sharing for their platform.<br> While using it directly from the app is easier, I decided to make an app that can send a webhook message to either platform with a clip link.<br>
+      This can be <a href="https://github.com/awexxx/medal-clip-webhook">Self Hosted</a>, but you'll need some Node.js experience most likely.</p>
+    
+      <h2>PCN Player Lookup & API</h2>
+        <p>I am in charge of all of the updates that go to both the <a href="https://plaguecraft.xyz">PCN Website and API!</a><br>
+        Both of which are open source, you can check out the <a href="https://github.com/plaguecraft-team/pcn-web">website</a> and <a href="https://github.com/awexxx/pcnapi">API</a> at these links.<br>
+      Here's an example of what I've built!</p>
+      
+      <form onsubmit="return false">
+        <label style="font-size:20px; text-align:center;" for="fname">In-Game Name</label><br />
+            <input style="font-size:20px;" type="text" id="inputBox" name="playerName" onkeypress="checkBoxes()" placeholder="Put 'babyawex' here!" required><br />
+            <hr style="width:60px";>
+            <div id="radioBtns">
+            <label style="font-size:20px; display:inline;">Economy</label><br />
+            <input style="font-size:20px; display:inline;" type="radio" id="econBox" name="box" value="econBox" required><br />
+            <label style="font-size:20px; display:inline;">Skills</label><br />
+            <input style="font-size:20px; display:inline;" type="radio" id="skillsBox" name="box" value="Box" required><br />
+            <label style="font-size:20px; display:inline;">SkyWars</label><br />
+            <input style="font-size:20px; display:inline;" type="radio" id="swBox" name="box" value="Box" required><br /><br />
+        </div>
+            <!-- <label style="font-size:20px;">Bridges</label><br />
+            <input style="font-size:20px;" type="checkbox" id="bridgeBox" name="bridgeBox" value="Bridges"><br /><br /> -->
+            <button type="button" onclick="checkBoxes()" style="font-size:20px"; id="submitBtn">Submit</button><br /><br />
+      
+      
+      <div id="panel"></div>
 
-    <hr>
+      <button type="button" onclick="hidePanel()" style="font-size:20px"; id="submitBtn">Hide the panel</button><br /><br />
+    </form>
 
-    <section id="tournaments">
-      <h2>Minecraft Plugins</h2>
-        <p>I'm also on the side working on some Minecraft Spigot plugins, which are all open-source at <a href="https://github.com/awexxx/awexplugins">my plugin repo</a>. Check it out!</p>
-    </section>
-
-    <h2>..and more!<br> I plan to keep updating this page with my projects that are significant to me!</h2>
-
-          <hr>
-
+    <h2>Contact Me</h2>
+      <p>My email is alex@plaguecraft.xyz, feel free to <a href="mailto:alex@plaguecraft.xyz">email me</a> there!</p>
 
         <section id="socials">
       <h3>Follow me on my socials!</h3>
@@ -71,7 +85,7 @@
         <h2 id="twitter">Follow me on <span style="color:blue;"><a href="https://twitter.com/_awexx" target="_blank">Twitter!</a></span></h2>
 
 
-        <h2 id="medal">Follow me on <span style="color:orange;"><a href="https://medal.tv/notchyy" target="_blank">Medal!</a></span></h2>
+        <h2 id="medal">Follow me on <span style="color:orange;"><a href="https://medal.tv/itsawexx" target="_blank">Medal!</a></span></h2>
 
           <iframe width="640" height="360" style="border: none;" src="https://medal.tv/clip/44844498/vpr34wEBY" allow="autoplay" allowfullscreen></iframe></p>
 
@@ -81,12 +95,9 @@
         <footer>
             <div class="social"><a href="https://github.com/awexxx" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://twitter.com/_awexx" target="_blank"><i class="icon ion-social-twitter"></i></a></div>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="discord">Discord</a></li>
-                  ----
-                <li class="list-inline-item"><a href="contact">Contact</a></li>
+                <li class="list-inline-item"><a href="mailto:alex@plaguecraft.xyz">Contact</a></li>
             </ul>
             <p class="copyright">awexx <i class="fa fa-copyright"></i> 2021<br>
-            Email: alex@plaguecraft.xyz</p>
         </footer>
     </div>
 </body>

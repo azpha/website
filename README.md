@@ -1,11 +1,13 @@
-### Hi there! 👋
+### Hi there! I'm [Alex Frantz](https://twitter.com/_awexx) 👋
+<a href="https://twitter.com/isupersky">
+  <img align="left" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />
+</a>
+<a href="mailto:alex@plaguecraft.xyz">
+  <img align="left" width="26px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/gmail.svg" />
+</a>
 
-The name's Alex, I'm currently managing web services for the @plaguecraft-team!
-You've probably seen me around as i wrote the web code for the PCN website as well as post a lot of the updates!
+<br />
 
-### Want to know more? Read below!
-- 🔭 I’m currently working on the PlagueCraft Network!
-- 🌱 I’m currently learning HTML, CSS, and JavaScript!
-- 📫 How to reach me: You can reach me through [my website!](https://awexxx.github.io)
-- 😄 Pronouns: He/him
-- ⚡ Fun fact: I only learned about HTML & CSS for an hour and know the essentials already ;)
+### About Me 🚀
+🌱 I’m a Backend and Frontend developer, knowing Node.js, Electron, and more ;) </br>
+👨‍💻  I know a lil web dev, and am planning to do something either with that or with backend.. or both! </br>

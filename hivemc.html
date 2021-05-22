@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HiveMC | Java - awexx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="hive,hivemc,hivemc stats,hivemc shutdown,awexxx,RoboTic,itsawex,hivemc down,hivemc bedrock,minecraft java, minecraft bedrock, minecraft, hivemc stats lookup">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/awexxx/awexxx.github.io/assets/js/hiveLookup.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/awexxx/awexxx.github.io/assets/js/hidePanel.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/css/form.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta content="HiveMC Stats Lookup" property="og:title">
+    <meta content="A tool to look up your 'long lost' HiveMC stats until their API shuts down in 2022." property="og:description">
+    <meta content="https://awexxx.github.io/hivemc" property="og:url">
+    <meta content="assets/img/logo.png" property="og:image">
+    <meta content="#9c2d1c" data-react-helmet="true" name="theme-color">
+</head>
+<body>
+    <h3 style="padding-top:20px;">Awexx</h3>
+   <br>
+   <ul id="navbar">
+      <li><a href="https://awexxx.github.io/">HOME</a></li>
+      <li><a href="about">ABOUT ME</a></li>
+      <li><a href="#">HIVEMC STATS LOOKUP</a></li>
+   </ul>
+</nav>
+<hr>
+
+    <h2>HiveMC Stats Lookup</h2>
+        <h3>What happened?</h3>
+            <p>On April 15th, 2021 at 5pm EST // 10pm BST, the HiveMC shut down their Java Edition servers. Their API is up until sometime in 2022, which still has accessible player data.<br>
+            This is complicated for most users, so I decided to make something that can look up this data.<br>
+        <strong>Note:</strong> I do not have a way to save all of this data at the moment.<br> It is recommended you save it yourself via the provided raw JSON link <strong>BEFORE</strong> 2022.</p>
+
+            <form onsubmit="return false">
+                <label style="font-size:20px; text-align:center;" for="fname">In-Game Name</label><br />
+                    <input style="font-size:20px;" type="text" id="inputBox" name="playerName" placeholder="Your IGN.." required><br />
+                    <input style="font-size:20px;" type="text" id="gameBox" name="gameMode" placeholder="Gamemode (check key below)" required><br />
+
+                    <!-- <label style="font-size:20px;">Bridges</label><br />
+                    <input style="font-size:20px;" type="checkbox" id="bridgeBox" name="bridgeBox" value="Bridges"><br /><br /> -->
+                    <button type="button" onclick="getGamesData()" style="font-size:20px;" class="submit" id="submitBtn">Submit</button><br /><br />
+                  </form>
+              <section>
+                  <div id="panel"></div>
+                  <div id="link"></div>
+                  <button type="button" onclick="hidePanel()" style="font-size:20px;" class="hide" id="submitBtn">Hide the Panel</button><br /><br />
+                </section>
+
+                <h2>Game Key</h2>
+                    <p>You'll need to insert very specific characters in order to get the proper game.<br>
+                    Please follow this list to find what you want to look up:<br>
+                sg = Survival Games<br>
+            bp = Block Party<br>
+        cai = Cowboys and Indians<br>
+    dr = Deathrun<br>
+hb = The Herobrine<br>
+hero = SG:Heroes<br>
+hide = Hide and Seek<br>
+oitc = One in the Chamber<br>
+sp = Splegg<br>
+spl = Sploop<br>
+timv = Trouble in MineVille<br>
+sky = SkyWars<br>
+lab = The Lab<br>
+draw = Draw It<br>
+ef = Electric Floor<br>
+grav = Gravity<br>
+gnt = SkyGiants<br>
+bd = Battery Dash<br>
+mimv = Murder in MineVille</p>
+                <h2>Games not supported</h2>
+                    <p>I do not have all of the games included on this site since I never managed to play all of them.<br>
+                    If you have played one of the following, send an issue on the <a href="https://github.com/awexxx/awexxx/issues" target="_blank">GitHub Repository</a> with the game you want me to add and your IGN.<br>
+                Cranked<br>
+            Slaparoo<br>
+        Music Masters<br>
+    Resturant Rush<br>
+SkyGiants: Mini<br>
+Pumpkinfection<br>
+Survival Games 2<br>
+<strike>BedWars</strike> - This seems to be a dead endpoint as it just returns an error regardless.<br>
+Survive the Night<br>
+Explosive Eggs<br>
+Snow Wars</p>
+
+
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="https://github.com/awexxx" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://twitter.com/_awexx" target="_blank"><i class="icon ion-social-twitter"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="mailto:alex@plaguecraft.xyz">Contact</a></li>
+            </ul>
+            <p class="copyright">awexx <i class="fa fa-copyright"></i> 2021<br>
+        </footer>
+    </div>
+</body>
+</html>
