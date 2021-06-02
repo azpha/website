@@ -7,9 +7,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/js/playersBackend.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/js/hidePanel.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/plaguecraft-team/pcn-web/storage/assets/css/form.css">
     <script src="https://cdn.jsdelivr.net/gh/awexxx/awexxx.github.io/assets/js/medalclips.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" type="image/png" href="assets/img/logo.png"/>
@@ -43,36 +40,9 @@
   <section id="pcn">
 <h1 style="padding-top:10px;">Projects</h1>
     <hr>
-    <h2>Medal Clip Webhook</h2>
+    <h2><a href="mcw">Medal Clip Webhook</a></h2>
       <p>Being a Medal user, I've seen some Guilded or even Slack users want Medal clip sharing for their platform.<br> While using it directly from the app is easier, I decided to make an app that can send a webhook message to either platform with a clip link.<br>
       This can be <a href="https://github.com/awexxx/medal-clip-webhook">Self Hosted</a>, but you'll need some Node.js experience most likely.</p>
-    
-      <h2>PCN Player Lookup & API</h2>
-        <p>I am in charge of all of the updates that go to both the <a href="https://plaguecraft.xyz">PCN Website and API!</a><br>
-        Both of which are open source, you can check out the <a href="https://github.com/plaguecraft-team/pcn-web">website</a> and <a href="https://github.com/awexxx/pcnapi">API</a> at these links.<br>
-      Here's an example of what I've built!</p>
-      
-      <form onsubmit="return false">
-        <label style="font-size:20px; text-align:center;" for="fname">In-Game Name</label><br />
-            <input style="font-size:20px;" type="text" id="inputBox" name="playerName" placeholder="Put 'babyawex' here!" required><br />
-            <hr style="width:60px";>
-            <div id="radioBtns">
-            <label style="font-size:20px; display:inline;">Economy</label><br />
-            <input style="font-size:20px; display:inline;" type="radio" id="econBox" name="box" value="econBox" required><br />
-            <label style="font-size:20px; display:inline;">Skills</label><br />
-            <input style="font-size:20px; display:inline;" type="radio" id="skillsBox" name="box" value="Box" required><br />
-            <label style="font-size:20px; display:inline;">SkyWars</label><br />
-            <input style="font-size:20px; display:inline;" type="radio" id="swBox" name="box" value="Box" required><br /><br />
-        </div>
-            <!-- <label style="font-size:20px;">Bridges</label><br />
-            <input style="font-size:20px;" type="checkbox" id="bridgeBox" name="bridgeBox" value="Bridges"><br /><br /> -->
-            <button type="button" onclick="checkBoxes()" style="font-size:20px"; id="submitBtn">Submit</button><br /><br />
-      
-      
-      <div id="panel"></div>
-
-      <button type="button" onclick="hidePanel()" style="font-size:20px"; id="submitBtn">Hide the panel</button><br /><br />
-    </form>
 
     <h2>Contact Me</h2>
       <p>My email is alex@plaguecraft.xyz, feel free to <a href="mailto:alex@plaguecraft.xyz">email me</a> there!</p>
@@ -88,8 +58,8 @@
 
         <h2 id="medal">Follow me on <span style="color:orange;"><a href="https://medal.tv/itsawexx" target="_blank">Medal!</a></span></h2>
 
-          <div id="clip"></div><br />
-          <i>Thanks to the Medal API, this stays up to date!</i><br />     
+          <div id="clip"></div>
+          <i>My latest Medal clip ^</i><br /><br />     
   
         </section>
 

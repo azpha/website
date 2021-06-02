@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Medal.tv Clip Webhook Test</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+<link rel="icon" type="image/png" href="https://awexxx.github.io/medal-clip-webhook/assets/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/vendor/animate/animate.css">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="https://awexxx.github.io/medal-clip-webhook/assets/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+<div id="embed"></div>
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('https://awexxx.github.io/medal-clip-webhook/assets/images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form onsubmit="return false" class="login100-form validate-form">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-fullscreen"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Medal.tv Clip Webhook<br>
+						Embed - <a href="https://awexxx.xyz/mcw?type=pt">Go to Plaintext</a>
+					</span>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="url" name="webhookURL" id="webhookURL" placeholder="Discord">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="url" id="cliplink" name="clipLink" placeholder="Clip Link">
+						<span class="focus-input100" data-placeholder="&#xf18e;"></span>
+					</div>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="medalUsername" id="medalUsername" placeholder="Medal Username">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="caption" id="caption" placeholder="Caption">
+						<span class="focus-input100" data-placeholder="&#xf150;"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" onclick="postEmbed()">
+							<i class="zmdi zmdi-mail-send"></i>Submit
+						</button>
+					</div>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+    <div id="pt" style="display:none;">
+        <div class="limiter">
+        <div class="container-login100" style="background-image: url('https://awexxx.github.io/medal-clip-webhook/assets/images/bg-01.jpg');">
+          <div class="wrap-login100">
+            <form onsubmit="return false" class="login100-form validate-form"">
+              <span class="login100-form-logo">
+                <i class="zmdi zmdi-fullscreen"></i>
+              </span>
+    
+              <span class="login100-form-title p-b-34 p-t-27">
+                Medal.tv Clip Webhook<br>
+                Plaintext - <a href="https://awexxx.xyz/mcw">Go to Embed</a>
+              </span>
+    
+              <div class="wrap-input100 validate-input">
+                <input class="input100" type="url" name="webhookURL" id="webhookURL" placeholder="Discord/Guilded API URL">
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+              </div>
+    
+              <div class="wrap-input100 validate-input">
+                <input class="input100" type="url" name="clipLink" id="cliplink" placeholder="Clip Link">
+                <span class="focus-input100" data-placeholder="&#xf18e;"></span>
+              </div>
+              <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="medalUsername" id="medalUsername" placeholder="Medal Username">
+                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+              </div>
+              <div class="wrap-input100 validate-input">
+                <input class="input100" type="text" name="caption" id="caption" placeholder="Caption">
+                <span class="focus-input100" data-placeholder="&#xf150;"></span>
+              </div>
+    
+              <div class="container-login100-form-btn">
+                <button class="login100-form-btn" onclick="postPlain()">
+                  <i class="zmdi zmdi-mail-send"></i>Submit
+                </button>
+              </div>
+    
+              </div>
+            </form>
+          </div>
+        </div>
+      </div></div>
+    
+      <div id="success" style="display:none;">
+        <div class="limiter">
+        <div class="container-login100" style="background-image: url('https://awexxx.github.io/medal-clip-webhook/assets/images/bg-02.jpg');">
+          <div class="wrap-login100" style="text-align:center;">
+            <h2>You did it!</h2>
+            <br /><p style="color:black; font-size:20px;">You shared a clip to a server! Poggers!<br />
+            Check the server for the clip you shared ;)</p>
+            <p><a style="color:white; font-size:20px;" href="#" onclick="history.back()">Head Back</a></p>
+    
+            <hr>
+    
+            <p style="color:black;"><i>Have problems? <a href="https://github.com/awexxx/medal-clip-webhook/issues">Open an issue!</i></p>
+            <p style="color:black;"><i><a href="https://github.com/awexxx/medal-clip-webhook">Fork this project!</a></p>
+    
+          </div>
+        </div>
+      </div></div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/bootstrap/js/popper.js"></script>
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/daterangepicker/moment.min.js"></script>
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/js/main.js"></script>
+  <script src="https://awexxx.github.io/medal-clip-webhook/assets/js/slideshow.js"></script>
+  <script src="https://awexxx.github.io/medal-clip-webhook/public/javascript/embed.js"></script>
+  <script src="https://awexxx.github.io/medal-clip-webhook/public/javascript/pt.js"></script>
+  <script src="https://awexxx.xyz/assets/js/q.js"></script>
+
+</body>
+</html>
