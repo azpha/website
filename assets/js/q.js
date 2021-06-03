@@ -31,4 +31,11 @@ function checkparam() {
         const success = document.getElementById("success");
         success.style.display = "block";
     }
+
+    if(params.get('ref') === 'added') {
+        const gen = document.getElementById("gen");
+        gen.style.display = "none";
+        const success = document.getElementById("success");
+        success.style.display = "block";
+    }
 }
