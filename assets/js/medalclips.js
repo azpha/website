@@ -5,13 +5,12 @@
 
 const medalapi = 'https://developers.medal.tv/v1/latest?userId=215577&limit=1'
 
-    async function medalClips() {
-        window.addEventListener('load', function () {
-        const { contentObjects } = await fetch(medalapi, {
-            method: 'GET',
-            headers: { 'Authorization': 'pub_x9mjeQnqk07tEK1ge7w2xHYxTpTEbKwN', 'Content-Type': 'application/json' }
-        }).then(response => response.json())
+    async function loadClip() {
+            const { contentObjects } = await fetch(medalapi, {
+                method: 'GET',
+                headers: { 'Authorization': 'pub_x9mjeQnqk07tEK1ge7w2xHYxTpTEbKwN', 'Content-Type': 'application/json' }
+            }).then(response => response.json())
 
-        document.querySelector("#clip").innerHTML = contentObjects[0].embedIframeCode
-        })
+            document.querySelector("#clip").innerHTML = contentObjects[0].embedIframeCode
+            document.querySelector("#title").innerHTML = "<i>" + contentObjects[0].contentTitle + "</i>"
     }
