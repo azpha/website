@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/medalclips.js"></script>
+    <script src="assets/js/clicky.js"></script>
     <!-- Metadata -->
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +23,7 @@
     <meta content="https://awexxx.xyz/assets/img/logo.png" property="og:image">
     <meta content="#9c2d1c" data-react-helmet="true" name="theme-color">
 </head>
-<body onload="loadClip()">
+<body onload="checkparam()" onload="checkparam()">
     <div id="rc_logo">
         <a href="#" title="Logo">AWEX</a>
         </div>  
@@ -87,12 +88,12 @@
         <p class="copyright">Awexxx © 2021<br>
             <div id="quote"></div>
             <script>
-                var quoteArray = ['You forget a thousand things every day, you make sure this is one of em.', 'THE DAMN SEMI COLON', `console.log('go away')`, `if else if else if else if else if else if else if elsfi fisafhjdskflsdf`, 
+                              var quoteArray = ['You forget a thousand things every day, you make sure this is one of em.', 'THE DAMN SEMI COLON', `<a onclick="clickyBoy()" id="consolelog">console.log('go away')</a>`, `if else if else if else if else if else if else if elsfi fisafhjdskflsdf`, 
                 `HELP PLEASE IM STUFK IN THE FOOTER CHOSOING THESE RESPONSES PLEASDSJAIF DSAF`]
                 var rand = quoteArray[Math.random() * quoteArray.length | 0]
                 document.querySelector("#quote").innerHTML = "<p>" + rand + "</p>"
                 if(rand === `console.log('go away')`) {
-                    console.log(`go away (no, this isn't a mistake, i actually hard coded this in lmao)\nYou found the easter egg :)`)
+                    console.log(`go away (no, this isn't a mistake, i actually hard coded this in lmao)\nYou found the easter egg :)\nBut wait.. something isn't right.. click it!`)
                 }
             </script>
 

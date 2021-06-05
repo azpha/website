@@ -1,4 +1,5 @@
 function checkparam() {
+    window.onLoad = function() {
     const params = new URLSearchParams(window.location.search)
     // console.log(params) Only uncomment this for testing purposes.
 
@@ -37,5 +38,11 @@ function checkparam() {
         gen.style.display = "none";
         const success = document.getElementById("success");
         success.style.display = "block";
+    }
+
+    if (params.get('ref') === 'ee') {
+        const ee = document.getElementById("easteregg")
+        ee.style.display = "block";
+        }
     }
 }
