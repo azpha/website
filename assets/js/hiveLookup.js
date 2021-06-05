@@ -5,8 +5,9 @@
 
 console.log(`Initiated the Hive Lookup Script`);
 const avatarURL = 'https://minotar.net/avatar/'
-const playerName = document.getElementById("inputBox").value;
 
+            async function getGamesData() {
+                const playerName = document.getElementById("inputBox").value;
         if (document.getElementById("gameBox").value === 'sg' || document.getElementById("gameBox").value === 'Survival Games' ) {
             const apiURL = `https://api.hivemc.com/v1/player/${playerName}/sg`;
         const data = await fetch(apiURL).then(response => response.json());
@@ -255,3 +256,4 @@ const playerName = document.getElementById("inputBox").value;
             var link = document.getElementById("link");
             link.style.display = "block"; 
         }
+    }
