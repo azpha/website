@@ -12,7 +12,7 @@ async function deleteSS() {
             error.style.display = "none";
         } else if (response.status === 403) {
             var success = document.getElementById("success");
-            document.querySelector("#error").innerHTML = `<p>Failed to issue DELETE requestResponse code ${response.status}.<br>Double check your token.</p>`
+            document.querySelector("#error").innerHTML = `<p>Failed to issue DELETE request<br>Response code: ${response.status}.<br>Double check your token.</p>`
             success.style.display = "none";
         }
       })
