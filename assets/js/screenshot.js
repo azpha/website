@@ -9,7 +9,7 @@ async function deleteSS() {
         if(response.status === 200) {
             var error = document.getElementById("error");
             var success = document.getElementById("success");
-            document.querySelector("#success").innerHTML = "<p>Success!</p>"
+            document.querySelector("#success").innerHTML = "<p>Success! The photo will be viewable until you leave this page.</p>"
             success.style.display = "block";
             error.style.display = "none";
         } else if (response.status === 403) {
