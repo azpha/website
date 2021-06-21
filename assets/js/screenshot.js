@@ -4,18 +4,19 @@ async function deleteSS() {
         method: "DELETE",
         headers: { "secret": `${secret}`}
     })
+    .then(function(response) {
+        console.log(response.status); // Will show you the status
+        if(response.status === 200) {
+            var error = document.getElementById("error");
+            document.querySelector("#success").innerHTML = "<p>Success!</p>"
+            error.style.display = "none";
+        } else if (response.status === 403) {
+            var success = document.getElementById("success");
+            document.querySelector("#error").innerHTML = `<p>Failed to issue DELETE requestResponse code ${response.status}.<br>Double check your token.</p>`
+            success.style.display = "none";
+        }
+      })
     console.log(delfile)
-
-    if(delfile.status === 200) {
-        var error = document.getElementById("error");
-        document.querySelector("#success").innerHTML = "<p>Success!</p>"
-        error.style.display = "none";
-        window.location.replace("http://localhost:5000");
-    } else if (delfile.status === 403) {
-        var success = document.getElementById("success");
-        document.querySelector("#error").innerHTML = "<p>Failure :(<br>That file either doesn't exist or the secret supplied was incorrect.</p>"
-        success.style.display = "none";
-    }
 }
 
 function showForm() {
