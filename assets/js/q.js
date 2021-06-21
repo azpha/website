@@ -1,5 +1,4 @@
 function checkparam() {
-    window.onLoad = function() {
     const params = new URLSearchParams(window.location.search)
     // console.log(params) Only uncomment this for testing purposes.
 
@@ -44,5 +43,13 @@ function checkparam() {
         const ee = document.getElementById("easteregg")
         ee.style.display = "block";
         }
+
+    if (params.get('ref') === 'demi') {
+        window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+        }
     }
-}
+
+    window.addEventListener ? 
+    window.addEventListener("load",checkparam,false) 
+    : 
+    window.attachEvent && window.attachEvent("onload",checkparam);
