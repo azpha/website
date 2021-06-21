@@ -8,6 +8,7 @@ async function deleteSS() {
         console.log(response.status); // Will show you the status
         if(response.status === 200) {
             var error = document.getElementById("error");
+            var success = document.getElementById("success");
             document.querySelector("#success").innerHTML = "<p>Success!</p>"
             success.style.display = "block";
             error.style.display = "none";
