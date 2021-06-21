@@ -12,9 +12,9 @@ async function deleteSS() {
             document.querySelector("#success").innerHTML = "<p>Success!</p>"
             success.style.display = "block";
             error.style.display = "none";
-            console.log(delfile)
         } else if (response.status === 403) {
             var success = document.getElementById("success");
+            var error = document.getElementById("error");
             document.querySelector("#error").innerHTML = `<p>Failed to issue DELETE request<br>Response code: ${response.status}.<br>Double check your token.</p>`
             success.style.display = "none";
             error.style.display = "block";
