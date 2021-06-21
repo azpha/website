@@ -17,3 +17,11 @@ async function deleteSS() {
         success.style.display = "none";
     }
 }
+
+function showForm() {
+    var form = document.getElementById("form")
+    form.style.display = "block";
+
+    var button = document.getElementById("del")
+    button.style.display = "none";
+    }
