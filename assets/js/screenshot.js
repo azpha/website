@@ -1,8 +1,8 @@
-let url = window.location.href
+let url = window.location.hostname
 async function getFileUrl() {
     const params = new URLSearchParams(window.location.search)
     let title = params.get('photo')
-    let apiurl = `http://localhost:1337/screenshots?title=${title}`
+    let apiurl = `http://${window.location.hostname}/screenshots?title=${title}`
 
         if(title) {
             try{
@@ -35,8 +35,9 @@ async function getFileUrl() {
     }
 
     async function deleteSS() {
+        let title = params.get('photo')
         var secret = document.querySelector("#secret").value
-        const delfile = await fetch(url, {
+        const delfile = await fetch(`http://${window.location.hostname}/delete/${title}`, {
             method: "DELETE",
             headers: { "secret": `${secret}`}
         })
