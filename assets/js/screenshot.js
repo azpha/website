@@ -1,12 +1,13 @@
 async function getFileUrl() {
     const params = new URLSearchParams(window.location.search)
     let title = params.get('photo')
-    let apiurl = `https://${window.location.host}/screenshots?title=${title}`
-    let pageURL = `https://${window.location.host}/view?photo=${title}`
+    let apiurl = `http://${window.location.host}/screenshots?title=${title}`
+    let pageURL = `http://${window.location.host}/view?photo=${title}`
 
         if(title) {
             try{
     const { response } = await fetch(apiurl).then(response => response.json());
+    console.log(response)
     let date = response.date;
     let photourl = response.directurl;
     var dateStr = new Date();
@@ -37,7 +38,7 @@ async function getFileUrl() {
         const params = new URLSearchParams(window.location.search)
         let title = params.get('photo')
         var secret = document.querySelector("#secret").value
-        const delfile = await fetch(`https://${window.location.host}/delete/${title}`, {
+        const delfile = await fetch(`http://${window.location.host}/delete/${title}`, {
             method: "DELETE",
             headers: { "secret": `${secret}`}
         })
