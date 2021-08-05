@@ -1,6 +1,2 @@
 assets/js/newHiveLookup.js
-api/venv
-api/__pycache__
 api
-tools
-status
