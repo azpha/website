@@ -1,205 +1,103 @@
-/* Univ Attributes */
-#logo{
-    float:center;
+html, body {
+    font-family: 'Quicksand', sans-serif;
+    margin:0;
+    padding:0;
+    line-height:30px;
+}
+
+
+/* 
+Welcome/Home Styling
+*/
+
+#welcome {
+    height: 933px;
+    line-height: 10px;
+    text-align: center;
+    border: 2px solid black;
+    background-color:#474747;
+    color:#cfcfcf;
   }
-  
-  hr{
-    width:100px;
-    border-color:black;
-  
+
+  #welcomespan {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    padding-top:200px
   }
-  
-  .center {
-    display:block;
-    margin:0 auto;
-    margin-left: auto;
-    margin-right: auto;
-    width:20%;
-    padding-top:20px;
+
+  /* ----------------- */
+
+  /*
+  About
+  */
+  #about {
+      text-align:center;
+      white-space:normal;
   }
-  
-  #center {
-    display:block;
-    margin:0 auto;
-    margin-left: auto;
-    margin-right: auto;
-    width:30%;
+  #aboutContainer {
+      white-space:normal;
+      padding-top:30px;
   }
-  
-  body{
+
+  /* ----------------- */
+
+  /*
+  Projects
+  */
+
+  #projects {
+      text-align:center;
+      line-height:20px;
+      white-space:normal;
+  }
+
+  #projectsContainer {
+      white-space:normal;
+  }
+
+  /* ----------------- */
+
+  /*
+  Skills
+  */
+
+  #experienced {
     text-align:center;
   }
-  
-    h1{
-      text-align:center;
-      color:#6b6b6b;
-    }
-  
-    h2{
-      text-align:center;
-      color:#6b6b6b;
-    }
-  
-    h3{
-      text-align:center;
-      color:#6b6b6b;
-    }
-  
-    i{
+
+  /* ----------------- */
+
+  /* 
+  Universal Styling 
+  */
+
+  h3 {
+      font-size:40px;
+  }
+
+  h4 {
+    font-size:30px;
+  }
+
+  p {
       font-size:20px;
-    }
-  
-    body p{
-    text-align:center;
-    color:#6b6b6b;
-    font-size:20px;
   }
-  
-  a{
-    color:black;
+
+  hr {
+      border-color:gray;
+      width:50%;
   }
-  
-  a:hover{
+
+  #intermission {
+      text-align:center;
+  }
+
+  ion-icon {
+    font-size:64px;
     color:gray;
   }
 
-/* Home Page Attribs */
-#welcome{
-    background-color:#474747;
-    padding-top:20px;
-    padding-bottom:15px;
-  }
-  
-  #welcome h2{
-    color:#c2c2c2;
-  }
-  
-  #welcome p{
-    color:#c2c2c2;
-  }
-  
-  /*Socials Color Changing*/
-  #medal a{
-    color:orange;
-    text-decoration:none;
-    font-size:28px;
-    padding-right:15px;
+  #form {
     text-align:center;
-  }
-  
-  #medal a:hover{
-    color:white;
-  }
-  
-  #twitter a{
-    color:#467175;
-    text-decoration:none;
-    font-size:28px;
-    padding-right:15px;
-    padding-bottom:20px;
-    text-align:center;
-  }
-  
-  #twitter a:hover{
-    color:white;
-  }
-
-  #discordbtn {
-    background-color: #7289da; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 20%;
-  }
-
-  /* Navigation Bar Styling */
-  #navbar{
-    color:#333;
-  }
-  
-  #navbar ul{
-    padding:0px;
-    list-style:none;
-    text-align:center;
-  }
-  
-  #navbar li{
-    display:inline;
-    text-align:center;
-  }
-  
-  #navbar a{
-    color:#333;
-    text-decoration:none;
-    font-size:18px;
-    padding-right:15px;
-    text-align:center;
-  }
-
-  /* Footer Styling */
-  .footer-p{
-    color:white;
-  }
-  .footer-basic {
-    padding:40px 0;
-    background-color:#454545;
-    color:white;
-  }
-  
-  .footer-basic ul {
-    padding:0;
-    list-style:none;
-    text-align:center;
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:0;
-  }
-  
-  .footer-basic li {
-    padding:0 10px;
-  }
-  
-  .footer-basic ul a {
-    color:inherit;
-    text-decoration:none;
-    opacity:0.8;
-  }
-  
-  .footer-basic ul a:hover {
-    opacity:1;
-  }
-  
-  .footer-basic .social {
-    text-align:center;
-    padding-bottom:25px;
-  }
-  
-  .footer-basic .social > a {
-    font-size:24px;
-    width:40px;
-    height:40px;
-    line-height:40px;
-    display:inline-block;
-    text-align:center;
-    border-radius:50%;
-    border:1px solid white;
-    margin:0 8px;
-    color:inherit;
-    opacity:0.75;
-  }
-  
-  .footer-basic .social > a:hover {
-    opacity:0.9;
-  }
-  
-  .footer-basic .copyright {
-    margin-top:15px;
-    text-align:center;
-    font-size:13px;
-    color:white;
-    margin-bottom:0;
   }
