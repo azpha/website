@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+    <div id="container" style="text-align:center;">
+        <div id="img">
+            <img class="center" width="350" id="gif" src="/assets/img/medal-gif.gif">
+                <h3 id="text" style="font-size:50px;"></h3>
+        </div>
+    </div>
+        <audio src="/assets/img/medal-novideo.mp3" id="audio"></audio>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+        
+          socket.on('event', function(msg) {
+            var audio = document.getElementById('audio');
+
+            // Play the Medal intro audio & gif
+            setTimeout(function() {
+                document.getElementById(`container`).style.display = `block`;
+                text.innerText = `CloakyBrokey was followed by ${msg} on Medal.tv!`
+                console.log(msg)
+                audio.play();
+            }, 1000);
+
+            setTimeout(function() {
+                document.getElementById(`container`).style.display = `none`;
+            }, 9000)
+          });
+    </script>
+    </body>
+</html>
