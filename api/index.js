@@ -6,8 +6,6 @@ const morgan = require('morgan');
 const fetch = require('node-fetch');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const puppeteer = require('puppeteer');
-const dom = require('jsdom');
 const NodeCache = require('node-cache');
 const math = require('mathjs')
 require('dotenv').config();
@@ -110,7 +108,7 @@ app.post(`/tools/mcw/clip`, async (req, res) => {
 })
 
 app.get('/browser/medal', (req, res) => {
-    return res.sendFile(__dirname + '/public/index.html')
+    return res.sendFile(__dirname + '/public/browser.html')
 })
 
 io.on('connection', (socket) => {
@@ -161,12 +159,13 @@ app.post(`/browser/medal/alert`, async (req, res) => {
     }
 })
 
-app.get(`/browser/medal/test`, (req, res) => {
+app.get(`/browser/medal/test`, async (req, res) => {
     var header = req.query.secret
 
     if(header === `${process.env.access}`) {
-        const follower = `poggers`
-        io.emit('event', follower);
+        const follower = `215577`
+        await getFollowerInfo(follower)
+        io.emit('event', global.follower);
     
         return res.send({ "status": 200, "message": "Event successfully emitted" })
     } else {
@@ -189,6 +188,33 @@ app.get('/browser/medal/activity', (req, res) => {
         return res.status(200).send({ "status": 200, "active": true, "message": "The Medal API Check Timer is ACTIVE." })
     } else if (timer === false) {
         return res.status(200).send({ "status": 200, "active": false, "message": "The Medal API Check Timer is NOT ACTIVE."})
+    }
+})
+
+app.post('/browser/medal/update-alert', (req, res) => {
+    var header = req.header(`secret`)
+
+    if (header) {
+        if (header === `${process.env.access}`) {
+            var sampleObject = {
+                "user": 'CloakyBrokey',
+                "gif": req.body.gifurl,
+                "sound": req.body.sound
+            };
+        
+            fs.writeFile("public/storage.json", JSON.stringify(sampleObject, null, 4), (err) => {
+                if (err) {  
+                    console.error(err); 
+                    return res.status(500).send({ "status": 500, "message": "Something went wrong trying to store that info" })
+                };
+                console.log("File has been created");
+                return res.status(200).send({ "status": 200, "message": "Successfully stored and set GIF and Alert Sound" })
+            });
+        } else {
+            return res.status(401).send({ "status": 401, "message": "401 Not Authorized. Access Token Header incorrect"})
+        }
+    } else {
+        return res.status(401).send({ "status": 401, "message": "401 Not Authorized. Access Token Header missing"})
     }
 })
 
