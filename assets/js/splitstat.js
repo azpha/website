@@ -1,13 +1,12 @@
 async function checkForOutage() {
-    Global = {}
-    Global.error = false
-    await fetch(`https://api-splitstat.awexxx.xyz/heartbeat`).then(response => response.json()).catch(err => {
-        Global.error = true;
-        document.getElementById(`status`).innerText = `offline!`
-        document.getElementById(`addon`).innerText = `API returned nothing when sent a heartbeat.`
-    })
+    var data = await fetch(`https://st.awexxx.xyz/heartbeat`)
 
-    if (Global.error === false) {
+    console.log(data)
+
+    if (data.response !== 200) {
+        document.getElementById(`status`).innerText = `offline!`
+        document.getElementById(`addon`).innerText = `API didn't respond!`
+    } else if (data.response === 200) {
         document.getElementById(`status`).innerText = `online!`
         document.getElementById(`addon`).innerText = `API responded when sent a heartbeat!`
     }
