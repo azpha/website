@@ -49,6 +49,29 @@ app.post('/splitstat/webhook', async (req, res) => {
     }
 })
 
+app.post(`/website/webhook`, async (req, res) => {
+    if (req.body) {
+        var data = axios.post(process.env.discordContact, {
+            username: req.body.username,
+            content: req.body.content,
+            embeds: req.body.embeds
+        })
+        .then(function(response) {
+            if (response.status !== 200) {
+                return res.status(response.status).send({"status":200})
+            } else {
+                return res.status(200).send({"status":200})
+            }
+        })
+        .catch(function(err) {
+            console.log(err.toJSON());
+            return res.status(500).send({ "status": 500 })
+        })
+    } else {
+        return res.status(404)
+    }
+})
+
   app.use(function (req, res, next) {
     res.status(404).send({ "status": 404, "message": `Sorry, that endpoint (${req.path}) does not exist.` })
   })
@@ -57,6 +80,6 @@ app.post('/splitstat/webhook', async (req, res) => {
     res.status(500).send({ "status": 500, "message": "Something broke! Looking into it :)" })
   })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log(`Started`)
 })
