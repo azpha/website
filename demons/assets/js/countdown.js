@@ -1,5 +1,5 @@
 async function generateCountdown() {
-    var countDownDate = new Date("12/07/2021 11:09 AM").getTime();
+    var countDownDate = new Date("12/09/2021 09:00 PM").getTime();
 
     // Update the count down every 1 second
     var x = setInterval(function() {
