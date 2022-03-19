@@ -1,0 +1,45 @@
+body {
+    font-family: 'Fira Sans', sans-serif;
+    font-size:30px;
+
+    background-color: #111;
+    color:azure;
+    text-align:center;
+}
+
+a {
+    color:white;
+}
+
+p {
+    font-size:20px;
+}
+
+li {
+    font-size:25px;
+    list-style-type:none;
+}
+
+hr {
+    width:20%;
+}
+
+.welcome {
+    width: 100%;
+    background-image: url('../../static/img/profile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 305px;
+    background-color: purple;
+    background-position: center;
+    position:relative;
+    top:0px;
+    left:0px;
+    right:0px;
+    display:block;
+  }
+
+#welcome-text {
+    position:relative;
+    text-align:center;
+}
