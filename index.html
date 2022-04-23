@@ -20,6 +20,13 @@
         <h3>👋, I'm Alex!</h3>
         <p>I'm a Javascript & Java developer, working on random Node apps and Minecraft plugins!<br>
         <a href="/links">All of my links can be found here.</a></p>
+
+            <h3>What am I listening to?</h3>
+            <div id="spotify">
+                <img width="80" src="https://thatalex.dev/static/img/services/spotify-logo.png">
+                <div id="songContent"></div>
+            </div>
+
         <hr>
         <h4>Projects</h4>
         <ul>
@@ -46,5 +53,14 @@
     <p style="font-size:10px;"><a style="color:#111;" href="https://dashbot.us">a</a></p>
 
     <script src="https://thatalex.dev/static/js/paramSearch.js"></script>
+    <script src="https://thatalex.dev/static/js/spotifyWidget.js"></script>
+
+    <script>
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            getState();
+        } else {
+            document.addEventListener('DOMContentLoaded', getState);
+        }
+    </script>
 </body>
 </html>
