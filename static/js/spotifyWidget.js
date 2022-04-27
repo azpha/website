@@ -1,5 +1,5 @@
 async function getState() {
-    const data = await fetch("https://api.thatalex.dev/v0/web/spotify/state", {
+    const data = await fetch("https://api.thatalex.dev/v0/web/spotify/player/state", {
         method: "GET"
     }).then(response => response.json())
     .catch(function(response) {
