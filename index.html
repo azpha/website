@@ -4,70 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex 👋</title>
-
-    <!-- Discord Embeds -->
-    <meta content="Alex 👋" property="og:title" />
-    <meta content="Welcome to my website! I'm a Java(script) developer, along with knowing some Python, HTML and CSS!" property="og:description" />
-    <meta content="https://pause.thatalex.dev" property="og:url" />
-    <meta content="#000f54" data-react-helmet="true" name="theme-color" />
-
-    <link rel="stylesheet" href="https://thatalex.dev/static/css/main.css">
+    <link rel="stylesheet" href="https://thatalex.dev/static/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
+    <title>z // alex</title>
 </head>
 <body>
-    <div class="welcome"></div>
-
-    <div id="querydiv"></div>
-    <div id="welcome-text">
-        <h3>👋, I'm Alex!</h3>
-        <p>I do QA stuff @ <a href="https://medal.tv" target="_blank">Medal.tv</a> & some coding on the side<br>
-        <a href="/links">Find all my links here!</a></p>
-
-            <h3>What am I listening to?</h3>
-            <div id="spotify">
-                <img width="80" src="https://thatalex.dev/static/img/services/spotify-logo.png">
-                <div id="songContent"></div>
-            </div>
-
-        <hr>
-        <h4>Projects</h4>
-        <ul>
-            <li>A <a href="https://github.com/awexthedev/mcimpos" target="_blank">Minecraft Among Us</a> Minigame (insp by <a href="https://innersloth.com/games/among-us" target="_blank">Innersloth's game</a>)</li>
-            <li>A <a href="https://github.com/awexthedev/sharex-express" target="_blank">ShareX</a> Uploader based in Node.js (<a href="https://github.com/awexthedev/sharex-express" target="_blank">link</a>)</li>
-        </ul>
-        <hr>
-        <h4>Partners</h4>
-            <p>I am partnered with <a href="https://medal.tv/u/thatoneawex?ref=awex_partner" target="_blank">Medal.tv</a>, a short-form gaming clip sharing service.</p>
-            <div class="medal" style="background-color:gray; padding-top:20px; padding-bottom:20px; width:50%; margin:0 auto; border-radius:50px;">
-                <span id="clip"></span>
-            </div>
+    <div id="container">
+        <div id="textDiv"><p>hi, i'm <span id="name">alex</span>!</p></div><span id="box"></span>
+        <p style="display:block; margin:auto; float:left;">i work part-time at <span style="color:yellow">medal.tv</span> & do backend development in my offtime</p><br>
+        <a style="display:block; margin:auto; float:left;" href="https://github.com/zevhr" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
     </div>
-
-    <br>
-
-    <div id="footer">
-        <p><a href="mailto:hi@thatalex.dev">Email</a></p>
-        <a href="https://twitter.com/thatawex" style="color:white;" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <a href="https://github.com/awexthedev" style="color:white;" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-        <a href="https://instagram.com/thatoneawex" style="color:white;" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-    </div>
-
-    <p style="font-size:10px;"><a style="color:#111;" href="https://dashbot.us">a</a></p>
-
-    <script src="https://thatalex.dev/static/js/paramSearch.js"></script>
-    <script src="https://thatalex.dev/static/js/spotifyWidget.js"></script>
-    <script src="https://thatalex.dev/static/js/medalClip.js"></script>
-
-    <script>
-        if (document.readyState === 'interactive' || document.readyState === 'complete') {
-            getState();
-        } else {
-            document.addEventListener('DOMContentLoaded', getState);
-        }
-    </script>
 </body>
 </html>

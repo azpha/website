@@ -1,0 +1,58 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    font-size:30px;
+    background-color:black;
+    color:white;
+}
+
+a {
+    padding-left:25px;
+}
+
+i {
+    color:white;
+}
+
+#container {
+    /* margin: 0 auto; */
+    top:50%;
+    left:50%;
+    position:absolute;
+    transform: translate(-50%, -50%)
+}
+
+#textDiv {
+    /* display:inline-block; */
+    float:left;
+    animation: typingEffect 2s forwards;
+    width:0%;
+    border-width:1px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+#box {
+    background-color:gray;
+    width:15px;
+    opacity:0%;
+    height:35px;
+    border: 1px solid gray;
+    animation-name: cursorBlink;
+    animation-duration:0.5s;
+    animation-iteration-count: infinite;
+    margin: -25;
+    z-index:1;
+    position:absolute;
+    transform: translate(-65%, 100%);
+}
+
+@keyframes cursorBlink {
+    0% {opacity:0%;}
+    25% {opacity:50%;}
+    75% {opacity:0%;}
+}
+
+@keyframes typingEffect {
+    from {width:0%;}
+    to {width:34%;}
+}
