@@ -8,9 +8,14 @@ var content = div.querySelector(".cover-text");
 
 console.log("[ws] asked server to initiate connection..")
 socket.emit("spotify_status", "listen");
-socket.on("api_update", (song_data) => {    
-    image.src = song_data.cover
-    text.innerHTML = `${song_data.title} - ${song_data.album}<br>${song_data.artist}<br>${song_data.position}/${song_data.duration}`;
+socket.on("api_update", (song_data) => {   
+    if (!song_data.position) {
+        image.src = "https://thatalex.dev/static/bad.png"
+        text.innerHTML = "Uh oh!<br>There isn't an active song.<br><span style='font-size:10px;'><i>Try again later.</i></span>"
+    } else {
+        image.src = song_data.cover
+        text.innerHTML = `${song_data.title} - ${song_data.album}<br>${song_data.artist}<br>${song_data.position}/${song_data.duration}`;
+    }
 });
 
 // on connect + error events
