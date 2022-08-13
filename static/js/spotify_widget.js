@@ -6,9 +6,10 @@ var image = div.querySelector("#cover-img");
 var text = div.querySelector("#cover-text");
 var content = div.querySelector(".cover-text");
 
-console.log("[ws] asked server to initiate connection..")
+console.log("[ws-iframe] asked server to initiate connection..")
 socket.emit("spotify_status", "listen");
 socket.on("api_update", (song_data) => {   
+console.log(song_data)
     if (!song_data.position) {
         image.src = "https://thatalex.dev/static/bad.png"
         text.innerHTML = "Uh oh!<br>There isn't an active song.<br><span style='font-size:10px;'><i>Try again later.</i></span>"
@@ -20,7 +21,7 @@ socket.on("api_update", (song_data) => {
 
 // on connect + error events
 socket.on("connect", () => {
-    console.log('[ws] hello dear friend! connected successfully to backend, formatting page')
+    console.log('[ws-iframe] hello dear friend! connected successfully to backend, formatting page')
 })
 
 socket.on("error", (e) => {
