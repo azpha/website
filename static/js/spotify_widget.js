@@ -9,7 +9,6 @@ var content = div.querySelector(".cover-text");
 console.log("[ws-iframe] asked server to initiate connection..")
 socket.emit("spotify_status", "listen");
 socket.on("api_update", (song_data) => {   
-console.log(song_data)
     if (!song_data.position) {
         image.src = "https://thatalex.dev/static/bad.png"
         text.innerHTML = "Uh oh!<br>There isn't an active song.<br><span style='font-size:10px;'><i>Try again later.</i></span>"
