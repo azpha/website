@@ -1,0 +1,38 @@
+body {
+    margin:0;
+    padding:0;
+    background-color:#3E3E3E;
+}
+
+/* nav styling */
+#navbar {
+    text-align:center;
+    background-color:#525459;
+}
+
+#navbar li {
+    display:inline-block;
+    padding: 10px 10px;
+    font-size:20px;
+}
+
+#navbar ul {
+    margin: 0;
+    padding:0;
+    list-style-type:none;
+}
+
+a {
+    color:white;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#81A2A1;
+    animation:fadein;
+}
+
+.listitem:hover {
+    animation-name: hover;
+    animation-duration:0.5s;
+}
