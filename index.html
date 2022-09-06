@@ -1,48 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="hi, i'm alex!" title="og:title">
-    <meta content="alex!" title="site_name">
-    <meta content="welcome to my website! here, you can contact me & find my github account!" title="og:description">
-    <meta content="https://thatalex.dev" title="og:url">
-    <link rel="stylesheet" href="static/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
-    <title>z // alex</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+
+    <meta name="og:url" content="https://thatalex.dev" />
+    <meta name="og:description" content="welcome to my portfolio website! well.. kinda. it's being rewritten, so it's a little bland here right now.." />
+    <link rel="alternate" type="application/json+oembed" href="/static/oembed.json">
+
+    <title>alex</title>
 </head>
 <body>
     <div id="container">
-        <div id="textDiv"><p>hi, i'm <span id="name">alex</span>!</p></div><span id="box"></span>
-        <div id="extraInfo">
-            <p style="display:block; margin:auto; float:left;">i work part-time at <span style="color:yellow">medal.tv</span> & do backend development in my offtime</p><br>
-            <a style="display:block; margin:auto; float:left;" href="https://github.com/zevhr" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-            <a href="#" onclick="addClass()"><i class="fa fa-address-book-o" aria-hidden="true"></i></a>
-        </div>
-
-        <div id="contact">
-            <form method="post" action="https://api.thatalex.dev/v1/web/contact">
-                <p>contact me !</p>
-                <input type="text" name="name" id="name" placeholder="your name.."><br>
-                <input type="text" name="email" id="email" placeholder="your email.."><br>
-                <input type="text" name="subject" id="subject" placeholder="subject.."><br>
-                <input type="text" name="message" id="message" placeholder="your message..">
-                <button type="submit">submit</button>
-            </form>
-        </div>
+        <span class="header animation">
+            <h1>hey hey! little bland 'round here, eh?</h1>
+        </span>
+        <span class="content animation">
+            <p>yeah, i know. i'm scared too.
+                <br />
+                well, i'm reworking this website, so it'll be pretty when i'm done at least?
+            </p>
+        </span>
+        <span class="content2 animation">
+            <p>uhhh, you're still here? well.. i don't know what you're doing here.</p>
+        </span>
+        <span class="content3 animation">
+            <p>okay seriously. what? can you like, leave?</p>
+        </span>
+        <span class="content4 animation">
+            <p>I ASKED CAN YOU LEAVE??????</p>
+        </span>
     </div>
 
-    <script>
-        async function addClass() {
-            var element = document.getElementById("contact");
-            element.classList.add("contactFade");
-            document.querySelector(".contactFade").style.animationPlayState = "running";
-            document.querySelector(".contactFade").style.display = "block";
-        }
-    </script>
+    <script src="static/js/haha.js"></script>
 </body>
 </html>
+
+<style>
+    body {
+        font-family: 'IBM Plex Sans', sans-serif;
+        background-color:black;
+        text-align:center;
+        transform:translateY(30vh);
+    }
+
+    p {
+        font-size:25px;
+    }
+
+    #container {
+        color:white;
+    }
+
+    .animation {
+        animation-name: fade1;
+        animation-fill-mode:forwards;
+        opacity:0;
+        animation-duration:3s;
+    }
+
+    .header {
+        animation-name: fade1;
+    }
+
+    .content {
+        animation-name: fade1;
+        animation-delay:5s;
+    }
+
+    .content2 {
+        animation-name: fade1;
+        animation-delay:60s;
+    }
+
+    .content3 {
+        animation-name: fade1;
+        animation-delay:120s;
+    }
+
+    .content4 {
+        animation-name: fade1;
+        animation-duration:3s;
+        animation-delay:180s;
+    }
+
+    @keyframes fade1 {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>

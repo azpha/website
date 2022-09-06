@@ -1,4 +1,4 @@
-const socket = io("https://api.thatalex.dev")
+const socket = io("https://api.zephmakes.tech")
 
 // divs used
 var div = document.getElementById("container");
