@@ -1,7 +1,8 @@
-body {
+html, body {
     margin:0;
     padding:0;
     background-color:#3E3E3E;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 /* nav styling */
@@ -22,6 +23,35 @@ body {
     list-style-type:none;
 }
 
+.listitem:hover {
+    animation-name: hover;
+    animation-duration:0.5s;
+}
+
+/* home */
+#home {
+    background-color:black;
+    position:relative;
+    max-height:40vh;
+    color:white;
+    vertical-align:top;
+}
+
+.homecontent {
+    padding:50px 15vw !important;
+}
+
+.homecontent p {
+    font-size:20px;
+}
+
+#home * {
+    padding:0;
+    margin:0;
+}
+
+/* global type stuff */
+
 a {
     color:white;
     text-decoration:none;
@@ -30,9 +60,4 @@ a {
 a:hover {
     color:#81A2A1;
     animation:fadein;
-}
-
-.listitem:hover {
-    animation-name: hover;
-    animation-duration:0.5s;
 }
