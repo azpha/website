@@ -3,8 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 
 // components/resources
 import { NavBar } from './Nav';
-import { Home } from './Home';
-import { Contact } from './Contact';
+import { Footer } from './PageComponents'
+
+// pages
+import { Home } from './Pages/Home';
+import { Contact } from './Pages/Contact';
 
 export class App extends React.Component {
     render() {
@@ -15,6 +18,7 @@ export class App extends React.Component {
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/contact" element={<Contact />}></Route>
                 </Routes>
+                <Footer/>
             </div>
         )
     }

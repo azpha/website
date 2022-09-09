@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { App } from './components/App';
 import './styling/anims.css';
 import './styling/main.css';
+import './styling/forms.css';
 
 // "sitemap" for react components
 export const pages = [
