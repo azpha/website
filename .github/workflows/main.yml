@@ -13,7 +13,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           PATH=$PATH:/${{secrets.USERNAME}}/.nvm/versions/node/v18.8.0/bin
           pm2 -v
