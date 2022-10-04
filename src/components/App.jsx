@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 // components/resources
 import { NavBar } from './Nav';
-import { Footer } from './PageComponents'
+import { Footer, NotFound } from './PageComponents'
 
 // pages
 import { Home } from './Pages/Home';
@@ -17,6 +17,7 @@ export class App extends React.Component {
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/contact" element={<Contact />}></Route>
+                    <Route path={"*"} element={<NotFound />}></Route>
                 </Routes>
                 <Footer/>
             </div>

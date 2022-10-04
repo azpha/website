@@ -3,6 +3,7 @@ html, body {
     padding:0;
     background-color:#3E3E3E;
     font-family: 'IBM Plex Sans', sans-serif;
+    overflow-x:hidden;
 }
 
 /* nav styling */
@@ -28,8 +29,7 @@ html, body {
     animation-duration:0.5s;
 }
 
-/* home */
-#topbar {
+#bar {
     background-color:black;
     position:relative;
     max-height:40vh;
@@ -38,20 +38,58 @@ html, body {
     vertical-align:top;
 }
 
-.topbarcontent {
+.showcase_content {
     padding:50px 15vw !important;
 }
 
-.topbarcontent p {
+.showcase_content p {
     font-size:20px;
 }
 
-#topbar * {
+#subheading {
+    max-width:100px;
+}
+
+.align-showcase-left {
+    text-align:left;
+}
+
+.align-showcase-right {
+    text-align:right;
+}
+
+#anim {
+    animation-duration: 5s;
+    animation-name: goRight;
+    animation-iteration-count: initial;
+    left: -200px;
+    position: absolute;
+}
+
+#bar * {
     padding:0;
     margin:0;
 }
 
-/* home - clip showcase */
+.column {
+    width:25%;
+    height:55vh;
+    background-color:gray;
+    border:3px black solid;
+    float:left;
+}
+
+.column-header {
+    float:left;
+    width:90%;
+    font-size:25px;
+    padding:0 1vw;
+}
+
+.column-subheader {
+    padding: 0 1vw;
+}
+
 @media screen and (min-width:900px) {
     #clip {
         padding:10vh 15vw;
@@ -75,8 +113,6 @@ html, body {
     padding-bottom:50px;
 }
 
-/* global type stuff */
-
 a {
     color:white;
     text-decoration:none;
@@ -95,6 +131,10 @@ a:hover {
     vertical-align:top;
     text-align:center;
     padding:10px;
+    bottom:0;
+    position:fixed;
+    width:100%;
+    z-index:10;
 }
 
 .fcontent {
@@ -104,4 +144,14 @@ a:hover {
 .item {
     font-size:30px;
     padding:0 10px;
+}
+
+@keyframes goRight {
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(150vw,0);
+    }
 }

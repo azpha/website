@@ -7,8 +7,6 @@ export class MedalPlayer extends React.Component {
         this.state = {
             clip: null
         }
-
-        // this.state.bind(this);
     }
 
     componentDidMount() {
