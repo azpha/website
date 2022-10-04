@@ -3,7 +3,12 @@ html, body {
     padding:0;
     background-color:#3E3E3E;
     font-family: 'IBM Plex Sans', sans-serif;
-    overflow-x:hidden;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+}
+
+body::-webkit-scrollbar {
+    display:none;
 }
 
 /* nav styling */
@@ -71,35 +76,54 @@ html, body {
     margin:0;
 }
 
+@media screen and (min-width: 992px) {
+    .column {
+        width: 50%;
+        float:none;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .row {
+        padding-left:19%;
+    }
+
+    .column {
+        width: 75%;
+        float:none;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .column {
+        width: 25%;
+        float: left;
+    }
+}
+
 .column {
-    width:25%;
-    height:55vh;
+    height:510px;
     background-color:gray;
     border:3px black solid;
-    float:left;
 }
 
 .column-header {
     float:left;
-    width:90%;
+    width:95%;
     font-size:25px;
     padding:0 1vw;
+    position:relative;
 }
 
 .column-subheader {
     padding: 0 1vw;
 }
 
-@media screen and (min-width:900px) {
-    #clip {
-        padding:10vh 15vw;
-    }
-}
-
-#iframe {
+#player {
     position:relative;
+    padding-top:10px;
+    padding-bottom:10vh;
 }
-
 
 .cliptitle {
     color:white;
@@ -146,9 +170,31 @@ a:hover {
     padding:0 10px;
 }
 
+#modal {
+    position:fixed;
+    z-index:10;
+    bottom:0;
+    left:0;
+    height:25%;
+    background-color:black;
+    color:white;
+    padding:2vh 2vw;
+    border-top-right-radius:30%;
+}
+
+.modal_header {
+    padding-left:10px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right:auto;
+    text-align:center;
+}
+
 @keyframes goRight {
     from {
-        transform: translate(0,0);
+        transform: translate(-250px,0);
     }
 
     to {

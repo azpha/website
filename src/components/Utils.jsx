@@ -11,3 +11,10 @@ export class Href extends React.Component {
         )
     }
 }
+
+export function QueryStringObject(string) {
+    let params = new URLSearchParams(window.location.search);
+
+    if (params.get(string)) return params.get(string);
+    else return false;
+}

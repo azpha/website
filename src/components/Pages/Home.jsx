@@ -1,9 +1,14 @@
 import React from 'react';
 
 // components
-import { ShowcaseBar,ShowcaseColumns } from '../PageComponents';
+import { ShowcaseBar,ShowcaseColumns,NotiModal,MedalPlayer } from '../PageComponents';
+import { QueryStringObject } from "../Utils";
 
 export class Home extends React.Component {
+    componentDidMount() {
+        console.log(QueryStringObject("ref"))
+    }
+
     render() {
         return (
             <div id={"home_page"}>
@@ -13,7 +18,7 @@ export class Home extends React.Component {
                     column1={
                         {
                             title: "wow cool stuff i've been workin on extra long too",
-                            description: "look at me go"
+                            description: "look at me go, super fast. anyway so i was like and then but he and she and they and lololoolollolol"
                         }
                     }
                     column2={
@@ -24,11 +29,20 @@ export class Home extends React.Component {
                     }
                     column3={
                         {
-                            title: "columns! pog pog pog pog pog pog pog pog pog pog pog pogpo ogpogpogpggpogogp'oi",
-                            description: "The Tsunami wave crashed against the raised houses and broke the pilings as if they were toothpicks."
+                            title: "columns! pretty cool, right? like i said before?",
+                            description: "The Tsunami wave crashed against the raised houses and broke the pilings as if they were toothpicks. wowowowowoo wowowwowoow wowowowowo"
                         }
                     }
                     />
+
+                {/*<MedalPlayer/>*/}
+
+                { QueryStringObject("ref") === "contact"
+                ? <React.Fragment>
+                        <NotiModal headline={"contact success!"} subheading={"i sent your message :)"} />
+                    </React.Fragment>
+                : ""
+                }
             </div>
         )
     }
