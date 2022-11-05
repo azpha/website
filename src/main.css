@@ -1,0 +1,143 @@
+body,html {
+    background-color:black;
+    color:white;
+    font-family: 'Nunito Sans', sans-serif;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+}
+
+body::-webkit-scrollbar {
+    display:none;
+}
+
+#anim {
+    animation-duration: 5s;
+    animation-name: goRight;
+    animation-iteration-count: initial;
+    left: -200px;
+    position: absolute;
+}
+
+.nav-items ul {
+    list-style-type:none;
+    list-style-position:inside;
+}
+
+.nav-items li {
+    display:inline-block;
+    padding:10px;
+    font-size:25px;
+}
+
+#nav {
+    text-align:center;
+}
+
+.nav-links:hover {
+    animation-name: hover;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+}
+
+.player {
+    background:black;
+    width:fit-content;
+    line-height:1;
+    border-color:white;
+    border-style:solid;
+    border-width:5px;
+    text-align:center;
+    padding:10px;
+    border-radius:10px;
+}
+
+.songinfo {
+    color:white;
+    padding:0;
+    margin:0;
+}
+
+.player img {
+    padding:10px 0;
+}
+
+a:visited,a {
+    color:white;
+}
+
+.centered {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    position:absolute;
+    z-index:-1;
+}
+
+.horizontally {
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+}
+
+.vertically {
+    margin-top:0;
+    margin-bottom:0;
+    top:0;
+    bottom:0;
+}
+
+#profile {
+    bottom:5%;
+    font-size:20px;
+    line-height:0;
+}
+
+.social {
+    padding:10px;
+    font-size:30px;
+}
+
+.social a {
+    padding:10px 8px;
+}
+
+#footer {
+    text-align:center;
+    color:white;
+    background-color:#121212;
+    padding:20px;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    line-height:0.1;
+}
+
+#about {
+    line-height:0;
+    bottom:30%;
+}
+
+@media only screen and (max-width:705px) {
+    #about {
+        line-height:1;
+        bottom:20%;
+    }
+}
+
+@keyframes hover {
+    from { opacity:1; }
+    to { opacity:0.5; }
+}
+
+@keyframes goRight {
+    from {
+        transform: translate(-250px,0);
+    }
+
+    to {
+        transform: translate(150vw,0);
+    }
+}
