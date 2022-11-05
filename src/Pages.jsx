@@ -6,7 +6,7 @@ export class HomePage extends React.Component {
         return (
             <div id={"home"}>
                 <div id={"profile"} className={"centered horizontally vertically"}>
-                    <img width={"100px"} src={"https://cdn.medal.tv/assets/img/medal-with-bg.png"} />
+                    <img width={"100px"} src={"https://pbs.twimg.com/profile_images/1587882255740985346/5knCQsEd_400x400.jpg"} />
                     <h1>Alex</h1>
                     <p>QA @ <a href={"https://medal.tv"}>Medal.tv</a>, JS/Java Dev</p>
                     <SocialMedia />
