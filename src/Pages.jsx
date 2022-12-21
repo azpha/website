@@ -34,7 +34,7 @@ export class HomePage extends React.Component {
 
 export class ContactPage extends React.Component {
     async sendMessage(name,email,subject,message) {
-        return fetch("https://api.zephmakes.tech/v3/tools/contact", {
+        return fetch("https://ash-api.thatalex.dev/v3/tools/contact", {
             method: "POST",
             headers: {
                 'content-type': "application/json"
