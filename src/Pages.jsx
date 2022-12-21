@@ -39,12 +39,12 @@ export class ContactPage extends React.Component {
             headers: {
                 'content-type': "application/json"
             },
-            body: {
+            body: JSON.stringify({
                 name,
                 email,
                 subject,
                 message
-            }
+            })
         })
             .then(result => {
                 if (result.ok) return true;
@@ -96,10 +96,10 @@ export class ContactPage extends React.Component {
                             <button
                                 type={"button"}
                                 onClick={() => this.sendMessage(
-                                    document.getElementById("name"),
-                                    document.getElementById("email"),
-                                    document.getElementById("subject"),
-                                    document.getElementById("message")
+                                    document.getElementById("name").value,
+                                    document.getElementById("email").value,
+                                    document.getElementById("subject").value,
+                                    document.getElementById("message").value
                                 )}
                             >Submit</button>
                         </div>
