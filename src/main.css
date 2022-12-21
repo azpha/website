@@ -1,108 +1,140 @@
-body,html {
-    background-color:black;
-    color:white;
-    font-family: 'Nunito Sans', sans-serif;
-    -ms-overflow-style:none;
-    scrollbar-width:none;
-}
-
-body::-webkit-scrollbar {
-    display:none;
-}
-
-#anim {
-    animation-duration: 5s;
-    animation-name: goRight;
-    animation-iteration-count: initial;
-    left: -200px;
-    position: absolute;
-}
-
-.nav-items ul {
-    list-style-type:none;
-    list-style-position:inside;
-}
-
-.nav-items li {
-    display:inline-block;
-    padding:10px;
-    font-size:25px;
-}
-
-#nav {
-    text-align:center;
-}
-
-.nav-links:hover {
-    animation-name: hover;
-    animation-duration:0.5s;
-    animation-fill-mode:forwards;
-}
-
-.player {
-    background:black;
-    width:fit-content;
-    line-height:1;
-    border-color:white;
-    border-style:solid;
-    border-width:5px;
-    text-align:center;
-    padding:10px;
-    border-radius:10px;
-}
-
-.songinfo {
-    color:white;
-    padding:0;
+/* css reset */
+html, body, ul, h1, h2, h3, h4 {
     margin:0;
+    padding:0;
 }
 
-.player img {
-    padding:10px 0;
+html,body {
+    background-color:black;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x:hidden;
 }
 
-a:visited,a {
+/* global */
+a {
     color:white;
+    text-decoration:none;
+}
+a:hover {
+    color:gray;
 }
 
 .centered {
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    position:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     z-index:-1;
 }
-
 .horizontally {
     margin-left:auto;
     margin-right:auto;
     left:0;
     right:0;
 }
-
 .vertically {
     margin-top:0;
     margin-bottom:0;
     top:0;
     bottom:0;
 }
-
-#profile {
-    bottom:5%;
-    font-size:20px;
-    line-height:0;
+input,textarea {
+    border-width:2px;
+    border-radius:20px;
+    border-color:white;
+    text-align:center;
+}
+input::placeholder, textarea::placeholder {
+    padding-left:5px;
 }
 
-.social {
+/*components*/
+#form-container {
+    padding-bottom:5%;
+}
+#form {
+    width:30vw;
+    padding:110px 100px;
+    background-color:gray;
+    border-radius:50px;
+    border-color:white;
+    border-style:solid;
+}
+#card {
+    display:inline-block;
+    margin:auto;
     padding:10px;
-    font-size:30px;
+    text-align:center;
+    vertical-align: top;
+}
+#card-content {
+    background-color:black;
+    border-radius:50px;
+    border-style:solid;
+    color:#bfbfbf;
+    width:300px;
+    height:200px;
+}
+#card-header {
+    padding-top:20px;
+    font-size:15px;
+}
+#card-paragraph {
+    font-size:15px;
+    padding:0 10px;
 }
 
+@media only screen and (max-width:655px) {
+    #profile {
+        padding-top:10%;
+    }
+}
+
+/* nav bar */
+#nav {
+    background-color:black;
+    text-align:left;
+    padding-left:15px;
+    overflow-y:hidden;
+}
+#nav-items ul {
+    list-style-type:none;
+    list-style-position:inside;
+}
+#nav-items li {
+    display:inline-block;
+    padding:10px;
+    font-size:20px;
+}
+#nav-items a {
+    color:white;
+}
+#nav-items a:hover {
+    color:gray;
+}
+.social {
+    padding:6px;
+    float:right;
+    font-size:25px;
+}
 .social a {
     padding:10px 8px;
+    color:white;
+}
+.social a:hover {
+    color:gray;
+}
+@media only screen and (max-width:500px) {
+    .social {
+        display:none;
+    }
+    #nav {
+        padding-left:15px;
+    }
 }
 
+/* footer */
 #footer {
     text-align:center;
     color:white;
@@ -114,30 +146,20 @@ a:visited,a {
     right:0;
     line-height:0.1;
 }
-
-#about {
-    line-height:0;
-    bottom:30%;
+#footer a {
+    color:white;
+    text-decoration:none;
+}
+#footer a:hover {
+    color:gray;
+    text-decoration:underline;
+}
+#footer a:visited {
+    color:white;
 }
 
-@media only screen and (max-width:705px) {
-    #about {
-        line-height:1;
-        bottom:20%;
-    }
-}
-
+/* animations */
 @keyframes hover {
     from { opacity:1; }
     to { opacity:0.5; }
-}
-
-@keyframes goRight {
-    from {
-        transform: translate(-250px,0);
-    }
-
-    to {
-        transform: translate(150vw,0);
-    }
 }

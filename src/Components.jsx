@@ -1,14 +1,30 @@
 import React from 'react';
-import { socket } from './Services';
+import {Href} from './Utilities'
 
 export class NavBar extends React.Component {
     render() {
         return (
             <div id={"nav"}>
-                <ul style={{ paddingLeft:"0px" }} className={"nav-items"}>
+                <ul style={{ paddingLeft:"0px" }} id={"nav-items"}>
                     {this.props.pages}
+                    <div className={"social"}>
+                        <a href={"https://twitter.com/zstreamss"} target={"_blank"} rel={"noreferrer"}>
+                            <i className="fa-brands fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href={"https://social.thatalex.dev"} target={"_blank"} rel={"noreferrer"}>
+                            <i className={"fa-brands fa-mastodon"} aria-hidden={"true"} />
+                        </a>
+                        <a href={"https://github.com/azpha"} target={"_blank"} rel={"noreferrer"}>
+                            <i className="fa-brands fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a href={"https://linkedin.com/in/thatalex"} target={"_blank"} rel={"noreferrer"}>
+                            <i className="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href={"mailto:hi@thatalex.dev"} target={"_blank"} rel={"noreferrer"}>
+                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </ul>
-                <hr style={{width:"300px"}} />
             </div>
         )
     }
@@ -18,62 +34,25 @@ export class Footer extends React.Component {
     render() {
         return (
             <div id={"footer"}>
-                <p>Website by <a href={"https://github.com/zevhr/pause"} target={"_blank"} rel={"noreferrer"}>Alex</a></p>
-                <div className={"footeritems"}>
-                    <SocialMedia />
-                </div>
+                <p>Made with <i style={{color:"red"}} className={"fa-solid fa-heart"} /> & <i style={{color:"gray"}} className={"fa-solid fa-music"} /> by Alex</p>
+                <p><Href url={"https://github.com/azpha/website"} tab={"_blank"} content={"Source Code"} /></p>
             </div>
         )
     }
 }
 
-export class IFrame extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            d: null,
-            userSetVolume: null
-        }
-
-        socket.emit("spotify", {"event":"listen"});
-        socket.on("api_update", async (message) => {
-            if (message) await this.setState({ d: message })
-        })
-    }
-
+export class ShowcaseCard extends React.Component {
     render() {
-        if (!this.state.d) return (
-            <div />
-        )
-
-        return (
-            <div id={"iframe"} style={{width:"50%",top:"10%"}}>
-                <div id="player" className={"player centered horizontally"}>
-                    <span className={"songinfo"}>
-                        { this.state.d ? <React.Fragment><p>{this.state.d.TITLE}<br />{this.state.d.ARTIST}</p><p>{this.state.d.POSITION} \\ {this.state.d.DURATION}</p></React.Fragment> : <p>Uh oh! Something went wrong.</p>}
-                    </span>
+        if (this.props.header && this.props.paragraph) return (
+            <div id={"card"}>
+                <div id={"card-content"}>
+                    <div id={"card-header"}>
+                        {this.props.url ? <Href url={this.props.url} tab={"_blank"} content={<h1>{this.props.header}</h1>} /> : <h1>{this.props.header}</h1>}
+                    </div>
+                    <div id={"card-paragraph"}>
+                        <p>{this.props.paragraph}</p>
+                    </div>
                 </div>
-            </div>
-        )
-    }
-}
-
-export class SocialMedia extends React.Component {
-    render() {
-        return (
-            <div className={"social"}>
-                <a href={"https://twitter.com/zstreamss"} target={"_blank"} rel={"noreferrer"}>
-                    <i className="fa fa-twitter-square" aria-hidden="true"></i>
-                </a>
-                <a href={"https://github.com/azpha"} target={"_blank"} rel={"noreferrer"}>
-                    <i className="fa fa-github-square" aria-hidden="true"></i>
-                </a>
-                <a href={"https://linkedin.com/in/thatalex"} target={"_blank"} rel={"noreferrer"}>
-                    <i className="fa fa-linkedin-square" aria-hidden="true"></i>
-                </a>
-                <a href={"mailto:hi@thatalex.dev"} target={"_blank"} rel={"noreferrer"}>
-                    <i className="fa fa-envelope" aria-hidden="true"></i>
-                </a>
             </div>
         )
     }

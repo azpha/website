@@ -1,26 +1,23 @@
 import React from 'react';
 import {Routes,BrowserRouter,Route} from 'react-router-dom';
 import {NavBar,Footer} from "./Components";
-import {Redirector} from './Utilities';
-import {HomePage,AboutPage,NotFound} from "./Pages";
+import {HomePage,ContactPage,NotFound} from "./Pages";
 
 const pages = [
     {
         "slug": "home",
-        "path": "/",
-        "display": "Home"
+        "path": "/"
     },
     {
-        "slug": "about",
-        "path": "/about",
-        "display": "About"
+        "slug": "contact",
+        "path": "/contact"
     }
 ]
 
 export class App extends React.Component {
     renderPageLinks() {
         return pages.map((page) => {
-            return <a href={page.path} key={page.slug} rel={"noreferrer"} target={"_self"}><li className={"nav-links"}>{page.display}</li></a>
+            return <a href={page.path} key={page.slug} rel={"noreferrer"} target={"_self"}><li className={"nav-links"}>{page.slug}</li></a>
         })
     }
 
@@ -31,8 +28,7 @@ export class App extends React.Component {
                 <BrowserRouter>
                     <Routes>
                         <Route path={"/"} element={<HomePage />} />
-                        <Route path={"/about"} element={<AboutPage />} />
-                        <Route path={"/capy"} element={<Redirector url={"https://www.youtube.com/watch?v=oLsVrshvOaI"} />} />
+                        <Route path={"/contact"} element={<ContactPage />} />
                         <Route path={"*"} element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>

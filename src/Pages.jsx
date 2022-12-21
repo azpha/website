@@ -1,84 +1,124 @@
 import React from 'react';
-import {IFrame, SocialMedia} from "./Components";
+import {ShowcaseCard} from "./Components";
 
 export class HomePage extends React.Component {
     render() {
         return (
-            <div id={"home"}>
-                <div id={"profile"} className={"centered horizontally vertically"}>
-                    <img width={"100px"} src={"https://pbs.twimg.com/profile_images/1587882255740985346/5knCQsEd_400x400.jpg"} />
-                    <h1>Alex</h1>
-                    <p>QA @ <a href={"https://medal.tv"}>Medal.tv</a>, JS/Java Dev</p>
-                    <SocialMedia />
+            <div id={"home"} className={"centered horizontally vertically"} style={{paddingBottom:"10%"}}>
+                <div style={{ textAlign:"center" }}>
+                    <div id={"profile"}>
+                        <img width={"100px"} alt={"Profile"} src={"https://pbs.twimg.com/profile_images/1587882255740985346/5knCQsEd_400x400.jpg"} />
+                        <h1 style={{color:"white"}}>Alex</h1>
+                        <p style={{color:"white"}}>Just about everything QA @ <a href={"https://medal.tv"}>Medal.tv</a></p>
+                    </div>
+                    <ShowcaseCard
+                        url={"https://github.com/azpha/splitstat"}
+                        header={"SplitStat"}
+                        paragraph={"SplitStat was a Discord bot that interfaced with Tracker Network's API to return and compare SplitStat: Arena Warfare stats with others."}
+                    />
+                    <ShowcaseCard
+                        url={"https://pause.thatalex.dev"}
+                        header={"Pause!"}
+                        paragraph={"Pause my music. Website that controls my Spotify client using the full suite of controls; skip, pause, repeat, shuffle, volume, you name it!"}
+                    />
+                    <ShowcaseCard
+                        url={"https://donotbro.me"}
+                        header={"donotbrome"}
+                        paragraph={"Just don't bro me. A website that one of my friends sparked me to make from starting conversations with one word; 'bro'."}
+                    />
                 </div>
             </div>
         )
     }
 }
 
-export class AboutPage extends React.Component {
+export class ContactPage extends React.Component {
+    async sendMessage(name,email,subject,message) {
+        return fetch("https://api.zephmakes.tech/v3/tools/contact", {
+            method: "POST",
+            headers: {
+                'content-type': "application/json"
+            },
+            body: {
+                name,
+                email,
+                subject,
+                message
+            }
+        })
+            .then(result => {
+                if (result.ok) return true;
+                else return false;
+            })
+            .catch(err => {
+                console.log('Contact request failed with error "' + err.message + '"');
+                return false;
+            })
+    }
+
     render() {
         return (
-            <div id={"about"} className={"centered horizontally vertically"} style={{
-                paddingTop:"10px",
-                padding:"10px",
-                textAlign: "center"
-            }}>
-                <h1>Hi, I'm Alex!</h1>
-                <p>I'm a JavaScript/Java/Python developer, currently working at Medal.tv as a Manual QA Tester!</p>
-                <h2>What do I like to do?</h2>
-                <p>Well, coding is one thing. I enjoy making random apps in any language, including this website!</p>
-                <p>I'm exploring the realm of test automation & getting more familiar with best practices.</p>
-                <p>I also enjoy listening to music a little too much. Like, it's bad.</p>
-                <hr style={{width:"300px"}} />
-                <h2>What am I listening to right now?</h2>
-                <p style={{}}><i>Want to screw with my music? <a href={"https://pause.thatalex.dev"} rel={"noreferrer"} target={"_blank"}>Use my 'Pause!' website!</a></i></p>
-                <IFrame />
+            <div id={"contact"} className={"centered horizontally vertically"}>
+                <div id={"form-container"}>
+                    <div id={"form"}>
+                        <div style={{textAlign:"center"}}>
+                            <h1 style={{fontSize:"25px"}}>great, lets talk!</h1>
+                            <br />
+                            <input
+                                id={"name"}
+                                name={"name"}
+                                placeholder={"your name.."}
+                                required
+                            />
+                            <br />
+                            <input
+                                id={"email"}
+                                name={"email"}
+                                placeholder={"your email.."}
+                                required
+                            />
+                            <br />
+                            <input
+                                id={"subject"}
+                                name={"subject"}
+                                placeholder={"subject.."}
+                                required
+                            />
+                            <br /><br />
+                            <textarea
+                                style={{width:"30vw",height:"150px",resize:"none"}}
+                                id={"message"}
+                                name={"message"}
+                                placeholder={"'lorem ipsum' yada yada yada.."}
+                                required
+                            />
+                            <br />
+                            <button
+                                type={"button"}
+                                onClick={() => this.sendMessage(
+                                    document.getElementById("name"),
+                                    document.getElementById("email"),
+                                    document.getElementById("subject"),
+                                    document.getElementById("message")
+                                )}
+                            >Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
 export class NotFound extends React.Component {
-    componentDidMount() {
-        let keys = [];
-        let count = 0;
-
-        document.addEventListener("keydown", (e) => {
-            if (e.keyCode <= 90 && e.keyCode >= 48) {
-                keys.push(e.key);
-            }
-            if (e.key.toLowerCase() === "backspace") {
-                keys.pop();
-            } else if (keys.join('') === "capybara") {
-                if (count >= 5) {
-                    window.location.href = "/capy";
-                } else {
-                    document.getElementById("lawd").style.display = "block";
-                    document.getElementById("anim").style.display = "block";
-
-                    setTimeout(() => {
-                        document.getElementById("lawd").style.display = "none";
-                        document.getElementById("anim").style.display = "none";
-                        keys = [];
-                        count++;
-                    }, 3000)
-                }
-            }
-        })
-    }
-
     render() {
         return (
-            <div id={"error"} className={"centered horizontally vertically"} style={{bottom:"10%", lineHeight:"0.5"}}>
+            <div id={"error"} className={"centered horizontally vertically"} style={{bottom:"10%", lineHeight:"1.5em", color:"white", textAlign:"center"}}>
+                <video autoPlay={true} loop={true} style={{pointerEvents: "none", width:"500px"}}>
+                    <source src={"https://storage.thatalex.dev/content/polar_bear-v2.mp4"} type={"video/mp4"} />
+                </video>
                 <h1>Well, this is awkward..</h1>
-                <p>You've landed on a page that just doesn't exist.</p>
-                <p>You should, like, <a href={"#"} onClick={() => window.history.back()}>head back now..</a></p>
-
-                <span id={"lawd"} style={{ display: "none", color:"red" }}><p>oh lawd... oh lawd he comin!</p></span>
-                <div id={"anim"} style={{ display: "none" }}>
-                    <img style={{ transform: "scaleX(-1)" }} alt={"capy"} src={"https://c.tenor.com/AMMqaJ99koYAAAAC/capybara-walk.gif"} />
-                </div>
+                <p>You've landed on a page that just doesn't exist.<br />Enjoy this low-quality polar bear, traveller. You'll need it.</p>
             </div>
         )
     }
