@@ -33,26 +33,28 @@ export class HomePage extends React.Component {
 }
 
 export class ContactPage extends React.Component {
-    async sendMessage(name,email,subject,message) {
+    async sendMessage(event) {
+        event.preventDefault()
+        let data = new FormData(event.target)
         return fetch("https://ash-api.thatalex.dev/v3/tools/contact", {
             method: "POST",
             headers: {
                 'content-type': "application/json"
             },
             body: JSON.stringify({
-                name,
-                email,
-                subject,
-                message
+                "name": data.get("name"),
+                "email": data.get("email"),
+                "subject": "Website form submission",
+                "message": data.get("message")
             })
         })
             .then(result => {
-                if (result.ok) return true;
-                else return false;
+                if (result.ok) window.location.href="/?contact=success"
+                else return window.location.href="?contact=fail";
             })
             .catch(err => {
                 console.log('Contact request failed with error "' + err.message + '"');
-                return false;
+                return window.location.href="?contact=fail";
             })
     }
 
@@ -60,50 +62,17 @@ export class ContactPage extends React.Component {
         return (
             <div id={"contact"} className={"centered horizontally vertically"}>
                 <div id={"form-container"}>
-                    <div id={"form"}>
-                        <div style={{textAlign:"center"}}>
-                            <h1 style={{fontSize:"25px"}}>great, lets talk!</h1>
-                            <br />
-                            <input
-                                id={"name"}
-                                name={"name"}
-                                placeholder={"your name.."}
-                                required
-                            />
-                            <br />
-                            <input
-                                id={"email"}
-                                name={"email"}
-                                placeholder={"your email.."}
-                                required
-                            />
-                            <br />
-                            <input
-                                id={"subject"}
-                                name={"subject"}
-                                placeholder={"subject.."}
-                                required
-                            />
-                            <br /><br />
-                            <textarea
-                                style={{width:"30vw",height:"150px",resize:"none"}}
-                                id={"message"}
-                                name={"message"}
-                                placeholder={"'lorem ipsum' yada yada yada.."}
-                                required
-                            />
-                            <br />
-                            <button
-                                type={"button"}
-                                onClick={() => this.sendMessage(
-                                    document.getElementById("name").value,
-                                    document.getElementById("email").value,
-                                    document.getElementById("subject").value,
-                                    document.getElementById("message").value
-                                )}
-                            >Submit</button>
-                        </div>
-                    </div>
+                    <h1 style={{whiteSpace: "nowrap"}}>lets get in touch</h1>
+                    <br />
+                    <form onSubmit={this.sendMessage} style={{textAlign:"center"}}>
+                        <label htmlFor={"name"}>Name:</label><br />
+                        <input type={"name"} id={"name"} name={"name"} /><br />
+                        <label htmlFor={"email"}>Email:</label><br />
+                        <input type={"email"} id={"email"} name={"email"} /><br />
+                        <label htmlFor={"message"}>Message:</label><br />
+                        <input type={"message"} id={"message"} name={"message"} /><br />
+                        <input type="submit" value="Submit" />
+                    </form>
                 </div>
             </div>
         )
