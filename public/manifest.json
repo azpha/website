@@ -1,9 +1,0 @@
-{
-  "short_name": "thatalex.dev",
-  "name": "Alex - my portfolio, about me & how to contact me",
-  "icons": [],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#525459"
-}
