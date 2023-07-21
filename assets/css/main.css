@@ -8,16 +8,6 @@ body {
     font-family: 'DM Sans', sans-serif;
 }
 
-ul {
-    list-style-position:inside;
-    list-style-type:none;
-}
-
-li {
-    padding:0;
-    display:inline-block;
-}
-
 a {
     color:white;
 }
@@ -30,64 +20,11 @@ a:hover {
     height:100vh;
 }
 
-@media only screen and (max-width:700px) {
-    #container {
-        height:100vh;
-        padding-top:0;
-    }
-}
-
 #intro {
     /* width:40%; */
     color:white;
     text-align:center;
     padding-top:50px;
-}
-
-#navtype {
-    color:white;
-    text-align: center;
-}
-
-.card {
-    background-color: #232931;
-    color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card-header {
-    background: linear-gradient(to right, #000, #424242);
-    padding: 20px;
-    font-size:10px;
-}
-
-.card-header h2 {
-    margin: 0;
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.card-body p {
-    margin-bottom: 20px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.btn:hover {
-    color:white;
-    background-color: #424242;
 }
 
 #socials a {
@@ -103,40 +40,6 @@ a:hover {
 #notice {
     padding-top:2px;
 }
-
-.contact-form {
-    max-width: 500px;
-    text-align:center;
-    margin: 0 auto;
-  }
-  
-  .contact-form label {
-    color:white;
-    display: block;
-    text-align:left;
-    padding-top:10px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    display: block;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .contact-form button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 12px 16px;
-    cursor: pointer;
-  }
-  
-  .contact-form button:hover {
-    background-color: #424242;
-  }
 
 /* global classes */
 .center {
