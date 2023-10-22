@@ -1,9 +1,10 @@
 import Link from "next/link"
+import type { MouseEventHandler } from "react"
 
 type HeaderItemProps = {
     content: string,
     linkTo: string,
-    onClick?: any, // don't even wanna bother
+    onClick?: MouseEventHandler<HTMLButtonElement>, // don't even wanna bother
     newWindow?: boolean
 }
 export default function HeaderItem(props: HeaderItemProps) {
