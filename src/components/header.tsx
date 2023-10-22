@@ -1,5 +1,4 @@
 import {useSession, signIn, signOut} from 'next-auth/react';
-import Head from 'next/head';
 import HeaderItem from "./HeaderItem";
 
 export default function Header() {
@@ -12,7 +11,13 @@ export default function Header() {
                 <div className="inline-block pb-2">
                     <HeaderItem content="home" linkTo="/" />
                     <HeaderItem content="reviews" linkTo="/reviews" />
-                    <HeaderItem content={status == "unauthenticated" ? "login" : "logout" } onClick={status == "authenticated" ? signOut : signIn} linkTo="" />
+                    <HeaderItem content={status == "unauthenticated" ? "login" : "logout" } onClick={async () => {
+                        if (status == "unauthenticated") {
+                            await signIn()
+                        } else {
+                            await signOut()
+                        }
+                    }} linkTo="" />
                 </div>
                 <hr />
             </div>
