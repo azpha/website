@@ -1,2 +1,2 @@
-# thatalex.dev
-This is the repository for [my website](https://thatalex.dev)!
+# Website
+This is my website, [alexavfrantz.com](https://alexavfrantz.com)!
