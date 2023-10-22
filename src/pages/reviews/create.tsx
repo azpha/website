@@ -1,4 +1,4 @@
-import {useSession, getSession} from 'next-auth/react';
+import {useSession} from 'next-auth/react';
 import {useState, useEffect} from 'react';
 import type {FormEvent} from 'react';
 import Header from '@/components/header';
@@ -28,12 +28,18 @@ export default function Page() {
 
     function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
+        const form = event.target as HTMLFormElement
+
+        const titleElement = form.elements.namedItem('title') as HTMLInputElement;
+        const reviewElement = form.elements.namedItem('review') as HTMLInputElement;
+        const imageElement = form.elements.namedItem('image') as HTMLInputElement;
+        const typeElement = form.elements.namedItem('type') as HTMLInputElement;
 
         const object = {
-            name: sanitizeTitleForLink(event.target.title.value),
-            reviewContents: event.target.review.value,
-            image: event.target.image.value,
-            type: event.target.type.value
+            name: sanitizeTitleForLink(titleElement.value),
+            reviewContents: reviewElement.value,
+            image: imageElement.value,
+            type: typeElement.value
         }
 
         mutation.mutate(object)
