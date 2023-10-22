@@ -7,7 +7,6 @@ type HeaderItemProps = {
     newWindow?: boolean
 }
 export default function HeaderItem(props: HeaderItemProps) {
-    console.log(props, props.newWindow ? "_blank" : "self")
     if (props.onClick) {
         return (
             <>

@@ -17,6 +17,11 @@ const config = {
         protocol: "https",
         port: '',
         hostname: "m.media-amazon.com"
+      },
+      {
+        protocol: "https",
+        port: '',
+        hostname: "storage.thatalex.dev" 
       }
     ]
   }

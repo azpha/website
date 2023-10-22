@@ -1,18 +1,25 @@
 import Image from "next/image"
+import Link from 'next/link';
 
 type ReviewCardProps = {
     title: string,
     image: string,
-    url: string
+    url: string,
+    showText: boolean
 }
 
 export default function ReviewCard(props: ReviewCardProps) {
     return (
-        <>
-            <div className="inline pr-4 pb-2">
-                <Image alt={props.title + " cover"} width="160" height="160" src={props.image} />
-                <p className="font-bold pt-2 text-center">{props.title}</p>
+        <Link href={props.url}>
+            <div className="inline">
+                <Image alt={props.title + " cover"} width="160" height="160" src={props.image} className="p-2" />
+                {
+                    props.showText ?
+                    <p className="font-bold pt-2 text-center">{props.title}</p>
+                    :
+                    ""
+                }
             </div>
-        </>
+        </Link>
     )
 }

@@ -1,6 +1,8 @@
 import {useSession, getSession} from 'next-auth/react';
-import {useState, useEffect, FormEvent} from 'react';
+import {useState, useEffect} from 'react';
+import type {FormEvent} from 'react';
 import Header from '@/components/header';
+import Footer from "@/components/footer";
 import Router from 'next/router';
 import { api } from "@/utils/api";
 
@@ -12,17 +14,23 @@ export default function Page() {
     useEffect(() => {
         if (status == "unauthenticated") {
             console.log('user is unauthenticated!')
-            Router.replace('/')
+            Router.replace('/').catch(() => {
+                console.error("Failed to reroute user!")
+            })
         } else {
             setLoading(false)
         }
     }, [status])
 
+    function sanitizeTitleForLink(title: string) {
+        return title.replaceAll(" ", "-").toLowerCase()
+    }
+
     function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
         const object = {
-            name: event.target.title.value,
+            name: sanitizeTitleForLink(event.target.title.value),
             reviewContents: event.target.review.value,
             image: event.target.image.value,
             type: event.target.type.value
@@ -48,11 +56,12 @@ export default function Page() {
                             <input name="type" type="text" /><br />
 
                             <label className="font-bold">Review</label><br />
-                            <textarea name="review" />
+                            <textarea name="review" /><br />
 
                             <button type="submit">submit</button>
                         </div>
                     </form>
+                    <Footer />
                 </div>
             </main>
         )
