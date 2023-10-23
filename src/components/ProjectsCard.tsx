@@ -2,6 +2,7 @@ import Link from "next/link"
 
 type ProjectCardProps = {
     name: string,
+    subHeading?: string,
     key: string,
     description: string,
     urlTo: string
@@ -10,11 +11,13 @@ type ProjectCardProps = {
 export default function ProjectCard(props: ProjectCardProps) {
     return (
         <Link href={props.urlTo} target="_blank" rel="noreferrer">
-            <div className="inline">
+            <div className="mx-auto text-center justify-center flex">
                 <div key={props.key} className="w-1/2 rounded-lf relative">
-                    <div className="top-0 left-0 p-2 bg-gray-500">
+                    <div className="top-0 left-0 p-2 bg-gray-800">
                         <p className="font-bold">{props.name}</p>
-                        <p className="text-sm">{props.description}</p>
+                        <p className="pb-2">{props.subHeading}</p>
+                        <hr />
+                        <p className="text-sm pt-2">{props.description}</p>
                     </div>
                 </div>  
             </div>
