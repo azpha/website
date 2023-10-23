@@ -11,6 +11,9 @@ export default function Footer() {
                     </Link>
                 </p>
                 <p className="text-center">
+                    All music, game, TV and movie covers are owned by their respective authors.
+                </p>
+                <p className="text-center">
                     &copy; Alex Frantz, 2023
                 </p>
                 <p className="text-center">
