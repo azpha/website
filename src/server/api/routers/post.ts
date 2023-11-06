@@ -28,6 +28,18 @@ export const postRouter = createTRPCRouter({
       });
     }),
 
+  delete: protectedProcedure
+    .input(
+      z.string().min(1)
+    )
+    .query(async ({ctx, input}) => {
+      return ctx.db.post.delete({
+        where: {
+          id: input
+        }
+      })
+    }),
+
   getOne: publicProcedure
   .input(String)
   .query(({ ctx, input }) => {

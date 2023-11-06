@@ -43,17 +43,21 @@ export default function Reviews() {
         if (itemData) {
             const filteredArray = itemData.filter(v => v.type == type.toLowerCase())
 
-            setList(
-                filteredArray.map((v: GenericItemType, k) => {
-                    return <ReviewCard 
-                        key={k}
-                        title={v.name}
-                        url={`/reviews/${sanitizeTitleForLink(v.name)}`}
-                        image={v.image}
-                        showText={false}
-                    />
-                })
-            )
+            if (filteredArray.length <= 0) {
+                setList(null)
+            } else {
+                setList(
+                    filteredArray.map((v: GenericItemType, k) => {
+                        return <ReviewCard 
+                            key={k}
+                            title={v.name}
+                            url={`/reviews/${sanitizeTitleForLink(v.name)}`}
+                            image={v.image}
+                            showText={false}
+                        />
+                    })
+                )
+            }
         }
     }, [itemData, type])
 
@@ -77,7 +81,13 @@ export default function Reviews() {
                 </p>
 
                 <div className="flex flex-wrap justify-center">
-                    {list}
+                    {
+                        list ? list
+                        : <div className="text-center">
+                            <h1>Nothing here!</h1>
+                            <p>Try again later :(</p>
+                        </div>
+                    }
                 </div>
             </div>
             <Footer />
