@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Post {
-    id        Int      @id @map("_id")
+    id        String      @id @map("_id") @default(uuid())
     type      String
     name      String
     reviewContents    String
