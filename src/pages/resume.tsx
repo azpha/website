@@ -1,13 +1,10 @@
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import RootLayout from "@/components/RootLayout"
 import Image from "next/image"
 import ProjectCard from "@/components/ProjectsCard"
 
 export default function Resume() {
     return (
-        <main className="min-h-screen bg-black">
-            <Header />
-
+        <RootLayout>
             <div className="text-center mx-auto text-white">
                 <div className="flex flex-wrap justify-center pb-2">
                     <Image src="https://storage.thatalex.dev/content/pfp.png" width="130" height="130" alt="PFP" className="rounded-3xl" />
@@ -64,8 +61,6 @@ export default function Resume() {
                     </div>
                 </div>
             </div>
-
-            <Footer />
-        </main>
+        </RootLayout>
     )
 }

@@ -1,8 +1,11 @@
 import Link from "next/link"
+import { Trash } from "grommet-icons"
 
 type SocialCardProps = {
     name: string,
-    url: string
+    url: string,
+    showDelete: boolean,
+    deleteCallback: () => void
 }
 
 export default function SocialMediaCard(props: SocialCardProps) {
@@ -11,6 +14,9 @@ export default function SocialMediaCard(props: SocialCardProps) {
             <Link href={props.url}>
                 {props.name}
             </Link>
+            {
+                props.showDelete && <Trash onClick={props.deleteCallback} color="plain" className="pl-2 hover:cursor-pointer" />
+            }
         </div>
     )
 }

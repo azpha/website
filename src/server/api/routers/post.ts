@@ -32,7 +32,7 @@ export const postRouter = createTRPCRouter({
     .input(
       z.string().min(1)
     )
-    .query(async ({ctx, input}) => {
+    .mutation(async ({ctx, input}) => {
       return ctx.db.post.delete({
         where: {
           id: input

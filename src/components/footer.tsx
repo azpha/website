@@ -1,4 +1,4 @@
-import { Twitter, LinkedinOption, MailOption } from "grommet-icons"
+import { Twitter, LinkedinOption } from "grommet-icons"
 import Link from 'next/link';
 
 export default function Footer() {
@@ -16,17 +16,13 @@ export default function Footer() {
                 <p className="text-center">
                     &copy; Alex Frantz, 2023
                 </p>
-                <p className="text-center">
+                <p className="text-center space-x-2">
                     <Link href="https://twitter.com/avvex__" target="_blank" rel="noreferrer">
-                        <Twitter color='plain' className="pr-2" size="30" />
+                        <Twitter color='plain' size="30" />
                     </Link>
 
                     <Link href="https://linkedin.com/in/thatalex" target="_blank" rel="noreferrer">
-                        <LinkedinOption className="pr-2" size="30" />
-                    </Link>
-
-                    <Link href="mailto:alex@alexavfrantz.com" target="_blank" rel="noreferrer">
-                        <MailOption className="pr-2" size="30" />
+                        <LinkedinOption size="30" />
                     </Link>
                 </p>
             </div>

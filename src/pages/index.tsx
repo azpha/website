@@ -1,22 +1,17 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import RootLayout from "@/components/RootLayout";
 import Dropdown from "@/components/Dropdown";
 import ProjectCard from "@/components/ProjectsCard";
 import Image from 'next/image';
 
 export default function Home() {
     return (
-        <main className="min-h-screen bg-black">
+        <RootLayout>
             <div className="w-1/2 mx-auto text-white">
-                <Header />
-                
                 <Dropdown content={Music()} name="Music" />
                 <Dropdown content={Games()} name="Games" />
                 <Dropdown content={Projects()} name="Projects" />
-
-                <Footer />
             </div>
-        </main>
+        </RootLayout>
     )
 } 
 

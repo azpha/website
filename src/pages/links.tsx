@@ -1,40 +1,37 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 import SocialCard from '@/components/SocialCard'
-import Dropdown from "@/components/Dropdown";
+import RootLayout from '@/components/RootLayout';
 import { api } from "@/utils/api";
-import React, {useEffect, useState} from 'react';
+import { useSession } from 'next-auth/react';
+import React from 'react';
 
 export default function Links() {
-    const {data: linkData} = api.links.getAll.useQuery()
-    const [formatted, setFormatted] = useState<React.JSX.Element[] | null>(null)
-
-    useEffect(() => {
-        if (linkData) {
-            setFormatted(
-                linkData.map((v) => {
-                    return <SocialCard url={v.url} name={v.name} key={v.name} />
-                })
-            )
-        }
-    }, [linkData])
+    const {status} = useSession();
+    
+    // trpc hooks
+    const { data: linkData } = api.links.getAll.useQuery()
+    const deleteMutation = api.links.delete.useMutation()
 
     return (
-        <main className="min-h-screen bg-black">
-            <div className="w-1/2 mx-auto text-white">
-                <Header />
-
-                {formatted}
-                
-                {/* {
-                    formatted ?
-                    <Dropdown content={formatted} name="Social Dropdown" />
-                    :
-                    <h1>There&apos;s nothing here :(</h1>
-                } */}
-
-                <Footer />
+        <RootLayout>
+            <div className="space-y-2">
+                {
+                    linkData && linkData.length > 0 ? linkData.map((v) => {
+                        return <SocialCard 
+                            url={v.url} 
+                            name={v.name} 
+                            key={v.name} 
+                            showDelete={status === "authenticated"} 
+                            deleteCallback={() => {
+                                deleteMutation.mutate(v.id)
+                            }}
+                        />
+                    }) : 
+                    <div className="text-center text-white">
+                        <h1>Uh oh!</h1>
+                        <p>There&apos;s nothing here :(</p>
+                    </div>
+                }
             </div>
-        </main>
+        </RootLayout>
     )
 }
