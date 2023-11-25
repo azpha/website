@@ -60,7 +60,7 @@ export default function Reviews() {
     return (
         <RootLayout>
             <div className="w-1/2 mx-auto text-white">
-                <p className="text-center font-bold text-2xl hover:cursor-pointer hover:underline pb-2" onClick={onCatClick}>
+                <p className="text-center font-bold text-2xl hover:cursor-pointer hover:underline pb-2 select-none" onClick={onCatClick}>
                     {type}
                 </p>
 

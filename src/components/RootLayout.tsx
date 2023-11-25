@@ -17,6 +17,24 @@ type LayoutProps = {
 
 export default function RootLayout({ children, protectedPage }: LayoutProps) {
     const {status} = useSession()
+    const snowflakeElements = []
+
+    for (let i = 0; i < 50; i++) {
+        snowflakeElements.push(
+            <div
+                className="snowflake text-white"
+                style={
+                    {
+                        left: `${Math.random() * 100}%`,
+                        animationDuration: `${Math.random() *5 + 5}s`,
+                        fontSize: `${Math.random() * 1.5 + 0.5}em`
+                    }
+                }
+            >
+            ❅
+            </div>
+        )
+      }
 
     if (protectedPage) {
         if (status === "loading") {
@@ -36,6 +54,7 @@ export default function RootLayout({ children, protectedPage }: LayoutProps) {
             return (
                 <main className="min-h-screen bg-black">
                     <Head />
+                    {snowflakeElements}
                     <Header />
                     {children}
                     <Footer />
@@ -46,6 +65,7 @@ export default function RootLayout({ children, protectedPage }: LayoutProps) {
         return (
             <main className="min-h-screen bg-black">
                 <Head />
+                {snowflakeElements}
                 <Header />
                 {children}
                 <Footer />
