@@ -22,6 +22,11 @@ const config = {
         protocol: "https",
         port: '',
         hostname: "storage.thatalex.dev" 
+      },
+      {
+        protocol: "https",
+        port: '',
+        hostname: "lastfm.freetls.fastly.net"
       }
     ]
   }

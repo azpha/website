@@ -2,6 +2,7 @@ import RootLayout from "@/components/RootLayout";
 import Dropdown from "@/components/Dropdown";
 import ProjectCard from "@/components/ProjectsCard";
 import Image from 'next/image';
+import MusicCard from '@/components/MusicCard'
 
 export default function Home() {
     return (
@@ -45,6 +46,9 @@ function Music() {
         <Image key="1" src="https://storage.thatalex.dev/content/5sos.png" alt="5 Seconds of Summer Cover" width="100" height="100" className="inline mr-2" />,
         <Image key="2" src="https://storage.thatalex.dev/content/tlou-covers-and-rarities.jpg" alt="TLOU Covers and Rarities Cover" width="100" height="100" className="inline mr-2" />,
         <Image key="3" src="https://storage.thatalex.dev/content/zach-bryan.png" alt="Zach Bryan Cover" width="100" height="100" className="inline mr-2" />,
-        <Image key="4" src="https://storage.thatalex.dev/content/reputation.jpg" alt="Reputation Cover" width="100" height="100" className="inline mr-2" />
+        <Image key="4" src="https://storage.thatalex.dev/content/reputation.jpg" alt="Reputation Cover" width="100" height="100" className="inline mr-2" />,
+        <div key="5" className="float-right pt-8">
+            <MusicCard key="5" />
+        </div>
     ]
 }
