@@ -9,7 +9,7 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start -p 8099"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",
