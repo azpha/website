@@ -19,7 +19,7 @@ export default function MusicCard() {
                             />
                         </div>
                         <div className="flex flex-col ml-2 pt-1.5">
-                            <h1>{musicFetch.data.track.name}</h1>
+                            <h1 className="text-sm truncate">{musicFetch.data.track.name}</h1>
                             <p>{musicFetch.data.track.artist["#text"]}</p>
                         </div>
                     </div>
