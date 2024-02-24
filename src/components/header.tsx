@@ -10,7 +10,6 @@ export default function Header() {
                 <p className="text-2xl font-bold">alex</p>
                 <div className="inline-block pb-2">
                     <HeaderItem content="home" linkTo="/" />
-                    <HeaderItem content="reviews" linkTo="/reviews" />
                     <HeaderItem content="links" linkTo="/links" />
                     <HeaderItem content="blog" linkTo="/blog" />
                     { status === "authenticated" &&

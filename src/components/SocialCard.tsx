@@ -10,13 +10,15 @@ type SocialCardProps = {
 
 export default function SocialMediaCard(props: SocialCardProps) {
     return (
-        <div className="bg-gray-500 rounded-lg text-center max-w-sm p-4 mx-auto">
-            <Link href={props.url}>
-                {props.name}
-            </Link>
+        <div>
             {
-                props.showDelete && <Trash onClick={props.deleteCallback} color="plain" className="pl-2 hover:cursor-pointer" />
+                props.showDelete && <Trash onClick={props.deleteCallback} color="white" className="pl-2 hover:cursor-pointer" />
             }
+            <Link href={props.url} target="_blank">
+                <div className="bg-white py-5 w-full text-left">
+                    <h2 className="px-4 text-lg font-bold">{props.name}</h2>
+                </div>
+            </Link>
         </div>
     )
 }

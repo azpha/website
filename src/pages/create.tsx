@@ -78,25 +78,6 @@ export default function CreatePage() {
         <RootLayout protectedPage={true}>
             <div className="space-y-4">
                 <div className="w-96 p-2 mx-auto bg-gray-500 text-center">
-                    <h1 className="font-bold text-2xl">Create Review Post</h1>
-
-                    <div className="pt-2 pb-2">
-                        <hr />
-                    </div>
-
-                    <form onSubmit={onPostSubmit}>
-                        <InputOption inputName="title" label="Title" />
-                        <InputOption inputName="image" label="Image URL" />
-                        <InputOption inputName="type" label="Content Type (book, movie, tv, game)" />
-                        <InputOption inputName="review" label="Review" isTextArea={true} />
-
-                        <button className="bg-gray-800 text-white rounded-lg p-2" type="submit">Submit</button>
-                    </form>
-
-                    <p>{message}</p>
-                </div>
-
-                <div className="w-96 p-2 mx-auto bg-gray-500 text-center">
                     <h1 className="font-bold text-2xl">Create Link</h1>
 
                     <div className="pt-2 pb-2">
