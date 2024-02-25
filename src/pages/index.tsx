@@ -41,7 +41,7 @@ export default function Home() {
                             <p>C:\Users\CoolGuy>whoami</p>
                             <p>Full Name: <span className="font-bold">Alex Frantz</span></p>
                             <p>Based in: <span className="font-bold">Western New York</span></p>
-                            <p>Working at: <span className="font-bold hover:text-medal underline"><Link target="_blank" href="https://medal.tv">Medal.tv</Link></span></p>
+                            <p>Working at: <span className="font-bold hover:text-medal underline"><Link target="_blank" href="https://medal.tv">Medal.tv</Link></span> as a <span className="font-bold">QA Engineer</span></p>
                             <p>Skills: <span className="font-bold">Java(Type)Script</span>, <span className="font-bold">Python</span>, <span className="font-bold">Go</span></p>
                             <p>Learning: <span className="font-bold">Network Engineering</span>, <span className="font-bold">Game Dev</span>, <span className="font-bold">Frontend</span>, <span className="font-bold">Backend</span></p>
                             <p>Website: <span className="font-bold underline hover:text-gray-500"><Link target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">alexavfrantz.com</Link></span></p>
