@@ -5,7 +5,7 @@ export default function Footer() {
 
     return (
         <>
-            <div className="absolute bottom-0 left-0 w-full bg-zinc-900 p-2 text-white">
+            <div className="relative sm:w-1/2 m-auto mt-5 rounded-t-sm bg-zinc-900 p-2 text-white">
                 <p className="text-center">
                     <Link href="mailto:alex@alexavfrantz.com" className="hover:text-gray-500 hover:underline hover:cursor-pointer">
                         alex@alexavfrantz.com

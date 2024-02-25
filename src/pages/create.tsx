@@ -14,37 +14,7 @@ export default function CreatePage() {
     const [message, setMessage] = useState<string | null>(null)
 
     // trpc hooks
-    const postMutation = api.post.create.useMutation()
     const linksMutation = api.links.create.useMutation()
-
-    function sanitizeTitleForLink(title: string) {
-        return title.replaceAll(" ", "-").toLowerCase()
-    }
-
-    function onPostSubmit(event: FormEvent<HTMLFormElement>) {
-        const form = event.target as HTMLFormElement
-
-        const titleElement = form.elements.namedItem('title') as HTMLInputElement;
-        const reviewElement = form.elements.namedItem('review') as HTMLInputElement;
-        const imageElement = form.elements.namedItem('image') as HTMLInputElement;
-        const typeElement = form.elements.namedItem('type') as HTMLInputElement;
-
-        if (!titleElement.value || !reviewElement.value || !imageElement.value || !typeElement.value) {
-            event.preventDefault();
-
-            setMessage("One or more values were missing!")
-            setTimeout(() => setMessage(null), 5000)
-        } else {
-            const object = {
-                name: sanitizeTitleForLink(titleElement.value),
-                reviewContents: reviewElement.value,
-                image: imageElement.value,
-                type: typeElement.value
-            }
-    
-            postMutation.mutate(object)
-        }
-    }
 
     function onLinkSubmit(event: FormEvent<HTMLFormElement>) {
         const form = event.target as HTMLFormElement

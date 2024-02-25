@@ -22,8 +22,10 @@ export default function RootLayout({ children, protectedPage }: LayoutProps) {
         if (status === "loading") {
             return (
                 <main className="min-h-screen bg-black">
-                    <Head />
-                    <p>Loading...</p>
+                    <div className="w-1/2 mx-auto">
+                        <Head />
+                        <p>Loading...</p>
+                    </div>
                 </main>
             )
         }
@@ -35,19 +37,23 @@ export default function RootLayout({ children, protectedPage }: LayoutProps) {
         } else {
             return (
                 <main className="min-h-screen bg-black">
-                    <Head />
-                    <Header />
-                    {children}
-                    <Footer />
+                    <div className="w-1/2 mx-auto">
+                        <Head />
+                        <Header />
+                        {children}
+                        <Footer />
+                    </div>
                 </main>
             )
         }
     } else {
         return (
             <main className="min-h-screen bg-black">
-                <Head />
-                <Header />
-                {children}
+                <div className="w-1/2 mx-auto">
+                    <Head />
+                    <Header />
+                    {children}
+                </div>
                 <Footer />
             </main>
         )

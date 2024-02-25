@@ -1,4 +1,5 @@
 import SocialCard from '@/components/SocialCard'
+import Head from '@/components/Head';
 import { api } from "@/utils/api";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -40,6 +41,7 @@ export default function Links() {
 
     return (
         <main className="bg-black flex flex-col justify-center items-center min-h-screen">
+            <Head />
             <Link href="/">
                 <h1 className="text-white text-sm underline hover:text-gray-500 pb-2">&lt;- Back Home</h1>
             </Link>

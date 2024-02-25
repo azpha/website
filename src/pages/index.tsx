@@ -1,54 +1,95 @@
 import RootLayout from "@/components/RootLayout";
-import Dropdown from "@/components/Dropdown";
+import Link from 'next/link';
 import ProjectCard from "@/components/ProjectsCard";
-import Image from 'next/image';
-import MusicCard from '@/components/MusicCard'
+import { Cli } from "grommet-icons";
 
 export default function Home() {
     return (
         <RootLayout>
-            <div className="w-1/2 mx-auto text-white">
-                <Dropdown content={Music()} name="Music" />
-                <Dropdown content={Games()} name="Games" />
-                <Dropdown content={Projects()} name="Projects" />
+            <div className="text-white">
+                <div className="text-center">
+                    <h1 className="text-4xl font-bold">Alex Frantz</h1>
+                    <p>QA Engineer, Zach Bryan Enthusiast</p>
+                </div>
+
+                <hr className="h-px my-2 bg-gray-200 border-0 w-1/2 mx-auto dark:bg-gray-700" />
+
+                <div className="my-4">
+                    <div className="bg-terminalback lg:max-w-xl sm:max-w-full m-auto">
+                        <div className="bg-terminalbar">
+                            <div className="pt-2 pl-2">
+                                <div className="bg-terminalback w-60 rounded-t-md">
+                                    <p className="p-2 pl-4 inline-block">
+                                        <Cli className="pr-2" />
+                                        <p className="inline">
+                                            Command Prompt
+                                        </p>
+                                        <p className="float-right ml-6">
+                                            <Link target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                                                X
+                                            </Link>
+                                        </p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        {/* content of cmd */}
+                        <div className="p-2 font-mono">
+                            <p>Michaelsoft Binbows [Version 10.0.23420.6969]</p>
+                            <p>(c) Pixelpeek Development. No Rights Reserved.</p>
+                            <br />
+                            <p>C:\Users\CoolGuy>whoami</p>
+                            <p>Full Name: <span className="font-bold">Alex Frantz</span></p>
+                            <p>Based in: <span className="font-bold">Western New York</span></p>
+                            <p>Working at: <span className="font-bold hover:text-medal underline"><Link target="_blank" href="https://medal.tv">Medal.tv</Link></span></p>
+                            <p>Skills: <span className="font-bold">Java(Type)Script</span>, <span className="font-bold">Python</span>, <span className="font-bold">Go</span></p>
+                            <p>Learning: <span className="font-bold">Network Engineering</span>, <span className="font-bold">Game Dev</span>, <span className="font-bold">Frontend</span>, <span className="font-bold">Backend</span></p>
+                            <p>Website: <span className="font-bold underline hover:text-gray-500"><Link target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">alexavfrantz.com</Link></span></p>
+                            <br />
+                            <p>C:\Users\CoolGuy></p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr className="h-px my-2 bg-gray-200 border-0 w-1/2 mx-auto dark:bg-gray-700" />
+                
+                <div>
+                    <h1 className="text-center text-2xl font-bold">Projects</h1>
+                    <div className="mt-2 flex flex-col justify-center items-center space-y-2">
+                        <ProjectCard
+                            name="SplitStat"
+                            description="SplitStat was a Discord bot that allowed you to see your stats & other player stats from the Splitgate game. It would also allow you to see the results of an in-game match or what matches a player had played recently."
+                            urlTo="https://github.com/azpha/splitstat"
+                            technologies={
+                                [
+                                    "JavaScript",
+                                    "Server Management"
+                                ]
+                            }
+                        />
+                        <ProjectCard
+                            name="Rconify"
+                            description="Rconify is a JavaScript package that allows you to connect & issue commands to a Valve-compliant RCON game server. This is useful for firing commands to games like Minecraft, Project Zomboid and more."
+                            urlTo="https://github.com/azpha/rconify"
+                            technologies={
+                                [
+                                    "TypeScript",
+                                ]
+                            }
+                        />
+                        <ProjectCard
+                            name="MCSRVSTAT Wrapper"
+                            description="MCSRVSTAT is a Minecraft server status website that provides an API to check the status/retrieve information about a Minecraft server. This package is a wrapper of that API, easily allowing you to fetch data from your NodeJS code."
+                            urlTo="https://github.com/azpha/mcsrvstat-js"
+                            technologies={
+                                [
+                                    "JavaScript",
+                                ]
+                            }
+                        />
+                    </div>
+                </div>
             </div>
         </RootLayout>
     )
-} 
-
-function Projects() {
-    return [
-        <ProjectCard 
-            key="1"
-            name="Splitstat" 
-            description="This was a Discord bot that allowed you to see your statistics from the SplitStat game" 
-            urlTo="https://github.com/azpha/splitstat"
-        />,
-        <ProjectCard 
-            key="2"
-            name="Rconify" 
-            description="A simple tool to connect to RCON services that comply with Valve's RCON specifications" 
-            urlTo="https://github.com/azpha/rconify" 
-        />
-    ]
-}
-
-function Games() {
-    return [
-        <Image key="1" src="https://storage.thatalex.dev/content/firefly-logo-new.png" alt="TLOU Firefly" width="100" height="100" className="inline mr-2" />,
-        <Image key="2" src="https://storage.thatalex.dev/content/spiderman.png" alt="Spiderman" width="100" height="100" className="inline mr-2" />,
-        <Image key="3" src="https://storage.thatalex.dev/content/rdr2.png" alt="Red Dead Redemption 2" width="100" height="100" className="inline mr-2" />
-    ]
-}
-
-function Music() {
-    return [
-        <Image key="1" src="https://storage.thatalex.dev/content/5sos.png" alt="5 Seconds of Summer Cover" width="100" height="100" className="inline mr-2" />,
-        <Image key="2" src="https://storage.thatalex.dev/content/tlou-covers-and-rarities.jpg" alt="TLOU Covers and Rarities Cover" width="100" height="100" className="inline mr-2" />,
-        <Image key="3" src="https://storage.thatalex.dev/content/zach-bryan.png" alt="Zach Bryan Cover" width="100" height="100" className="inline mr-2" />,
-        <Image key="4" src="https://storage.thatalex.dev/content/reputation.jpg" alt="Reputation Cover" width="100" height="100" className="inline mr-2" />,
-        <div key="5" className="float-right pt-8">
-            <MusicCard key="5" />
-        </div>
-    ]
 }

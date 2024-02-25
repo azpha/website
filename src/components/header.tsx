@@ -6,8 +6,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="text-white max-w-sm pt-2 pb-4 mx-auto">
-                <p className="text-2xl font-bold">alex</p>
+            <div className="text-white max-w-sm mx-auto pt-2 pb-4">
                 <div className="inline-block pb-2">
                     <HeaderItem content="home" linkTo="/" />
                     <HeaderItem content="links" linkTo="/links" />
