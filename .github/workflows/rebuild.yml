@@ -17,6 +17,6 @@ jobs:
       run: |
         curl -X POST \
         -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${{ secrets.PTERO_SECRET }}" \
-        -d '{"signal": "restart"}' \
-        https://panel.thatalex.dev/api/client/servers/457f4d77/power
+        -H "Authorization: Bearer ${{ secrets.BUILD:SE }}" \
+        -d '{"action": "restart", "script":"website"}' \
+        https://build.thatalex.dev/power/status?secret=${{ secrets.BUILD_SERVER }}
