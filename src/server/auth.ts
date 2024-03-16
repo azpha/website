@@ -45,6 +45,9 @@ export const authOptions: NextAuthOptions = {
         id: user.id,
       },
     }),
+    signIn: ({ user, account, profile, email, credentials }) => {
+      return account?.providerAccountId === '288101780074528768'
+    }
   },
   adapter: PrismaAdapter(db),
   providers: [
