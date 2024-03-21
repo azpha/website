@@ -19,7 +19,7 @@ export default function Home() {
                         <div className="bg-terminalbar">
                             <div className="pt-2 pl-2">
                                 <div className="bg-terminalback w-60 rounded-t-md">
-                                    <p className="p-2 pl-4 inline-block">
+                                    <div className="p-2 pl-4 inline-block">
                                         <Cli className="pr-2" />
                                         <p className="inline">
                                             Command Prompt
@@ -29,7 +29,7 @@ export default function Home() {
                                                 X
                                             </Link>
                                         </p>
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
