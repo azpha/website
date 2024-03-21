@@ -8,7 +8,7 @@ type GenericItemType = {
     name: string,
     image: string,
     tagline: string,
-    id: string
+    id: number
 }
 
 export default function Blog() {

@@ -28,7 +28,7 @@ export const blogRouter = createTRPCRouter({
           }),
     delete: protectedProcedure
         .input(
-          z.string().min(1)
+          z.number().min(1)
         )
         .mutation(async ({ctx, input}) => {
           return ctx.db.blogPost.delete({
@@ -38,7 +38,9 @@ export const blogRouter = createTRPCRouter({
           })
         }),
     getOne: publicProcedure
-      .input(String)
+      .input(
+        z.number()
+      )
       .query(({ ctx, input }) => {
         return ctx.db.blogPost.findFirst({
           where: { id: input },

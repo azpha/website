@@ -15,7 +15,7 @@ import { Trash } from 'grommet-icons';
 
 export default function BlogPage() {
     const router = useRouter()
-    const id = router.query.id as string
+    const id = Number(router.query.id)
     const { status } = useSession()
 
     // trpc stuff

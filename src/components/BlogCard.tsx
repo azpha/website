@@ -5,7 +5,7 @@ type BlogCardProps = {
     image: string,
     name: string,
     tagline: string,
-    id: string
+    id: number
 }
 export default function BlogCard(props: BlogCardProps) {
     return (
