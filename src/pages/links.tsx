@@ -30,7 +30,7 @@ export default function Links() {
 
                 <div className="space-y-2">
                     {
-                        linkData ?
+                        linkData && linkData.length > 0 ?
                             linkData.sort((a,b) => {
                                 if (a.orderNumber < b.orderNumber) {
                                     return -1
