@@ -3,22 +3,25 @@ import { Trash } from "grommet-icons"
 
 type SocialCardProps = {
     name: string,
+    id: number,
     url: string,
-    showDelete: boolean,
+    isAuthenticated: boolean,
     deleteCallback: () => void
 }
 
 export default function SocialMediaCard(props: SocialCardProps) {
     return (
-        <div>
-            {
-                props.showDelete && <Trash onClick={props.deleteCallback} color="white" className="pl-2 hover:cursor-pointer" />
-            }
+        <div className="bg-white p-5 w-full text-left">
             <Link href={props.url} target="_blank">
-                <div className="bg-white py-5 w-full text-left">
-                    <h2 className="px-4 text-lg font-bold">{props.name}</h2>
-                </div>
+                <h1 className="inline font-bold">{props.name}</h1>
             </Link>
+            
+            { props.isAuthenticated && (
+                <>
+                    <Trash onClick={props.deleteCallback} color="black" className="float-right inline hover:cursor-pointer" />
+                    <p className="float-right opacity-50 font-bold inline mr-2">ID: {props.id}</p>
+                </>
+            )}
         </div>
     )
 }

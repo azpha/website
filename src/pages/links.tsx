@@ -2,42 +2,15 @@ import SocialCard from '@/components/SocialCard'
 import Head from '@/components/Head';
 import { api } from "@/utils/api";
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, {useState, useEffect} from 'react';
 
 export default function Links() {
-    const router = useRouter();
     const {status} = useSession();
-    const [links, setLinks] = useState<React.JSX.Element[] | null>(null);
     
     // trpc hooks
     const { data: linkData } = api.links.getAll.useQuery()
     const deleteMutation = api.links.delete.useMutation()
-
-    useEffect(() => {
-        if (!links && linkData) {
-            const allLinks = [];
-
-            for (const link of linkData) {
-                allLinks.push(
-                    <SocialCard 
-                        name={link.name}
-                        key={link.id}
-                        url={link.url}
-                        showDelete={status == "authenticated"}
-                        deleteCallback={() => {
-                            deleteMutation.mutate(link.id);
-                            router.reload()
-                        }}
-                    />
-                )
-            }
-
-            setLinks(allLinks)
-        }
-    })
 
     return (
         <main className="bg-black flex flex-col justify-center items-center min-h-screen">
@@ -57,7 +30,29 @@ export default function Links() {
 
                 <div className="space-y-2">
                     {
-                        links && links.length > 0 ? links : <h1 className="text-center text-white font-bold">Uh oh, there are no links here!</h1>
+                        linkData ?
+                            linkData.sort((a,b) => {
+                                if (a.orderNumber < b.orderNumber) {
+                                    return -1
+                                } else if (a.orderNumber > b.orderNumber) {
+                                    return 1
+                                }
+                        
+                                return 0
+                            }).map((v,k) => {
+                                return <SocialCard 
+                                    name={v.name}
+                                    key={k}
+                                    id={v.id}
+                                    url={v.url}
+                                    deleteCallback={() => {
+                                        deleteMutation.mutate(v.id);
+                                    }}
+                                    isAuthenticated={ status === "authenticated" }
+                                />
+                            })
+                        :
+                            <h1 className="text-center text-white font-bold">Uh oh, there are no links here!</h1>
                     }
                 </div>
             </div>
