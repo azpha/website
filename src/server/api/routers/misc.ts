@@ -10,30 +10,34 @@ type ImageListType = {
     "#text": string
 }
 
-type LastTrackType = {
+type TrackResponseType = {
     status: number,
-    track: {
-        "@attr": object,
-        "album": {
-            "mbid": string,
-            "#text": string
-        },
-        "artist": {
-            "mbid": string,
-            "#text": string,
-        },
-        "image": ImageListType[],
+    track: LastTrackType[]
+}
+
+type LastTrackType = {
+    "@attr": {
+        "nowplaying": string
+    },
+    "album": {
         "mbid": string,
-        "name": string,
-        "streamable": number,
-        "url": string
-    }
+        "#text": string
+    },
+    "artist": {
+        "mbid": string,
+        "#text": string,
+    },
+    "image": ImageListType[],
+    "mbid": string,
+    "name": string,
+    "streamable": number,
+    "url": string
 }
 
 export const miscRouter = createTRPCRouter({
     song: publicProcedure
     .query(async () => {
-        const response = await axios.get<LastTrackType>("https://api.thatalex.dev/v3/music/last-track")
+        const response = await axios.get<TrackResponseType>("https://api.thatalex.dev/v3/music/last-track")
         return response.data
     }),
 })

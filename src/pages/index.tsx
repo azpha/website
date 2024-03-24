@@ -1,4 +1,5 @@
 import RootLayout from "@/components/RootLayout";
+import MusicCard from "@/components/MusicCard";
 import Link from 'next/link';
 import { Cli } from "grommet-icons";
 
@@ -51,6 +52,10 @@ export default function Home() {
                 </div>
 
                 <hr className="h-px my-2 bg-gray-200 border-0 w-1/2 mx-auto dark:bg-gray-700" />
+
+                <div className="my-4">
+                    <MusicCard />
+                </div>
             </div>
         </RootLayout>
     )

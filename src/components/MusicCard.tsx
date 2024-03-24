@@ -3,28 +3,47 @@ import Link from "next/link";
 import { api } from "@/utils/api";
 
 export default function MusicCard() {
-    const musicFetch = api.misc.song.useQuery()
+    const {data: musicData, fetchStatus} = api.misc.song.useQuery()
 
-    if (musicFetch.data) {
-        return (
-            <Link href="https://last.fm/user/lulawex" target="_blank">
-                <div className="bg-white max-w-xs text-black rounded-sm leading-tight">
-                    <div className="flex items-start p-2">
-                        <div className="flex-none">
-                            <Image 
-                                src={musicFetch.data.track.image[3]?.["#text"] ?? ""}
-                                alt="Cover Art" 
-                                width="50"
-                                height="50"
-                            />
-                        </div>
-                        <div className="flex flex-col ml-2 pt-1.5">
-                            <h1 className="text-sm truncate">{musicFetch.data.track.name}</h1>
-                            <p>{musicFetch.data.track.artist["#text"]}</p>
-                        </div>
-                    </div>
-                </div>
+    return (
+        <div className="bg-white text-black max-w-fit mx-auto p-4">
+            <h1 className="text-2xl font-bold inline">Listening To</h1>
+
+            {/* link to lastfm */}
+            <Link 
+                href="https://last.fm/user/lulawex"
+                target="_blank"
+                className="opacity-75 underline font-bold text-sm ml-2 hover:text-zinc-600"
+            >
+                Powered by Last.fm
             </Link>
-        )
-    }
+
+            {
+                fetchStatus !== "fetching" ?
+                    <div className="space-y-2">
+                        {
+                            musicData?.track.map((v,k) => {
+                                return <div key={k}>
+                                    <Image 
+                                        src={v.image[0]?.["#text"] ?? "https://storage.thatalex.dev/content/pfp.jpg"}
+                                        width="50"
+                                        height="50"
+                                        alt={`${v.name} Cover Art`}
+                                        className="inline mr-2"
+                                    />
+                                    <div className="inline-block align-middle">
+                                        <Link href={v.url} target="_blank">
+                                            <h1 className="font-bold w-52 truncate hover:underline">{v.name}</h1>
+                                        </Link>
+                                        <p className="opacity-75">{v.artist["#text"]}</p>
+                                    </div>
+                                </div>
+                            })
+                        }
+                    </div>
+                :
+                    <p className="font-bold">Hold tight, fetching..</p>
+            }
+        </div>
+    )
 }
