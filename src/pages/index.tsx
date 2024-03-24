@@ -1,6 +1,5 @@
 import RootLayout from "@/components/RootLayout";
 import Link from 'next/link';
-import ProjectCard from "@/components/ProjectsCard";
 import { Cli } from "grommet-icons";
 
 export default function Home() {
@@ -15,7 +14,7 @@ export default function Home() {
                 <hr className="h-px my-2 bg-gray-200 border-0 w-1/2 mx-auto dark:bg-gray-700" />
 
                 <div className="my-4">
-                    <div className="bg-terminalback lg:max-w-xl sm:max-w-full m-auto">
+                    <div className="bg-terminalback lg:max-w-xl md:max-w-xl sm:max-w-full m-auto">
                         <div className="bg-terminalbar">
                             <div className="pt-2 pl-2">
                                 <div className="bg-terminalback w-60 rounded-t-md">
@@ -52,43 +51,6 @@ export default function Home() {
                 </div>
 
                 <hr className="h-px my-2 bg-gray-200 border-0 w-1/2 mx-auto dark:bg-gray-700" />
-                
-                <div>
-                    <h1 className="text-center text-2xl font-bold">Projects</h1>
-                    <div className="mt-2 flex flex-col justify-center items-center space-y-2">
-                        <ProjectCard
-                            name="SplitStat"
-                            description="SplitStat was a Discord bot that allowed you to see your stats & other player stats from the Splitgate game. It would also allow you to see the results of an in-game match or what matches a player had played recently."
-                            urlTo="https://github.com/azpha/splitstat"
-                            technologies={
-                                [
-                                    "JavaScript",
-                                    "Server Management"
-                                ]
-                            }
-                        />
-                        <ProjectCard
-                            name="Rconify"
-                            description="Rconify is a JavaScript package that allows you to connect & issue commands to a Valve-compliant RCON game server. This is useful for firing commands to games like Minecraft, Project Zomboid and more."
-                            urlTo="https://github.com/azpha/rconify"
-                            technologies={
-                                [
-                                    "TypeScript",
-                                ]
-                            }
-                        />
-                        <ProjectCard
-                            name="MCSRVSTAT Wrapper"
-                            description="MCSRVSTAT is a Minecraft server status website that provides an API to check the status/retrieve information about a Minecraft server. This package is a wrapper of that API, easily allowing you to fetch data from your NodeJS code."
-                            urlTo="https://github.com/azpha/mcsrvstat-js"
-                            technologies={
-                                [
-                                    "JavaScript",
-                                ]
-                            }
-                        />
-                    </div>
-                </div>
             </div>
         </RootLayout>
     )

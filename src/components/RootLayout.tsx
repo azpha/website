@@ -28,34 +28,24 @@ export default function RootLayout({ children, protectedPage }: LayoutProps) {
                     </div>
                 </main>
             )
-        }
-
-        if (status === "unauthenticated") {
+        } else if (status === "unauthenticated") {
             Router.replace("/").catch(() => {
                 console.error("Failed to reroute user!")
             })
-        } else {
             return (
-                <main className="min-h-screen bg-black">
-                    <div className="w-1/2 mx-auto">
-                        <Head />
-                        <Header />
-                        {children}
-                        <Footer />
-                    </div>
-                </main>
+                <></>
             )
         }
-    } else {
-        return (
-            <main className="min-h-screen bg-black">
-                <div className="w-1/2 mx-auto">
-                    <Head />
-                    <Header />
-                    {children}
-                </div>
-                <Footer />
-            </main>
-        )
     }
+
+    return (
+        <main className="min-h-screen bg-black">
+            <div className="lg:w-1/2 sm:w-full mx-auto">
+                <Head />
+                <Header />
+                {children}
+            </div>
+            <Footer />
+        </main>
+    )
 }
