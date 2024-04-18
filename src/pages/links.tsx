@@ -20,16 +20,6 @@ export default function LinksPage() {
                             <h1 className="text-2xl mx-32">Mastodon</h1>
                         </div>
                     </Link>
-                    <Link href="https://linkedin.com/in/thatalex" target="_blank">
-                        <div className="hover:bg-green-500 hover:text-black">
-                            <h1 className="text-2xl mx-32">LinkedIn</h1>
-                        </div>
-                    </Link>
-                    <Link href="https://medal.tv/users/215577" target="_blank">
-                        <div className="hover:bg-green-500 hover:text-black">
-                            <h1 className="text-2xl mx-32">Medal.tv</h1>
-                        </div>
-                    </Link>
                 </div>
             </div>
             <Footer />
