@@ -13,11 +13,6 @@ export default function ProjectsPage() {
                         <h1 className=" text-2xl mx-32">SplitStat</h1>
                     </div>
                 </Link>
-                <Link href="https://github.com/azpha/medaltv-wrapper" target="_blank">
-                    <div className="hover:bg-green-500 hover:text-black text-green-500">
-                        <h1 className=" text-2xl mx-32">Medal.tv Wrapper</h1>
-                    </div>
-                </Link>
                 <Link href="https://github.com/azpha/mcsrvstat-js" target="_blank">
                     <div className="hover:bg-green-500 hover:text-black text-green-500">
                         <h1 className=" text-2xl mx-32">MCSRVSTAT Wrapper</h1>
