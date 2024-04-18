@@ -1,6 +1,5 @@
 import { postRouter } from "@/server/api/routers/post";
 import { linksRouter } from "./routers/links";
-import { socialRouter } from "./routers/social";
 import { blogRouter } from "./routers/blog";
 import { createTRPCRouter } from "@/server/api/trpc";
 
@@ -12,7 +11,6 @@ import { createTRPCRouter } from "@/server/api/trpc";
 export const appRouter = createTRPCRouter({
   post: postRouter,
   links: linksRouter,
-  social: socialRouter,
   blog: blogRouter
 });
 
