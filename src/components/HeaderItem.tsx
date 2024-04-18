@@ -1,30 +1,29 @@
 import Link from "next/link"
-import type { MouseEventHandler } from "react"
 
 type HeaderItemProps = {
     content: string,
     linkTo: string,
-    onClick?: MouseEventHandler<HTMLButtonElement>, // don't even wanna bother
     newWindow?: boolean
 }
-export default function HeaderItem(props: HeaderItemProps) {
-    if (props.onClick) {
-        return (
-            <>
-                <button className="inline hover:text-gray-500 hover:underline pr-2 "
-                    onClick={props.onClick}
-                >
-                    {props.content}
-                </button>
-            </>
-        )
-    } else {
-        return (
-            <p className="inline pr-2 hover:text-gray-500 hover:underline">
-                <Link href={props.linkTo} target={props.newWindow ? "_blank" : "_self"}>
-                    {props.content}
-                </Link>
-            </p>
-        )
-    }
+export default function HeaderItem({
+    content,
+    linkTo,
+    newWindow
+}: HeaderItemProps) {
+    return (
+        <Link
+            className="inline text-green-500 hover:underline font-bold text-3xl pr-2" 
+            href={linkTo} 
+            target={newWindow ? "_blank" : "_self"}
+        >
+            {content}
+        </Link>
+        // <>
+        //     <button className="inline text-green-500 hover:underline font-bold text-3xl pr-2"
+        //         onClick={props.onClick}
+        //     >
+        //         {props.content}
+        //     </button>
+        // </>
+    )
 }

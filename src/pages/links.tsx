@@ -1,61 +1,38 @@
-import SocialCard from '@/components/SocialCard'
-import Head from '@/components/Head';
-import { api } from "@/utils/api";
-import { useSession } from 'next-auth/react';
-import Image from 'next/image';
-import Link from 'next/link';
+import RootLayout from "@/components/RootLayout";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import Link from "next/link";
 
-export default function Links() {
-    const {status} = useSession();
-    
-    // trpc hooks
-    const { data: linkData } = api.links.getAll.useQuery()
-    const deleteMutation = api.links.delete.useMutation()
-
+export default function LinksPage() {
     return (
-        <main className="bg-black flex flex-col justify-center items-center min-h-screen">
-            <Head />
-            <Link href="/">
-                <h1 className="text-white text-sm underline hover:text-gray-500 pb-2">&lt;- Back Home</h1>
-            </Link>
-            <div className="bg-zinc-900 p-10 rounded-sm">
-                <div className="pb-2 flex flex-col justify-center items-center">
-                    <Image className="rounded-lg" width="90" height="90" alt="Profile Picture" src="https://storage.thatalex.dev/content/pfp.png" />
-                    <div className="text-white text-center pt-2">
-                        <h1>Alex</h1>
-                        <p>I&apos;m Alex, a QA Engineer by day and developer by night</p>
-                        <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
-                    </div>
-                </div>
-
+        <RootLayout>
+            <Header isNotHomePage={true} />
+            <div className="text-green-500 text-center">
+                <h1 className="font-bold text-3xl">My Links!</h1>
                 <div className="space-y-2">
-                    {
-                        linkData && linkData.length > 0 ?
-                            linkData.sort((a,b) => {
-                                if (a.orderNumber < b.orderNumber) {
-                                    return -1
-                                } else if (a.orderNumber > b.orderNumber) {
-                                    return 1
-                                }
-                        
-                                return 0
-                            }).map((v,k) => {
-                                return <SocialCard 
-                                    name={v.name}
-                                    key={k}
-                                    id={v.id}
-                                    url={v.url}
-                                    deleteCallback={() => {
-                                        deleteMutation.mutate(v.id);
-                                    }}
-                                    isAuthenticated={ status === "authenticated" }
-                                />
-                            })
-                        :
-                            <h1 className="text-center text-white font-bold">Uh oh, there are no links here!</h1>
-                    }
+                    <Link href="https://twitter.com/avvex__" target="_blank">
+                        <div className="hover:bg-green-500 hover:text-black">
+                            <h1 className="text-2xl mx-32">Twitter</h1>
+                        </div>
+                    </Link>
+                    <Link href="https://mast.thatalex.dev/@alex" target="_blank">
+                        <div className="hover:bg-green-500 hover:text-black">
+                            <h1 className="text-2xl mx-32">Mastodon</h1>
+                        </div>
+                    </Link>
+                    <Link href="https://linkedin.com/in/thatalex" target="_blank">
+                        <div className="hover:bg-green-500 hover:text-black">
+                            <h1 className="text-2xl mx-32">LinkedIn</h1>
+                        </div>
+                    </Link>
+                    <Link href="https://medal.tv/users/215577" target="_blank">
+                        <div className="hover:bg-green-500 hover:text-black">
+                            <h1 className="text-2xl mx-32">Medal.tv</h1>
+                        </div>
+                    </Link>
                 </div>
             </div>
-        </main>
+            <Footer />
+        </RootLayout>
     )
 }
