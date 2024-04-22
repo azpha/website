@@ -7,11 +7,12 @@ import {useState} from 'react';
 // icons
 import {
     Twitter,
-    MailOption
+    MailOption,
+    AddCircle
 } from 'grommet-icons'
 
 export default function LinksPage() {
-    const [icon, setIcon] = useState<Element | null>();
+    const [icon, setIcon] = useState(<AddCircle size="large" />);
 
     return (
         <RootLayout>
@@ -26,7 +27,7 @@ export default function LinksPage() {
                             setIcon(<Twitter size="large" />)
                         }}
                         onMouseLeave={() => {
-                            setIcon(null)
+                            setIcon(<AddCircle size="large" />)
                         }}
                         >
                         <div className="hover:bg-green-500 hover:text-black">
@@ -40,7 +41,7 @@ export default function LinksPage() {
                             setIcon(<MailOption size="large" />)
                         }}
                         onMouseLeave={() => {
-                            setIcon(null)
+                            setIcon(<AddCircle size="large" />)
                         }}
                     >
                         <div className="hover:bg-green-500 hover:text-black">
