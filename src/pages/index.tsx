@@ -71,10 +71,10 @@ export default function Home() {
     return (
         <RootLayout>
             {/* "logo", hidden after 4 seconds */}
-            <h1 className="text-green-500 text-9xl font-bold italic" id="pipboy">Pip-Boy</h1>
+            <h1 className="text-green-500 text-9xl font-bold italic select-none" id="pipboy">Pip-Boy</h1>
 
             {/* text wall, hidden until pastLogo */}
-            <p className="text-green-500 text-2xl max-w-10 flex-shrink-0" id="textwall">{text}</p>
+            <p className="text-green-500 text-2xl max-w-10 flex-shrink-0 select-none" id="textwall">{text}</p>
 
             {/* and the content :) */}
             <div className="text-green-500 flicker max-w-1/2 hidden" id="mainelement">
