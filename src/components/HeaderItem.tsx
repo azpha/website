@@ -12,7 +12,7 @@ export default function HeaderItem({
 }: HeaderItemProps) {
     return (
         <Link
-            className="inline text-green-500 hover:underline font-bold text-3xl pr-2" 
+            className="inline text-green-500 hover:underline font-bold text-3xl text-center" 
             href={linkTo} 
             target={newWindow ? "_blank" : "_self"}
         >

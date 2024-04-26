@@ -1,12 +1,9 @@
 import RootLayout from "@/components/RootLayout";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 import Link from "next/link";
 
 export default function ProjectsPage() {
     return (
-        <RootLayout>
-            <Header isNotHomePage={true} />
+        <RootLayout showHeader={true} isHomePage={false}>
             <div className="space-y-2 text-center">
                 <Link href="https://github.com/azpha/splitstat" target="_blank">
                     <div className="hover:bg-green-500 hover:text-black text-green-500">
@@ -28,7 +25,6 @@ export default function ProjectsPage() {
                         <h1 className=" text-2xl mx-32">Watchlist</h1>
                     </div>
                 </Link>
-                <Footer />
             </div>
         </RootLayout>
     )

@@ -1,11 +1,10 @@
 import RootLayout from '@/components/RootLayout';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
     const [doAnimation, setDoAnimation] = useState<boolean>(false);
     const [pastLogo, setPastLogo] = useState<boolean>(false);
+    const [pastAnim, setPastAnim] = useState<boolean>(false);
     const [text, setText] = useState<string[]>([]);
 
     const generateRandomTextString = () => {
@@ -22,6 +21,7 @@ export default function Home() {
 
     useEffect(() => {
         if (location.href.includes("?noAnimation")) {
+            setPastAnim(true)
             const logoElement = document.getElementById("pipboy");
             const textElement = document.getElementById("textwall");
             const mainElement = document.getElementById("mainelement");
@@ -61,6 +61,7 @@ export default function Home() {
             setTimeout(() => {
                 clearInterval(interval)
                 if (textElement && mainElement) {
+                    setPastAnim(true)
                     textElement.style.display = "none"
                     mainElement.style.display = "block"
                 }
@@ -69,7 +70,7 @@ export default function Home() {
     }, [pastLogo, doAnimation])
 
     return (
-        <RootLayout>
+        <RootLayout isHomePage={true} showHeader={pastAnim}>
             {/* "logo", hidden after 4 seconds */}
             <h1 className="text-green-500 text-9xl font-bold italic select-none" id="pipboy">Pip-Boy</h1>
 
@@ -78,14 +79,12 @@ export default function Home() {
 
             {/* and the content :) */}
             <div className="text-green-500 flicker max-w-1/2 hidden" id="mainelement">
-                <Header isNotHomePage={false} />
-                <div className="text-left">
+                <div className="text-center">
                     <p className="text-md">
                         <span className="font-bold text-2xl">Hello traveller!</span>
                     </p>
                     <p>Welcome to my website! Feel free to explore & learn more about me :)</p>
                 </div>
-                <Footer />
             </div>
         </RootLayout>
     )

@@ -1,6 +1,4 @@
 import RootLayout from "@/components/RootLayout";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 import { api } from "@/utils/api";
 
 // next components
@@ -11,23 +9,29 @@ export default function MusicPage() {
     const { data: musicData, fetchStatus} = api.misc.song.useQuery();
 
     return (
-        <RootLayout>
-            <Header isNotHomePage={true} />
+        <RootLayout showHeader={true} isHomePage={false}>
             <div className="text-green-500 flicker max-w-1/2">
-                <div className="float-left">
+                <div className="float-left mr-10">
                     {
                         fetchStatus === "idle" ?
                             musicData?.data.tracks.map((v,k) => {
                                 return <div key={k}>
                                     <div className={`text-lg ${k === 0 ? "bg-green-500 text-black" : "hover:bg-green-500 hover:text-black"}`}>
                                         <Link href={v.url} target="_blank">
-                                            <h1 className="ml-2 mr-36 truncate max-w-10">{k === 0 && "■"} {v.name}</h1>
+                                            <h1 className="ml-2 mr-10 truncate max-w-10">{k === 0 && "■"} {v.name}</h1>
                                         </Link>
                                     </div>
                                 </div>
                             })
                         : <h1 className="font-bold text-green-500">Fetching..</h1>
                     }
+                    <Link
+                        href="https://last.fm/user/lulawex"
+                        target="_blank"
+                        className="hover:underline"
+                    >
+                        <p>Powered by Last.fm</p>
+                    </Link>
                 </div>
                 <div className="float-right">
                     {
@@ -41,7 +45,6 @@ export default function MusicPage() {
                     }
                 </div>
             </div>
-            <Footer />
         </RootLayout>
     )
 }

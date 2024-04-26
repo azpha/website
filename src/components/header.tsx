@@ -1,18 +1,18 @@
 import HeaderItem from "./HeaderItem";
 
 type HeaderProps = {
-    isNotHomePage: boolean
+    isHomePage: boolean
 }
 
 export default function Header({
-    isNotHomePage = false
+    isHomePage = false
 }: HeaderProps) {
     return (
         <>
-            <div className="text-white max-w-md mx-auto pt-2 pb-4 text-center">
-                <div className="inline-block pb-2 space-x-6">
+            <div className="text-white mx-auto my-4 lg:max-w-md">
+                <div className="inline-block pb-2 space-x-2">
                     <HeaderItem content="HOME" linkTo={
-                        isNotHomePage ? "/?noAnimation"
+                        !isHomePage ? "/?noAnimation"
                         : "/"
                     } />
                     <HeaderItem content="LINKS" linkTo="/links" />
