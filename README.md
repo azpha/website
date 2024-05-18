@@ -1,2 +1,2 @@
 # Website
-This is my website, [alexavfrantz.com](https://alexavfrantz.com)!
+This is my website, [alexav.gg](https://alexav.gg)!
