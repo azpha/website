@@ -37,8 +37,8 @@ export default function Home() {
                             <div>
                                 <h2 className="text-3xl font-bold">About Me</h2>
                                 <p className="text-muted-foreground mt-4">
-                                I'm a full-stack developer with a passion for creating beautiful and functional web applications. I
-                                have experience working with a variety of technologies, including React, Node.js, and MongoDB.
+                                I'm a junior developer with a burning passion for creating not only frontend applications, but also games.
+                                I have experience in languages like JavaScript and Python, along with libraries like React.
                                 </p>
                                 <div className="mt-8 grid grid-cols-2 gap-4">
                                     <ListBox 
