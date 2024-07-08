@@ -15,8 +15,9 @@ export default function Footer() {
     }, [mailState])
 
     return (
-        <div className="bg-zinc-600 text-center text-white absolute bottom-0 left-0 right-0 p-4 select-none">
+        <div className="bg-zinc-600 text-center text-white bottom-0 left-0 right-0 p-4 select-none">
             <h1 className="font-bold">&copy; {new Date().getFullYear()}, Alex Frantz. All Rights Reserved</h1>
+            <p>All logos & images on this page belong to their respective owners.</p>
 
             {
                 mailState ? (

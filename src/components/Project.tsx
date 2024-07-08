@@ -1,51 +1,32 @@
 export default function Project({
     name,
+    image,
     description,
-    urlTo,
-    subtitle,
-    bullets
+    urlTo
 }: {
     name: string,
+    image: string,
     description: string,
     urlTo?: string,
-    subtitle?: string,
-    bullets?: string[]
 }) {
-    const mapBullets = () => {
-        return bullets?.map((v,k) => {
-            return <li className="list-inside list-disc" key={k}>{v}</li>
-        })
-    }
-
     return (
-        <div className="bg-white text-black p-2">
-            <div className="float-left">
-                <p className="pl-2 text-2xl font-bold">{name} 
-                    {
-                        urlTo ? (
-                            <a className="text-sm hover:underline pl-2" target="_blank" href={urlTo}>
-                                Project Website
-                            </a>
-                        ) : (
-                            <span className="text-base pl-2">
-                                {subtitle}
-                            </span>
-                        )
+        <a href={urlTo} target="_blank">
+            <div className="bg-white text-black max-w-fit mx-auto rounded-lg overflow-hidden">
+                <img
+                    src={image}
+                    width="400"
+                    height="300"
+                    alt={name}
+                    className="w-full h-48 object-cover"
+                />
 
-                    }
-                </p>
+                <div className="p-4 space-y-2">
+                    <h3 className="text-xl font-bold">{name}</h3>
+                    <p className="text-muted-foreground">
+                        {description}
+                    </p>
+                </div>
             </div>
-
-            <div className="clear-left text-left pl-2.5">
-                <p>{description}</p>
-                {
-                    bullets && (
-                        <ul>
-                            {mapBullets()}
-                        </ul>
-                    )
-                }
-            </div>
-        </div>
+        </a>
     )
 }
