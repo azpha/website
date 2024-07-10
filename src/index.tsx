@@ -20,7 +20,7 @@ export default function Home() {
                             <Project 
                                 name="medaltv-wrapper"
                                 description="A JavaScript wrapper for the Medal.tv Developer API"
-                                urlTo="https://github.com/azpha/medaltv"
+                                urlTo="https://github.com/azpha/medaltv-wrapper"
                                 image="https://storage.alexav.gg/content/medal-logo.png"
                             />
                             <Project 
@@ -28,6 +28,12 @@ export default function Home() {
                                 description="A Discord bot for SplitStat: Arena Warfare statistics"
                                 urlTo="https://github.com/azpha/splitstat"
                                 image="https://storage.alexav.gg/content/splitstat-logo.png"
+                            />
+                            <Project 
+                                name="steam-deck-file-sync"
+                                description="Sync clips from Steam Deck > your computer easily"
+                                urlTo="https://github.com/azpha/steam-deck-file-sync"
+                                image="https://storage.alexav.gg/content/steam-deck.jpg"
                             />
                         </div>
                 </section>
