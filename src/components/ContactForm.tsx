@@ -22,7 +22,7 @@ export default function ContactForm() {
         } else {
             console.log("Form submitted")
 
-            fetch("https://api.alexav.gg/v4/contact", {
+            fetch(import.meta.env.VITE_API_BASE_URL + "/contact", {
                 method: "post",
                 headers: {
                     'content-type': 'application/json'
@@ -32,7 +32,11 @@ export default function ContactForm() {
                 if (res.ok) {
                     setSuccess(true)
                 } else {
-                    setError("An error occurred while submitting your info.")
+                    if (res.status === 429) {
+                        setError("Too many tries! Try again later")
+                    } else {
+                        setError("An error occurred while submitting your info.")
+                    }
                 }
             }).catch((e) => {
                 console.error(e)
@@ -50,7 +54,7 @@ export default function ContactForm() {
         setTimeout(() => {
             setSuccess(false)
         }, 6000)
-    })
+    }, [success]);
 
     return (
         <div className="bg-white rounded-lg text-black p-2">
