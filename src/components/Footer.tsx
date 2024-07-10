@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-    Twitter,
-    Github,
-    Lastfm
-} from 'grommet-icons'
+import { GitHub, LastFM, Twitter } from './SocialIcons';
 
 export default function Footer() {
     const [mailState, setMailState] = useState(false);
@@ -15,7 +11,7 @@ export default function Footer() {
     }, [mailState])
 
     return (
-        <div className="bg-zinc-600 text-center text-white bottom-0 left-0 right-0 p-4 select-none">
+        <div className="bg-stone-800 lg:w-1/2 md:w-full mx-auto rounded-lg text-center text-white bottom-0 left-0 right-0 p-4 select-none">
             <h1 className="font-bold">&copy; {new Date().getFullYear()}, Alex Frantz. All Rights Reserved</h1>
             <p>All logos & images on this page belong to their respective owners.</p>
 
@@ -31,14 +27,14 @@ export default function Footer() {
 
             <div className="block space-x-2">
                 {/* socials */}
-                <a href="https://twitter.com/avvex__" target="_blank">
-                    <Twitter color="black" size="medium" />
-                </a>
                 <a href="https://github.com/azpha" target="_blank">
-                    <Github color="black" size="medium" />
+                    <GitHub />
+                </a>
+                <a href="https://twitter.com/avvex__" target="_blank">
+                    <Twitter />
                 </a>
                 <a href="https://last.fm/user/lulawex" target="_blank">
-                    <Lastfm color="black" size="medium" />
+                    <LastFM />
                 </a>
             </div>
         </div>
