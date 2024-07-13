@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GitHub, LastFM, Twitter } from './SocialIcons';
+import { GitHub, LastFM, Twitter, Medal } from './SocialIcons';
 
 export default function Footer() {
     const [mailState, setMailState] = useState(false);
@@ -11,7 +11,7 @@ export default function Footer() {
     }, [mailState])
 
     return (
-        <div className="bg-stone-800 lg:w-1/2 md:w-full mx-auto rounded-lg text-center text-white bottom-0 left-0 right-0 p-4 select-none">
+        <div className="bg-gray-500 lg:w-1/2 md:w-full mx-auto rounded-lg text-center text-white bottom-0 left-0 right-0 p-4 select-none">
             <h1 className="font-bold">&copy; {new Date().getFullYear()}, Alex Frantz. All Rights Reserved</h1>
             <p>All logos & images on this page belong to their respective owners.</p>
 
@@ -35,6 +35,9 @@ export default function Footer() {
                 </a>
                 <a href="https://last.fm/user/lulawex" target="_blank">
                     <LastFM />
+                </a>
+                <a href="https://medal.tv/users/215577" target="_blank">
+                    <Medal />
                 </a>
             </div>
         </div>

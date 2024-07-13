@@ -47,3 +47,31 @@ export const Twitter = () => {
         </svg>
     )
 }
+
+export const Medal = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 mt-2 mx-auto bg-white p-1 rounded-lg inline" x="0px" y="0px" viewBox="0,0,256,256">
+            <g fill="none" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" 
+            strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none"
+            >
+                <g transform="scale(5.33333,5.33333)">
+                    <path d="M40,18.723l-8.239,4.777l8.239,4.777z" fill="none">
+                    </path>
+                    <path d="M8,28.277l8.239,-4.777l-8.239,-4.777z" fill="none">
+                    </path>
+                    <path d="M8,18.723l8.239,4.777l7.761,-4.5l-16,-9l-8,4.085v18.83l8,-4.638z" fill="#000000">
+                    </path>
+                    <path d="M40,10l-16,9l7.761,4.5l8.239,-4.777v9.554l8,4.638v-18.83z" fill="#000000">
+                    </path><path d="M31.761,23.5l-7.761,4.5l16,9v-8.723z" fill="#000000">
+                    </path><path d="M8,28.277v8.723l16,-9l-7.761,-4.5z" fill="#000000">
+                    </path>
+                    <path d="M0,32.915l8,4.085v-8.723z" fill="#060606"></path>
+                    <path d="M24,19l-7.761,4.5l7.761,4.5l7.761,-4.5z" fill="#060606">
+                    </path>
+                    <path d="M40,37l8,-4.085l-8,-4.638z" fill="#060606">
+                    </path>
+                </g>
+            </g>
+        </svg>
+    )
+}

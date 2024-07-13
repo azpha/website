@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import ListBox from "./components/ListBox";
 import Project from "./components/Project";
 import ContactForm from "./components/ContactForm";
+import RecentWatch from "./components/RecentWatch";
 
 export default function Home() {
     return (
@@ -37,7 +38,17 @@ export default function Home() {
                             />
                         </div>
                 </section>
-                <section className="bg-muted py-10 px-4">
+                <section className="my-5 py-10 px-4 bg-gray-500">
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="flex justify-center items-center">
+                            <h1 className="text-4xl font-bold">What am I watching?</h1>
+                        </div>
+                        <div>
+                            <RecentWatch />
+                        </div>
+                    </div>
+                </section>
+                <section className="my-5 px-4">
                     <div className="container max-w-5xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
