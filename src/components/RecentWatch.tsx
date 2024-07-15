@@ -27,7 +27,7 @@ export default function RecentWatch() {
     const [ errorState, setErrorState ] = useState<string>("");
 
     useEffect(() => {
-        fetch("https://watch.alexav.gg/api/trpc/watchItem.getLatest", {
+        fetch("https://watch-cors.alexav.gg", {
             method: 'get'
         })
         .then(async (res) => {    
