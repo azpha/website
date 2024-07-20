@@ -53,7 +53,7 @@ export default function RecentWatch() {
 
     return (
         <a href={data?.id ? "https://watch.alexav.gg/?id=" + data?.id : "#"} target="_blank">
-            <div className="bg-white text-black p-4">
+            <div className="bg-white text-black p-4 max-w-fit">
                 {
                     loading ? (
                         <h1>Loading..</h1>

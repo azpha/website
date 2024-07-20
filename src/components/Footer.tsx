@@ -21,7 +21,10 @@ export default function Footer() {
                         Copied!
                     </p>
                 ) : (
-                    <button onClick={() => setMailState(true)} className="hover:underline">alex@alexav.gg</button>
+                    <button onClick={() => {
+                        setMailState(true)
+                        navigator.clipboard.writeText("alex@alexav.gg")
+                    }} className="hover:underline">alex@alexav.gg</button>
                 )
             }
 

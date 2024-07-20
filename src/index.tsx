@@ -38,7 +38,7 @@ export default function Home() {
                             />
                         </div>
                 </section>
-                <section className="my-5 py-10 px-4 bg-gray-500">
+                <section id="watching" className="my-5 py-10 px-4 bg-gray-500">
                     <div className="grid grid-cols-2 gap-4">
                         <div className="flex justify-center items-center">
                             <h1 className="text-4xl font-bold">What am I watching?</h1>
@@ -48,7 +48,7 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className="my-5 px-4">
+                <section id="about" className="my-5 px-4">
                     <div className="container max-w-5xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
