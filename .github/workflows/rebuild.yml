@@ -17,5 +17,6 @@ jobs:
       run: |
         curl -X POST \
         -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${{ secrets.BUILD_SERVER }}" \
         -d '{"action": "restart", "script":"website"}' \
-        https://build.thatalex.dev/power/status?secret=${{ secrets.BUILD_SERVER }}
+        https://build.alexav.gg/power
