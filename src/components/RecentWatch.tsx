@@ -53,7 +53,7 @@ export default function RecentWatch() {
 
     return (
         <a href={data?.id ? "https://watch.alexav.gg/?id=" + data?.id : "#"} target="_blank">
-            <div className="bg-white text-black p-4 max-w-fit">
+            <div className="bg-white text-black p-4">
                 {
                     loading ? (
                         <h1>Loading..</h1>
@@ -81,6 +81,7 @@ export default function RecentWatch() {
                         <>
                             <h1 className="font-bold text-2xl">Failed to fetch :(</h1>
                             <p>Check out <a className="underline" href="https://watch.alexav.gg" target="_blank">watch.alexav.gg</a> if this isn't working.</p>
+                            <p className="text-sm italic">{errorState}</p>
                         </>
                     )
                 }

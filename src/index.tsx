@@ -4,6 +4,7 @@ import ListBox from "./components/ListBox";
 import Project from "./components/Project";
 import ContactForm from "./components/ContactForm";
 import RecentWatch from "./components/RecentWatch";
+import RecentPhoto from "./components/RecentPhoto";
 
 export default function Home() {
     return (
@@ -41,14 +42,30 @@ export default function Home() {
                 <section id="watching" className="my-5 py-10 px-4 bg-gray-500">
                     <div className="grid grid-cols-2 gap-4">
                         <div className="flex justify-center items-center">
-                            <h1 className="text-4xl font-bold">What am I watching?</h1>
+                            <div>
+                                <h1 className="text-4xl font-bold">What am I watching?</h1>
+                                <p>Cool shows and movies I'm watching</p>
+                            </div>
                         </div>
                         <div>
                             <RecentWatch />
                         </div>
                     </div>
                 </section>
-                <section id="about" className="my-5 px-4">
+                <section id="photos" className="my-5 py-10 px-4">
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="flex justify-center items-center">
+                            <div>
+                                <h1 className="text-4xl font-bold">What am I picturing?</h1>
+                                <p>Cool game photos I've taken recently</p>
+                            </div>
+                        </div>
+                        <div>
+                            <RecentPhoto />
+                        </div>
+                    </div>
+                </section>
+                <section id="about" className="my-5 bg-gray-500 p-4">
                     <div className="container max-w-5xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
