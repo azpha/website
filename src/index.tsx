@@ -40,7 +40,7 @@ export default function Home() {
                         </div>
                 </section>
                 <section id="watching" className="my-5 py-10 px-4 bg-gray-500">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
                         <div className="flex justify-center items-center">
                             <div>
                                 <h1 className="text-4xl font-bold">What am I watching?</h1>
@@ -53,7 +53,7 @@ export default function Home() {
                     </div>
                 </section>
                 <section id="photos" className="my-5 py-10 px-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
                         <div className="flex justify-center items-center">
                             <div>
                                 <h1 className="text-4xl font-bold">What am I picturing?</h1>
@@ -67,7 +67,7 @@ export default function Home() {
                 </section>
                 <section id="about" className="my-5 bg-gray-500 p-4">
                     <div className="container max-w-5xl mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8">
                             <div>
                                 <h2 className="text-3xl font-bold">About Me</h2>
                                 <p className="text-muted-foreground mt-4">
