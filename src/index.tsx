@@ -3,8 +3,11 @@ import Header from "./components/Header";
 import ListBox from "./components/ListBox";
 import Project from "./components/Project";
 import ContactForm from "./components/ContactForm";
-import RecentWatch from "./components/RecentWatch";
-import RecentPhoto from "./components/RecentPhoto";
+
+// project components
+import RecentWatch from "./components/ProjectComponents/RecentWatch";
+import RecentPhoto from "./components/ProjectComponents/RecentPhoto";
+import RecentListens from "./components/ProjectComponents/RecentListens";
 
 export default function Home() {
     return (
@@ -12,7 +15,7 @@ export default function Home() {
             <Header />
             <div className="mx-auto lg:w-1/2">
                 <section id="projects">
-                    <div className="mb-4">
+                    <div className="mb-4 text-center md:text-left">
                         <h1 className="text-3xl font-bold">
                             Projects
                         </h1>
@@ -65,7 +68,20 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section id="about" className="my-5 bg-gray-500 p-4">
+                <section id="listens" className="my-5 py-10 px-4 bg-gray-500">
+                    <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
+                        <div className="flex justify-center items-center">
+                            <div>
+                                <h1 className="text-4xl font-bold">What am I listening to?</h1>
+                                <p>I listen to some good stuff I swear</p>
+                            </div>
+                        </div>
+                        <div>
+                            <RecentListens />
+                        </div>
+                    </div>
+                </section>
+                <section id="about" className="my-5 p-4">
                     <div className="container max-w-5xl mx-auto">
                         <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8">
                             <div>

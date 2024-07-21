@@ -20,10 +20,6 @@ export default function RecentPhoto() {
     const [ errorState, setErrorState ] = useState<string | null>(null);
 
     useEffect(() => {
-        console.log(data)
-    }, [data])
-
-    useEffect(() => {
         fetch("https://photos-cors.alexav.gg", {
             method: 'get',
             headers: {
@@ -33,7 +29,6 @@ export default function RecentPhoto() {
         .then(async (res) => {    
             if (res.ok) {
                 console.log("ok!")
-                console.log(errorState)
                 const json = await res.json() as PhotoDataResponse[];
                 setData(json[0].result.data.json);
                 setLoading(false)
