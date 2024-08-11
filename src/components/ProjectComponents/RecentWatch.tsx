@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 
 type WatchDataResponse = {
-    result: {
-        data: {
-            json: WatchData
-        }
-    }
+    status: number,
+    data: WatchData
 };
 type WatchData = {
     id: number,
@@ -27,13 +24,13 @@ export default function RecentWatch() {
     const [ errorState, setErrorState ] = useState<string>("");
 
     useEffect(() => {
-        fetch("https://watch-cors.alexav.gg", {
+        fetch("https://api.alexav.gg/v4/social/watch", {
             method: 'get'
         })
         .then(async (res) => {    
             if (res.ok) {
                 const json = await res.json() as WatchDataResponse;
-                setData(json.result.data.json);
+                setData(json.data);
                 setLoading(false)
             } else {
                 setErrorState("Failed to fetch data!");
@@ -53,7 +50,7 @@ export default function RecentWatch() {
 
     return (
         <a href={data?.id ? "https://watch.alexav.gg/?id=" + data?.id : "#"} target="_blank">
-            <div className="bg-white text-black p-4">
+            <div className="bg-white text-black p-4 max-w-fit lg:max-w-full mx-auto">
                 {
                     loading ? (
                         <h1>Loading..</h1>

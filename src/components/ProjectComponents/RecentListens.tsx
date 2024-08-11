@@ -53,7 +53,7 @@ export default function RecentListens() {
     if (data) {
         return (
             <a href={data[0].url} target="_blank">
-                <div className="bg-white text-black p-4">
+                <div className="bg-white text-black p-4 max-w-fit lg:max-w-full mx-auto">
                     {
                         (loading) ? (
                             <h1>Loading..</h1>

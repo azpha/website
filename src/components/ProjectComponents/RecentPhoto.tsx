@@ -1,12 +1,5 @@
 import { useState, useEffect } from 'react';
 
-type PhotoDataResponse = {
-    result: {
-        data: {
-            json: PhotoData[]
-        }
-    }
-};
 type PhotoData = {
     id: number,
     name: string,
@@ -15,12 +8,12 @@ type PhotoData = {
 }
 
 export default function RecentPhoto() {
-    const [ data, setData ] = useState<PhotoData[] | null>(null);
+    const [ data, setData ] = useState<PhotoData | null>(null);
     const [ loading, setLoading ] = useState<boolean>(true);
     const [ errorState, setErrorState ] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch("https://photos-cors.alexav.gg", {
+        fetch("https://api.alexav.gg/v4/social/photos", {
             method: 'get',
             headers: {
                 'content-type': 'application/json'
@@ -29,8 +22,8 @@ export default function RecentPhoto() {
         .then(async (res) => {    
             if (res.ok) {
                 console.log("ok!")
-                const json = await res.json() as PhotoDataResponse[];
-                setData(json[0].result.data.json);
+                const json = await res.json()
+                setData(json.data[0]);
                 setLoading(false)
             } else {
                 console.log("not ok :(")
@@ -43,6 +36,9 @@ export default function RecentPhoto() {
             setErrorState(e.message)
         })
     }, []);
+    useEffect(() => {
+        console.log(data)
+    }, [data])
 
     const parseDate = (date: Date) => {
         const jsDate = new Date(date);
@@ -51,20 +47,20 @@ export default function RecentPhoto() {
 
     return (
         <a href={"https://photos.alexav.gg/"} target="_blank">
-            <div className="bg-white text-black p-4">
+            <div className="bg-white text-black p-4 max-w-fit lg:max-w-full mx-auto">
                 {
                     (loading) ? (
                         <h1>Loading..</h1>
                     ) : (!errorState && data) ? (
                         <div className="flex items-center">
                             <img 
-                                src={data[0].imageUrl}
+                                src={data.imageUrl}
                                 width="200"
                             />
                             <div className="flex flex-wrap mx-2">
-                                <h1 className="w-full font-bold">{data[0].name}</h1>
+                                <h1 className="w-full font-bold">{data.name}</h1>
 
-                                <h1>{parseDate(data[0].dateTaken as Date)}</h1>
+                                <h1>{parseDate(data.dateTaken as Date)}</h1>
                             </div>
                         </div>
                     ) : (
