@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GitHub, LastFM, Twitter, Medal } from './SocialIcons';
+import { GitHub, LastFM, Twitter, Medal, Link } from './SocialIcons';
 
 export default function Footer() {
     const [mailState, setMailState] = useState(false);
@@ -43,6 +43,9 @@ export default function Footer() {
                 </a>
                 <a href="https://medal.tv/users/215577" target="_blank">
                     <Medal />
+                </a>
+                <a href="https://links.alexav.gg" target="_blank">
+                    <Link />
                 </a>
             </div>
         </div>
