@@ -1,7 +1,7 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ListBox from "./components/ListBox";
-import Project from "./components/Project";
+import Project from "./components/ProjectCard";
 import ContactForm from "./components/ContactForm";
 
 // project components
@@ -45,7 +45,7 @@ export default function Home() {
                 <section id="watching" className="my-5 py-10 px-4 bg-gray-500">
                     <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
                         <div className="flex justify-center items-center">
-                            <div>
+                            <div className="text-left md:text-center">
                                 <h1 className="text-4xl font-bold">What am I watching?</h1>
                                 <p>Cool shows and movies I'm watching</p>
                             </div>
@@ -59,7 +59,7 @@ export default function Home() {
                     <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
                         <div className="flex justify-center items-center">
                             <div>
-                                <h1 className="text-4xl font-bold">What am I picturing?</h1>
+                                <h1 className="text-4xl font-bold">What am I capturing?</h1>
                                 <p>Cool game photos I've taken recently</p>
                             </div>
                         </div>
@@ -87,8 +87,9 @@ export default function Home() {
                             <div>
                                 <h2 className="text-3xl font-bold">About Me</h2>
                                 <p className="text-muted-foreground mt-4">
-                                I'm a junior developer with a burning passion for creating not only frontend applications, but also games.
-                                I have experience in languages like JavaScript and Python, along with libraries like React.
+                                    I'm a "junior" developer with a passion for software and games.
+                                    I have experience in languages like JavaScript and Python, and am primarily
+                                    working in libraries like React.
                                 </p>
                                 <div className="mt-8 grid grid-cols-2 gap-4">
                                     <ListBox 

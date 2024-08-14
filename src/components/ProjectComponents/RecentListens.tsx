@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ProjectComponent from '../ProjectComponent';
 
 type MusicAPIResponse = {
     data: {
@@ -50,35 +51,14 @@ export default function RecentListens() {
         setLoading(false);
     }, []);
 
-    if (data) {
+    if (!loading && data) {
         return (
-            <a href={data[0].url} target="_blank">
-                <div className="bg-white text-black p-4 max-w-fit lg:max-w-full mx-auto">
-                    {
-                        (loading) ? (
-                            <h1>Loading..</h1>
-                        ) : (!errorState && data) ? (
-                            <div className="flex items-center">
-                                <img 
-                                    src={data[0].image.filter((v) => v.size === "large")[0]['#text']}
-                                    width="100"
-                                />
-                                <div className="flex flex-wrap mx-2">
-                                    <h1 className="w-full font-bold">{data[0].name}</h1>
-    
-                                    <h1>{data[0].artist['#text']}</h1>
-                                </div>
-                            </div>
-                        ) : (
-                            <>
-                                <h1 className="font-bold text-2xl">Failed to fetch :(</h1>
-                                <p>Check out <a className="underline" href="https://last.fm/user/lulawex" target="_blank">last.fm/lulawex</a> if this isn't working.</p>
-                                <p className="text-sm italic">{errorState}</p>
-                            </>
-                        )
-                    }
-                </div>
-            </a>
+            <ProjectComponent 
+                url={data[0].url}
+                header={data[0].name}
+                subheader={data[0].artist["#text"]}
+                image={data[0].image.filter((v) => v.size === "large")[0]["#text"]}
+            />
         )
     } else {
        <>

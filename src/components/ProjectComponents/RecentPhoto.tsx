@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ProjectComponent from '../ProjectComponent';
 
 type PhotoData = {
     id: number,
@@ -45,34 +46,24 @@ export default function RecentPhoto() {
         return `${jsDate.getFullYear()}/${jsDate.getMonth() + 1}/${jsDate.getDate()}`;
     }
 
-    return (
-        <a href={"https://photos.alexav.gg/"} target="_blank">
-            <div className="bg-white text-black p-4 max-w-fit lg:max-w-full mx-auto">
-                {
-                    (loading) ? (
-                        <h1>Loading..</h1>
-                    ) : (!errorState && data) ? (
-                        <div className="flex items-center">
-                            <img 
-                                src={data.imageUrl}
-                                width="200"
-                            />
-                            <div className="flex flex-wrap mx-2">
-                                <h1 className="w-full font-bold">{data.name}</h1>
-
-                                <h1>{parseDate(data.dateTaken as Date)}</h1>
-                            </div>
-                        </div>
-                    ) : (
-                        <>
-                            <h1 className="font-bold text-2xl">Failed to fetch :(</h1>
-                            <p>Check out <a className="underline" href="https://photos.alexav.gg" target="_blank">photos.alexav.gg</a> if this isn't working.</p>
-                            <p className="text-sm italic">{errorState}</p>
-                        </>
-                    )
-                }
-            </div>
-        </a>
-    )
+    if (data && !loading) {
+        return (
+            <ProjectComponent 
+                url={"photos.alexav.gg"}
+                header={data.name}
+                subheader={parseDate(data.dateTaken as Date)}
+                image={data.imageUrl}
+                imageSize={"150"}
+            />
+        )
+    } else {
+        return (
+            <>
+                <h1 className="font-bold text-2xl">No data :(</h1>
+                <p>Check out <a className="underline" href="https://photos.alexav.gg" target="_blank">photos.alexav.gg</a> if this isn't working.</p>
+                <p className="text-sm italic">{errorState}</p>
+            </> 
+        )
+    }
 
 }

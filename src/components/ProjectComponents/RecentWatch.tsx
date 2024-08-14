@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ProjectComponent from '../ProjectComponent';
 
 type WatchDataResponse = {
     status: number,
@@ -48,42 +49,23 @@ export default function RecentWatch() {
         return `${jsDate.getFullYear()}/${jsDate.getMonth() + 1}/${jsDate.getDate()}`;
     }
 
-    return (
-        <a href={data?.id ? "https://watch.alexav.gg/?id=" + data?.id : "#"} target="_blank">
-            <div className="bg-white text-black p-4 max-w-fit lg:max-w-full mx-auto">
-                {
-                    loading ? (
-                        <h1>Loading..</h1>
-                    ) : !errorState ? (
-                        <div className="flex items-center">
-                            <img 
-                                src={data?.imageKey}
-                                width="50"
-                            />
-                            <div className="flex flex-wrap mx-2">
-                                <h1 className="w-full font-bold">{data?.title}</h1>
-                                
-                                {
-                                    data?.finished ? (
-                                        <h1 className="w-full font-bold">Finished!</h1>
-                                    ) : (
-                                        <h1 className="w-full">Started on {parseDate(new Date(data?.startedOn as Date))}</h1>
-                                    )
-                                }
-
-                                <h1>{data?.currentEpisode}</h1>
-                            </div>
-                        </div>
-                    ) : (
-                        <>
-                            <h1 className="font-bold text-2xl">Failed to fetch :(</h1>
-                            <p>Check out <a className="underline" href="https://watch.alexav.gg" target="_blank">watch.alexav.gg</a> if this isn't working.</p>
-                            <p className="text-sm italic">{errorState}</p>
-                        </>
-                    )
-                }
-            </div>
-        </a>
-    )
-
+    if (data && !loading) {
+        return (
+            <ProjectComponent 
+                header={data.title}
+                subheader={ data.finished ? "Finished!" : "Started on " + parseDate(data.startedOn) }
+                url={"https://watch.alexav.gg/?id=" + data.id}
+                image={data.imageKey}
+                imageSize={"50"}
+            />
+        )
+    } else {
+        return (
+            <>
+                <h1 className="font-bold text-2xl">No data :(</h1>
+                <p>Check out <a className="underline" href="https://watch.alexav.gg" target="_blank">watch.alexav.gg</a> if this isn't working.</p>
+                <p className="text-sm italic">{errorState}</p>
+            </> 
+        )
+    }
 }

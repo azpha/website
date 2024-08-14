@@ -5,9 +5,11 @@ export default function Footer() {
     const [mailState, setMailState] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
-            setMailState(false)
-        }, 3000)
+        if (mailState) {
+            setTimeout(() => {
+                setMailState(false)
+            }, 3000)
+        }
     }, [mailState])
 
     return (
