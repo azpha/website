@@ -10,8 +10,8 @@ export default function Project({
     urlTo?: string,
 }) {
     return (
-        <a href={urlTo} target="_blank" className="max-w-fit mx-auto">
-            <div className="bg-white text-black mx-auto rounded-lg max-w-fit lg:max-w-full overflow-hidden">
+        <a href={urlTo} target="_blank">
+            <div className="bg-white text-black mx-auto rounded-lg overflow-hidden max-w-fit lg:max-w-full">
                 <img
                     src={image}
                     alt={name}
