@@ -1,5 +1,3 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import ListBox from "./components/ListBox";
 import Project from "./components/ProjectCard";
 import ContactForm from "./components/ContactForm";
@@ -8,74 +6,73 @@ import ContactForm from "./components/ContactForm";
 import RecentWatch from "./components/ProjectComponents/RecentWatch";
 import RecentPhoto from "./components/ProjectComponents/RecentPhoto";
 import RecentListens from "./components/ProjectComponents/RecentListens";
+import Layout from "./components/Layout";
 
 export default function Home() {
     return (
-        <main className="bg-black text-white min-h-screen">
-            <Header />
-            <div className="mx-auto lg:w-1/2">
-                <section id="projects">
-                    <div className="mb-4 text-center md:text-left">
-                        <h1 className="text-3xl font-bold">
-                            Projects
-                        </h1>
+        <Layout>
+            <div className="mx-auto w-full lg:w-1/2">
+                <section id="projects" className="mb-4">
+                    <div className="text-center lg:text-left mb-4">
+                        <h1 className="text-2xl font-bold">Projects</h1>
                         <p>Cool stuff I'm working on</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <Project 
-                                name="medaltv-wrapper"
-                                description="A JavaScript wrapper for the Medal.tv Developer API"
-                                urlTo="https://github.com/azpha/medaltv-wrapper"
-                                image="https://storage.alexav.gg/content/medal-logo.png"
-                            />
-                            <Project 
-                                name="splitstat"
-                                description="A Discord bot for SplitStat: Arena Warfare statistics"
-                                urlTo="https://github.com/azpha/splitstat"
-                                image="https://storage.alexav.gg/content/splitstat-logo.png"
-                            />
-                            <Project 
-                                name="steam-deck-file-sync"
-                                description="Sync clips from Steam Deck > your computer easily"
-                                urlTo="https://github.com/azpha/steam-deck-file-sync"
-                                image="https://storage.alexav.gg/content/steam-deck.jpg"
-                            />
-                        </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <Project 
+                            name="medaltv-wrapper"
+                            description="A JavaScript wrapper for the Medal.tv developer API"
+                            urlTo="https://github.com/azpha/medaltv-wrapper"
+                            image="https://storage.alexav.gg/content/medal-logo.png"
+                        />
+                        <Project 
+                            name="splitstat"
+                            description="A Discord bot for SplitStat: Arena Warfare statistics"
+                            urlTo="https://github.com/azpha/splitstat"
+                            image="https://storage.alexav.gg/content/splitstat-logo.png"
+                        />
+                        <Project 
+                            name="steam-deck-file-sync"
+                            description="Sync clips from Steam Deck > your computer easily"
+                            urlTo="https://github.com/azpha/steam-deck-file-sync"
+                            image="https://storage.alexav.gg/content/steam-deck.jpg"
+                        />
+                        <Project 
+                            name="subscription-tracker"
+                            description="Easily track & get notified for upcoming subscriptions"
+                            urlTo="https://github.com/azpha/subscription-tracker"
+                            image="https://storage.alexav.gg/content/a7a289ac-9466-4f3f-b904-2f9be897e0f7.png"
+                        />
+                    </div>
                 </section>
-                <section id="watching" className="my-5 py-10 px-4 bg-gray-500">
-                    <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
-                        <div className="flex justify-center items-center">
-                            <div className="text-left md:text-center">
-                                <h1 className="text-4xl font-bold">What am I watching?</h1>
-                                <p>Cool shows and movies I'm watching</p>
-                            </div>
+                <section id="watching" className="my-5 py-5 px-4 bg-gray-500">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div className="w-full flex justify-center items-center">
+                            <h1 className="text-4xl font-bold text-center">What I'm watching</h1>
                         </div>
+
                         <div>
                             <RecentWatch />
                         </div>
                     </div>
                 </section>
-                <section id="photos" className="my-5 py-10 px-4">
-                    <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
-                        <div className="flex justify-center items-center">
-                            <div>
-                                <h1 className="text-4xl font-bold">What am I capturing?</h1>
-                                <p>Cool game photos I've taken recently</p>
-                            </div>
+                <section id="photos" className="my-5 py-5 px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div className="w-full flex justify-center items-center">
+                            <h1 className="text-4xl font-bold text-center">Photos I've captured</h1>
                         </div>
+
                         <div>
                             <RecentPhoto />
                         </div>
                     </div>
                 </section>
-                <section id="listens" className="my-5 py-10 px-4 bg-gray-500">
-                    <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
-                        <div className="flex justify-center items-center">
-                            <div>
-                                <h1 className="text-4xl font-bold">What am I listening to?</h1>
-                                <p>I listen to some good stuff I swear</p>
-                            </div>
+                <section id="listens" className="my-5 py-5 px-4 bg-gray-500">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div className="w-full flex justify-center items-center">
+                            <h1 className="text-4xl font-bold text-center w-full">Music I'm listening to</h1>
                         </div>
+
                         <div>
                             <RecentListens />
                         </div>
@@ -91,7 +88,7 @@ export default function Home() {
                                     I have experience in languages like JavaScript and Python, and am primarily
                                     working in libraries like React.
                                 </p>
-                                <div className="mt-8 grid grid-cols-2 gap-4">
+                                <div className="mt-8 grid grid-cols-2 w-full mx-auto gap-4">
                                     <ListBox 
                                         title="Skills"
                                         points={[
@@ -115,9 +112,8 @@ export default function Home() {
                             <ContactForm />
                         </div>
                     </div>
-                    </section>
+                </section>
             </div>
-            <Footer />
-        </main>
+        </Layout>
     )
 }

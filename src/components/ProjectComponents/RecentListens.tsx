@@ -54,7 +54,7 @@ export default function RecentListens() {
     if (!loading && data) {
         return (
             <ProjectComponent 
-                url={data[0].url}
+                url={"https://last.fm/user/lulawex"}
                 header={data[0].name}
                 subheader={data[0].artist["#text"]}
                 image={data[0].image.filter((v) => v.size === "large")[0]["#text"]}
