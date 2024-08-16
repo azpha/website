@@ -26,7 +26,12 @@ export default function Footer() {
     }, [mailState])
 
     const drawNewQuote = () => {
-        setQuote(quoteArray[Math.floor(Math.random() * quoteArray.length)]);
+        const newQuote = quoteArray[Math.floor(Math.random() * quoteArray.length)]
+
+        // redraw if this quote == current quote
+        if (newQuote !== quote) {
+            setQuote(newQuote);
+        } else drawNewQuote();
     }
 
     return (
