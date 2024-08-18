@@ -6,6 +6,8 @@ import ContactForm from "./components/ContactForm";
 import RecentWatch from "./components/ProjectComponents/RecentWatch";
 import RecentPhoto from "./components/ProjectComponents/RecentPhoto";
 import RecentListens from "./components/ProjectComponents/RecentListens";
+import RecentClip from './components/ProjectComponents/RecentClip';
+import RecentGame from "./components/ProjectComponents/RecentGame";
 import Layout from "./components/Layout";
 
 export default function Home() {
@@ -45,36 +47,29 @@ export default function Home() {
                         />
                     </div>
                 </section>
-                <section id="watching" className="my-5 py-5 px-4 bg-gray-500">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div className="w-full flex justify-center items-center">
-                            <h1 className="text-4xl font-bold text-center">What I'm watching</h1>
-                        </div>
+                <section id="data" className="my-5 py-5 px-4 bg-zinc-500">
+                    <div className="text-center lg:text-left mb-4">
+                        <h1 className="text-2xl font-bold">Data</h1>
+                        <p>Cool data from some of my accounts/projects</p>
 
-                        <div>
-                            <RecentWatch />
-                        </div>
-                    </div>
-                </section>
-                <section id="photos" className="my-5 py-5 px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div className="w-full flex justify-center items-center">
-                            <h1 className="text-4xl font-bold text-center">Photos I've captured</h1>
-                        </div>
+                        <hr className="my-2" />
 
-                        <div>
-                            <RecentPhoto />
-                        </div>
-                    </div>
-                </section>
-                <section id="listens" className="my-5 py-5 px-4 bg-gray-500">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                        <div className="w-full flex justify-center items-center">
-                            <h1 className="text-4xl font-bold text-center w-full">Music I'm listening to</h1>
-                        </div>
-
-                        <div>
-                            <RecentListens />
+                        <div className="grid grid-cols-1 md:grid-cols-2 auto-cols-fr gap-4">
+                            <div className="w-full min-w-[200px]">
+                                <RecentListens />
+                            </div>
+                            <div className="w-full min-w-[200px]">
+                                <RecentPhoto />
+                            </div>
+                            <div className="w-full min-w-[200px]">
+                                <RecentWatch />
+                            </div>
+                            <div className="w-full min-w-[200px]">
+                                <RecentClip />
+                            </div>
+                            <div className="w-full min-w-[200px]">
+                                <RecentGame />
+                            </div>
                         </div>
                     </div>
                 </section>

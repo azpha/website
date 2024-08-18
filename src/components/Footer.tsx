@@ -35,7 +35,7 @@ export default function Footer() {
     }
 
     return (
-        <div className="lg:w-1/2 bg-gray-500 md:w-full mx-auto rounded-t-lg text-center p-4 select-none">
+        <div className="lg:w-1/2 bg-zinc-500 md:w-full mx-auto rounded-t-lg text-center p-4 select-none">
             <h1 className="font-bold">&copy; {new Date().getFullYear()}, Alex Frantz. All Rights Reserved</h1>
             <p>All logos & images on this page belong to their respective owners.</p>
             <p className="opacity-50 italic" onClick={drawNewQuote}>{quote}</p>

@@ -49,11 +49,12 @@ export default function RecentPhoto() {
     if (data && !loading) {
         return (
             <ProjectComponent 
-                url={"photos.alexav.gg"}
-                header={data.name}
-                subheader={parseDate(data.dateTaken as Date)}
-                image={data.imageUrl}
-                imageSize={"150"}
+                url={"https://photos.alexav.gg?id=" + data.id}
+                header={"Photos I've captured"}
+                projectHeader={data.name}
+                projectSubheader={parseDate(data.dateTaken as Date)}
+                projectImage={data.imageUrl}
+                projectImageSize={"85"}
             />
         )
     } else {

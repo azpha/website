@@ -52,11 +52,12 @@ export default function RecentWatch() {
     if (data && !loading) {
         return (
             <ProjectComponent 
-                header={data.title}
-                subheader={ data.finished ? "Finished!" : "Started on " + parseDate(data.startedOn) }
+                header={"What I'm watching"}
+                projectHeader={data.title}
+                projectSubheader={ data.finished ? "Finished!" : "Started on " + parseDate(data.startedOn) }
                 url={"https://watch.alexav.gg/?id=" + data.id}
-                image={data.imageKey}
-                imageSize={"50"}
+                projectImage={data.imageKey}
+                projectImageSize={"30"}
             />
         )
     } else {
