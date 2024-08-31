@@ -1,35 +1,31 @@
 import { useState, useEffect } from 'react';
 import ProjectComponent from '../ProjectComponent';
 
-type SteamAPIResponse = {
-    data: GameItem[]
+type GameAPIResponse = {
+    data: GameData
 }
-type GameItem = {
-    appid: number,
+type GameData = {
     name: string,
-    playtime_forever: number,
-    img_icon_url: string,
+    location: string,
+    startedOn: number 
 }
-
 export default function RecentGame() {
-    const [ data, setData ] = useState<GameItem[]>();
+    const [ data, setData ] = useState<GameData>();
     const [ errorState, setErrorState ] = useState<string>("");
     const [ loading, setLoading ] = useState<boolean>(true);
 
-    const translateToAppStorePage = (appId: number) => {
-        return "https://store.steampowered.com/app/" + appId
-    }
-    const buildMediaUrl = (appId: number, hash: string) => {
-        return "https://media.steampowered.com/steamcommunity/public/images/apps/" + appId + "/" + hash + ".jpg"
+    const getTime = (time: number) => {
+        const date = new Date(time*1000);
+        return `${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`
     }
 
     useEffect(() => {
-        fetch("https://api.alexav.gg/v4/social/steam", {
+        fetch("https://api.alexav.gg/v4/game", {
             method: "get"
         })
         .then(async (res) => {
             if (res.ok) {
-                const data = await res.json() as SteamAPIResponse
+                const data = await res.json() as GameAPIResponse
                 setData(data.data);
             } else {
                 setErrorState("Failed to load! :(")
@@ -45,11 +41,11 @@ export default function RecentGame() {
     if (!loading && data) {
         return (
             <ProjectComponent 
-                url={translateToAppStorePage(data[0].appid)}
+                url={"https://medal.tv/u/alexav"}
                 header={"Games I'm playing"}
-                projectHeader={data[0].name}
-                projectSubheader={`${data[0].playtime_forever / 60}h played`}
-                projectImage={buildMediaUrl(data[0].appid, data[0].img_icon_url)}
+                projectHeader={data.name}
+                projectSubheader={`Started at ${getTime(data.startedOn)}`}
+                projectImage={"https://storage.alexav.gg/content/933d5523-5e20-4040-9fe9-b73552eac8ab.png"}
                 projectImageSize={"40"}
             />
         )
