@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import ProjectComponent from '../ProjectComponent';
 
-type WatchDataResponse = {
+type BookDataResponse = {
     status: number,
-    data: WatchData
+    data: BookData
 };
-type WatchData = {
+type BookData = {
     id: number,
     title: string,
+    author: string,
     description: string,
     imageKey: string,
-    currentEpisode: string,
-    tmdbID: string,
     finished: boolean,
     startedOn: Date,
     createdAt: Date,
@@ -20,17 +19,17 @@ type WatchData = {
 }
 
 export default function RecentWatch() {
-    const [ data, setData ] = useState<WatchData | null>(null);
+    const [ data, setData ] = useState<BookData | null>(null);
     const [ loading, setLoading ] = useState<boolean>(true);
     const [ errorState, setErrorState ] = useState<string>("");
 
     useEffect(() => {
-        fetch("https://api.alexav.gg/v4/social/watch", {
+        fetch("https://api.alexav.gg/v4/social/books", {
             method: 'get'
         })
         .then(async (res) => {    
             if (res.ok) {
-                const json = await res.json() as WatchDataResponse;
+                const json = await res.json() as BookDataResponse;
                 setData(json.data);
                 setLoading(false)
             } else {
@@ -52,10 +51,10 @@ export default function RecentWatch() {
     if (data && !loading) {
         return (
             <ProjectComponent 
-                header={"What I'm watching"}
+                header={"What I'm reading"}
                 projectHeader={data.title}
                 projectSubheader={ data.finished ? "Finished!" : "Started on " + parseDate(data.startedOn) }
-                url={"https://tracker.alexav.gg/?type=tv&id=" + data.id}
+                url={"https://tracker.alexav.gg/?type=books&id=" + data.id}
                 projectImage={data.imageKey}
                 projectImageSize={"30"}
             />
