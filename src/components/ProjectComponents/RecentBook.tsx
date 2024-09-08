@@ -18,7 +18,7 @@ type BookData = {
     createdById: string   
 }
 
-export default function RecentWatch() {
+export default function RecentBook() {
     const [ data, setData ] = useState<BookData | null>(null);
     const [ loading, setLoading ] = useState<boolean>(true);
     const [ errorState, setErrorState ] = useState<string>("");

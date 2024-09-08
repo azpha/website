@@ -8,6 +8,7 @@ import RecentPhoto from "./components/ProjectComponents/RecentPhoto";
 import RecentListens from "./components/ProjectComponents/RecentListens";
 import RecentClip from './components/ProjectComponents/RecentClip';
 import RecentGame from "./components/ProjectComponents/RecentGame";
+import RecentBook from "./components/ProjectComponents/RecentBook";
 import Layout from "./components/Layout";
 
 export default function Home() {
@@ -63,6 +64,9 @@ export default function Home() {
                             </div>
                             <div className="w-full min-w-[200px]">
                                 <RecentWatch />
+                            </div>
+                            <div className="w-full min-w-[200px]">
+                                <RecentBook />
                             </div>
                             <div className="w-full min-w-[200px]">
                                 <RecentClip />
