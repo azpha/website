@@ -48,13 +48,22 @@ export default function RecentWatch() {
         const jsDate = new Date(date);
         return `${jsDate.getFullYear()}/${jsDate.getMonth() + 1}/${jsDate.getDate()}`;
     }
+    const getSubheaderText = () => {
+        if (data?.finished) {
+            return "Finished!"
+        } else if (data?.startedOn) {
+            return "Started on " + parseDate(data.startedOn)
+        } else {
+            return "Just Added"
+        }
+    }
 
     if (data && !loading) {
         return (
             <ProjectComponent 
                 header={"What I'm watching"}
                 projectHeader={data.title}
-                projectSubheader={ data.finished ? "Finished!" : "Started on " + parseDate(data.startedOn) }
+                projectSubheader={ getSubheaderText() }
                 url={"https://tracker.alexav.gg/?type=tv&id=" + data.id}
                 projectImage={data.imageKey}
                 projectImageSize={"30"}
