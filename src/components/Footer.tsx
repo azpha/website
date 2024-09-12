@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GitHub, LastFM, Twitter, Medal, Link } from './SocialIcons';
+import { GitHub, Bluesky, Twitter, Medal, Link, LinkedIn } from './SocialIcons';
 
 export default function Footer() {
     const quoteArray = [
@@ -57,17 +57,20 @@ export default function Footer() {
 
             <div className="block space-x-2">
                 {/* socials */}
-                <a href="https://github.com/azpha/website" target="_blank">
-                    <GitHub />
-                </a>
                 <a href="https://twitter.com/carlgrimesdupe" target="_blank">
                     <Twitter />
                 </a>
-                <a href="https://last.fm/user/lulawex" target="_blank">
-                    <LastFM />
+                <a href="https://bsky.app/profile/alexav.gg" target="_blank">
+                    <Bluesky />
+                </a>
+                <a href="https://linkedin.com/in/thatalex" target="_blank">
+                    <LinkedIn />
                 </a>
                 <a href="https://medal.tv/users/215577" target="_blank">
                     <Medal />
+                </a>
+                <a href="https://github.com/azpha/website" target="_blank">
+                    <GitHub />
                 </a>
                 <a href="https://links.alexav.gg" target="_blank">
                     <Link />
