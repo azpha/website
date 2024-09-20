@@ -1,15 +1,15 @@
-import ListBox from "./components/ListBox";
-import Project from "./components/ProjectCard";
-import ContactForm from "./components/ContactForm";
+import ListBox from "../components/ListBox";
+import Project from "../components/ProjectCard";
+import ContactForm from "../components/ContactForm";
 
 // project components
-import RecentWatch from "./components/ProjectComponents/RecentWatch";
-import RecentPhoto from "./components/ProjectComponents/RecentPhoto";
-import RecentListens from "./components/ProjectComponents/RecentListens";
-import RecentClip from './components/ProjectComponents/RecentClip';
-import RecentGame from "./components/ProjectComponents/RecentGame";
-import RecentBook from "./components/ProjectComponents/RecentBook";
-import Layout from "./components/Layout";
+import RecentWatch from "../components/ProjectComponents/RecentWatch";
+import RecentPhoto from "../components/ProjectComponents/RecentPhoto";
+import RecentListens from "../components/ProjectComponents/RecentListens";
+import RecentClip from '../components/ProjectComponents/RecentClip';
+import RecentGame from "../components/ProjectComponents/RecentGame";
+import RecentBook from "../components/ProjectComponents/RecentBook";
+import Layout from "../components/Layout";
 
 export default function Home() {
     return (
