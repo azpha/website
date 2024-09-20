@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { GitHub, Bluesky, Twitter, Medal, Link, LinkedIn } from './SocialIcons';
 
 export default function Footer() {
@@ -38,7 +39,9 @@ export default function Footer() {
         <div className="lg:w-1/2 bg-zinc-500 md:w-full mx-auto rounded-t-lg text-center p-4 select-none">
             <h1 className="font-bold">&copy; {new Date().getFullYear()}, Alex Frantz. All Rights Reserved</h1>
             <p>All logos & images on this page belong to their respective owners.</p>
-            <p className="opacity-50 italic" onClick={drawNewQuote}>{quote}</p>
+            <RouterLink to={"/privacy"}>
+                <p className="underline">Privacy</p>
+            </RouterLink>
 
             <hr className="my-2 w-1/2 mx-auto" />
 
@@ -55,6 +58,7 @@ export default function Footer() {
                 )
             }
 
+            <p className="opacity-50 italic" onClick={drawNewQuote}>{quote}</p>
             <div className="block space-x-2">
                 {/* socials */}
                 <a href="https://twitter.com/carlgrimesdupe" target="_blank">
