@@ -43,9 +43,15 @@ export default function RecentBook() {
         })
     }, []);
 
-    const parseDate = (date: Date) => {
-        const jsDate = new Date(date);
-        return `${jsDate.getFullYear()}/${jsDate.getMonth() + 1}/${jsDate.getDate()}`;
+    const getDateString = (startedOn: Date, finished: boolean) => {
+        if (startedOn && !finished) {
+            const startedOnDate = new Date(startedOn);
+            return "Started on " + startedOnDate.toLocaleDateString();
+        } else if (finished) {
+            return "Finished!"
+        } else {
+            return "Just Added"
+        }
     }
 
     if (data && !loading) {
@@ -53,7 +59,7 @@ export default function RecentBook() {
             <ProjectComponent 
                 header={"What I'm reading"}
                 projectHeader={data.title}
-                projectSubheader={ data.finished ? "Finished!" : "Started on " + parseDate(data.startedOn) }
+                projectSubheader={getDateString(data.startedOn, data.finished)}
                 url={"https://tracker.alexav.gg/?type=books&id=" + data.id}
                 projectImage={data.imageKey}
                 projectImageSize={"30"}

@@ -22,12 +22,10 @@ export default function RecentPhoto() {
         })
         .then(async (res) => {    
             if (res.ok) {
-                console.log("ok!")
                 const json = await res.json()
                 setData(json.data[0]);
                 setLoading(false)
             } else {
-                console.log("not ok :(")
                 setErrorState("Failed to fetch data!");
                 setLoading(false);
             }
