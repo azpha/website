@@ -11,18 +11,16 @@ export default function Project({
 }) {
     return (
         <a href={urlTo} target="_blank">
-            <div className="bg-white text-black mx-auto rounded-lg overflow-hidden max-w-fit lg:max-w-full">
-                <img
+            <div className="bg-white text-black mx-auto rounded-lg overflow-hidden max-w-full">
+                <img 
                     src={image}
                     alt={name}
                     className="w-full h-24 object-cover"
                 />
 
                 <div className="p-4 space-y-2">
-                    <h3 className="text-xl font-bold">{name}</h3>
-                    <p className="text-muted-foreground">
-                        {description}
-                    </p>
+                    <h1 className="font-bold text-xl">{name}</h1>
+                    <p>{description}</p>
                 </div>
             </div>
         </a>
