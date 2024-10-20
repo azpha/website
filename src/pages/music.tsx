@@ -29,9 +29,11 @@ export default function MusicWidget() {
         return (
             <div className="bg-black p-2 text-white min-h-screen w-full justify-center flex items-center">
                 <div className="mx-auto text-center">
-                    <img className="mx-auto mb-2" width="70" src={data.image.filter((v) => v.size === "large")[0]['#text']} />
-                    <h1>{data.name}</h1>
-                    <p>{data.artist['#text']}</p>
+                    <img className="mx-auto mb-2" width="100" src={data.image.filter((v) => v.size === "large")[0]['#text']} />
+                    <div className="text-2xl">
+                        <h1>{data.name}</h1>
+                        <p>{data.artist['#text']}</p>
+                    </div>
                 </div>
             </div>
         )
