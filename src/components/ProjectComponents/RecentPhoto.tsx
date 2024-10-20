@@ -50,7 +50,7 @@ export default function RecentPhoto() {
                 url={"https://photos.alexav.gg?id=" + data.id}
                 header={"Photos I've captured"}
                 projectHeader={data.name}
-                projectSubheader={parseDate(data.dateTaken as Date)}
+                projectSubheader={`Taken on ${parseDate(data.dateTaken as Date)}`}
                 projectImage={data.imageUrl}
                 projectImageSize={"85"}
             />
