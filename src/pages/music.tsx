@@ -27,7 +27,7 @@ export default function MusicWidget() {
 
     if (data) {
         return (
-            <div className="bg-black rounded-lg p-2 w-fit text-white">
+            <div className="bg-black p-2 text-white min-h-screen w-full justify-center flex items-center">
                 <div className="mx-auto text-center">
                     <img className="mx-auto mb-2" width="70" src={data.image.filter((v) => v.size === "large")[0]['#text']} />
                     <h1>{data.name}</h1>
