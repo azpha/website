@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "tsc && vite build && serve -s -p 8099"
+    "start": "tsc && vite build && serve -p 8099 -s ./dist"
   },
   "dependencies": {
     "react": "^18.2.0",
