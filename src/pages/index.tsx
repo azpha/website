@@ -36,13 +36,13 @@ export default function Home() {
                         />
                         <Project 
                             name="steam-deck-file-sync"
-                            description="Sync clips from Steam Deck > your computer easily"
+                            description="Sync clips from Steam Deck"
                             urlTo="https://github.com/azpha/steam-deck-file-sync"
                             image="https://storage.alexav.gg/content/steam-deck.jpg"
                         />
                         <Project 
                             name="subscription-tracker"
-                            description="Easily track & get notified for upcoming subscriptions"
+                            description="Easily track upcoming subscriptions"
                             urlTo="https://github.com/azpha/subscription-tracker"
                             image="https://storage.alexav.gg/content/a7a289ac-9466-4f3f-b904-2f9be897e0f7.png"
                         />
