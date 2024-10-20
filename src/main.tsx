@@ -8,6 +8,7 @@ import './assets/main.css'
 // pages
 import MainPage from './pages/index';
 import PrivacyPage from './pages/privacy';
+import MusicWidget from './pages/music';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: '/privacy',
     element: <PrivacyPage />
+  },
+  {
+    path: '/music',
+    element: <MusicWidget />
   }
 ])
 
