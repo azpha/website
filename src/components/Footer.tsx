@@ -11,7 +11,8 @@ export default function Footer() {
         "TypeScript: errors not for the weak, but for the spirited",
         "Professional Production Tester",
         "I break hearts to save lives. err.. something like that",
-        "The best error is the one that never shows up"
+        "The best error is the one that never shows up",
+        "go bills"
     ]
 
     // states
