@@ -7,7 +7,7 @@ export default function Layout({
     children: JSX.Element | JSX.Element[]
 }) {
     return (
-        <main className="bg-black text-white min-h-screen">
+        <main className="bg-black select-none text-white min-h-screen">
             <Header />
             {children}
             <Footer />

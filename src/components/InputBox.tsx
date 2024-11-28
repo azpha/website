@@ -1,12 +1,12 @@
 export default function InputBox({
     name,
-    placeholder,
+    placeholder = "",
     isText = true,
     onChange
 }: {
     name: string,
     isText?: boolean,
-    placeholder: string,
+    placeholder?: string,
     onChange: (value: string) => void
 }) {
     if (isText) {
@@ -16,7 +16,7 @@ export default function InputBox({
                     type="text"
                     name={name}
                     placeholder={placeholder}
-                    className="bg-black rounded-lg p-2 text-white w-full"
+                    className="rounded-lg p-2 w-1/2 text-black"
                     onChange={({target}) => onChange(target.value)}
                 />
             </div>
@@ -28,7 +28,7 @@ export default function InputBox({
                     name={name}
                     placeholder={placeholder}
                     onChange={({ target }) => onChange(target.value)}
-                    className="bg-black rounded-lg p-2 text-white w-full h-32"
+                    className="rounded-lg p-2 w-1/2 h-32 text-black"
                 />
             </div>
         )

@@ -57,15 +57,14 @@ export default function ContactForm() {
     }, [success]);
 
     return (
-        <div className="bg-white rounded-lg text-black p-2">
-            <h1 className="text-2xl font-bold">Contact Me</h1>
-            <hr className="my-2 border-black" />
+        <div className="rounded-lg p-2 w-full md:w-[50%] mx-auto">
+            <h1 className="text-2xl font-bold text-center pb-8">Contact Me</h1>
 
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
                 <InputBox 
                     isText={true}
                     name="name"
-                    placeholder="Name.."
+                    placeholder="Your name.."
                     onChange={(value: string) => {
                         setInputState((prevState) => {
                             return {
@@ -78,7 +77,7 @@ export default function ContactForm() {
                 <InputBox 
                     name="email"
                     isText={true}
-                    placeholder="Email.."
+                    placeholder="your@supercool.email"
                     onChange={(value: string) => {
                         setInputState((prevState) => {
                             return {
@@ -104,7 +103,7 @@ export default function ContactForm() {
                 <InputBox 
                     isText={false}
                     name="message"
-                    placeholder="Message.."
+                    placeholder="Your message here.."
                     onChange={(value: string) => {
                         setInputState((prevState) => {
                             return {
@@ -116,16 +115,26 @@ export default function ContactForm() {
                 />
             </div>
 
-            <div className="block">
+            <div className="block text-center">
                 <button
                     type="button"
-                    className="bg-black w-full text-white font-bold rounded-lg p-2"
+                    className="bg-white w-full text-black font-bold rounded-lg max-w-fit p-2"
                     onClick={onSubmit}
                 >
                     Submit
                 </button>
-                <p className="text-red-400 font-bold text-center">{error}</p>
-                <p className="font-bold text-center">{ success && "Success! Your message has been received"}</p>
+                
+                {
+                    error && (
+                        <p className="text-red-400 font-bold text-center pt-2">{error}</p>
+                    )
+                }
+
+                {
+                    success && (
+                        <p className="font-bold text-green-500 text-center pt-2">Success! Your message has been received</p>
+                    )
+                }
             </div>
         </div>
     )

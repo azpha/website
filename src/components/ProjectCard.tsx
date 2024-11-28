@@ -1,26 +1,28 @@
 export default function Project({
     name,
-    image,
     description,
-    urlTo
+    urlTo,
+    tags
 }: {
     name: string,
-    image: string,
     description: string,
     urlTo?: string,
+    tags: string[]
 }) {
     return (
         <a href={urlTo} target="_blank">
-            <div className="bg-white text-black mx-auto rounded-lg overflow-hidden max-w-full">
-                <img 
-                    src={image}
-                    alt={name}
-                    className="w-full h-24 object-cover"
-                />
-
+            <div className="bg-white text-black mx-auto rounded-lg overflow-hidden">
                 <div className="p-4 space-y-2">
                     <h1 className="font-bold text-xl">{name}</h1>
                     <p>{description}</p>
+
+                    <div className="space-x-2">
+                        {
+                            tags.map((v, k) => (
+                                <div className="bg-zinc-600 inline max-w-fit p-1 text-sm font-bold rounded-full bg-opacity-20" key={k}>{v}</div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </a>
