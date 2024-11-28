@@ -12,7 +12,8 @@ export default function Footer() {
         "Professional Production Tester",
         "I break hearts to save lives. err.. something like that",
         "The best error is the one that never shows up",
-        "go bills"
+        "go bills",
+        "josh allen is my goat"
     ]
 
     // states
