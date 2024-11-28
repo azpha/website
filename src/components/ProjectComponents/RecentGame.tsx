@@ -54,10 +54,11 @@ export default function RecentGame() {
             />
         )
     } else {
-       <>
-        <h1 className="font-bold text-2xl">No data :(</h1>
-        <p>Check out <a className="underline" href="https://steamcommunity.com/id/luvxavierr" target="_blank">steamcommunity.com/id/luvxavierr</a> if this isn't working.</p>
-        <p className="text-sm italic">{errorState}</p>
-       </> 
+        return <ProjectComponent 
+            header={"Games I'm playing"}
+            projectHeader={"No data :("}
+            projectSubheader={loading ? "Loading data.." : "Something went wrong fetching data! " + errorState}
+            url={"/"}
+        />
     }
 }

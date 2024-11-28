@@ -61,10 +61,11 @@ export default function RecentClip() {
             />
         )
     } else {
-       <>
-        <h1 className="font-bold text-2xl">No data :(</h1>
-        <p>Check out <a className="underline" href="https://medal.tv/u/alexav" target="_blank">medal.tv/u/alexav</a> if this isn't working.</p>
-        <p className="text-sm italic">{errorState}</p>
-       </> 
+        return <ProjectComponent 
+            header={"Clips I've taken"}
+            projectHeader={"No data :("}
+            projectSubheader={loading ? "Loading data.." : "Something went wrong fetching data! " + errorState}
+            url={"/"}
+        />
     }
 }

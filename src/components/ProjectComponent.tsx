@@ -10,7 +10,7 @@ export default function ProjectComponent({
     header: string,
     projectHeader: string,
     projectSubheader: string,
-    projectImage: string,
+    projectImage?: string,
     projectImageSize?: string
 }) {
     return (
@@ -20,7 +20,9 @@ export default function ProjectComponent({
 
                 <div className="block">
                     <div className="flex items-center">
-                        <img src={projectImage} width={projectImageSize} className="flex-shrink-0" />
+                        {
+                            projectImage && <img src={projectImage} width={projectImageSize} className="flex-shrink-0" />
+                        }
 
                         <div className="flex flex-col mx-2 min-w-0 flex-grow">
                             <h1 className="font-bold text-left truncate">{projectHeader}</h1>

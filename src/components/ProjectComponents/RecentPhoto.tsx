@@ -57,11 +57,12 @@ export default function RecentPhoto() {
         )
     } else {
         return (
-            <>
-                <h1 className="font-bold text-2xl">No data :(</h1>
-                <p>Check out <a className="underline" href="https://photos.alexav.gg" target="_blank">photos.alexav.gg</a> if this isn't working.</p>
-                <p className="text-sm italic">{errorState}</p>
-            </> 
+            <ProjectComponent 
+                header={"Photos I've captured"}
+                projectHeader={"No data :("}
+                projectSubheader={loading ? "Loading data.." : "Something went wrong fetching data! " + errorState}
+                url={"/"}
+            />
         )
     }
 

@@ -67,11 +67,12 @@ export default function RecentBook() {
         )
     } else {
         return (
-            <>
-                <h1 className="font-bold text-2xl">No data :(</h1>
-                <p>Check out <a className="underline" href="https://tracker.alexav.gg" target="_blank">tracker.alexav.gg</a> if this isn't working.</p>
-                <p className="text-sm italic">{errorState}</p>
-            </> 
+            <ProjectComponent 
+                header={"What I'm reading"}
+                projectHeader={"No data :("}
+                projectSubheader={loading ? "Loading data.." : "Something went wrong fetching data! " + errorState}
+                url={"/"}
+            />
         )
     }
 }

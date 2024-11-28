@@ -9,7 +9,9 @@ export default function Header() {
         "Professional Production Tester",
         "I break hearts to save lives.",
         "go bills",
-        "josh allen is my goat"
+        "josh allen is my goat",
+        "lets go buffalo",
+        "oorah"
     ]
     const [ quote, setQuote ] = useState<string>(quoteArray[Math.floor(Math.random() * quoteArray.length)]);
 
@@ -31,7 +33,6 @@ export default function Header() {
                 <p className="opacity-50 italic select-none" onClick={drawNewQuote}>{quote}</p>
             </div>
             <div className="space-x-2 items-center justify-center flex select-none">
-                <a className="hover:underline" href="#about">About</a>
                 <a className="hover:underline" href="#projects">Projects</a>
                 <a className="hover:underline" href="#data">Data</a>
                 <a className="hover:underline" href="#contact">Contact</a>

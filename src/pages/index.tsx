@@ -18,7 +18,7 @@ export default function Home() {
                 <div className="w-full mx-auto text-center p-10">
                     <div className="my-1">
                         <h1 className="text-3xl font-bold">Hi, I'm Alex</h1>
-                        <p>I'm a junior developer working as QA + sometimes writing questionable code at <a className="hover:underline text-yellow-400" href="https://medal.tv" target="_blank">Medal.tv</a></p>
+                        <p>I'm a junior developer primarily working as QA, but sometimes writing questionable code at <a className="hover:underline text-yellow-400" href="https://medal.tv" target="_blank">Medal.tv</a></p>
                     </div>
 
                     <div className="block space-x-2">
@@ -38,10 +38,6 @@ export default function Home() {
                         <a href="https://linkedin.com/in/thatalex" target="_blank">
                             <LinkedIn />
                         </a>
-                    </div>
-
-                    <div className="my-4">
-                        <a className="p-2 bg-white text-black rounded-lg" href="#projects">View My Work</a>
                     </div>
                 </div>
             </section>
