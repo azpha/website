@@ -39,18 +39,13 @@ export default function RecentPhoto() {
         console.log(data)
     }, [data])
 
-    const parseDate = (date: Date) => {
-        const jsDate = new Date(date);
-        return `${jsDate.getFullYear()}/${jsDate.getMonth() + 1}/${jsDate.getDate()}`;
-    }
-
     if (data && !loading) {
         return (
             <ProjectComponent 
                 url={"https://photos.alexav.gg?id=" + data.id}
                 header={"Photos I've captured"}
                 projectHeader={data.name}
-                projectSubheader={`Taken on ${parseDate(data.dateTaken as Date)}`}
+                projectSubheader={`Taken on ${new Date(data.dateTaken).toLocaleDateString()}`}
                 projectImage={data.imageUrl}
                 projectImageSize={"85"}
             />

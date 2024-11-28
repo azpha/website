@@ -44,15 +44,11 @@ export default function RecentWatch() {
         })
     }, []);
 
-    const parseDate = (date: Date) => {
-        const jsDate = new Date(date);
-        return `${jsDate.getFullYear()}/${jsDate.getMonth() + 1}/${jsDate.getDate()}`;
-    }
     const getSubheaderText = () => {
         if (data?.finished) {
             return "Finished!"
         } else if (data?.startedOn) {
-            return "Started on " + parseDate(data.startedOn)
+            return "Started on " + new Date(data.startedOn).toLocaleDateString()
         } else {
             return "Just Added"
         }
