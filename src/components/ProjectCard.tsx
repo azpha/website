@@ -19,7 +19,7 @@ export default function Project({
                     <div className="space-x-2">
                         {
                             tags.map((v, k) => (
-                                <div className="bg-zinc-600 inline max-w-fit p-1 text-sm font-bold rounded-full bg-opacity-20" key={k}>{v}</div>
+                                <div className="bg-zinc-600 inline max-w-fit p-[5px] text-xs font-bold rounded-xl bg-opacity-20" key={k}>{v}</div>
                             ))
                         }
                     </div>
