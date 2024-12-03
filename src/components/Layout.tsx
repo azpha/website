@@ -1,5 +1,6 @@
 import Header from "./Header"
 import Footer from "./Footer"
+import Snow from "./Snow"
 
 export default function Layout({
     children
@@ -9,6 +10,7 @@ export default function Layout({
     return (
         <main className="bg-black select-none text-white min-h-screen">
             <Header />
+            <Snow />
             {children}
             <Footer />
         </main>
