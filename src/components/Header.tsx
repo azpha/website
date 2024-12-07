@@ -1,6 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-export default function Header() {
+export default function Header({
+    isAudioActive = false
+}: {
+    isAudioActive: boolean
+}) {
     const quoteArray = [
         "It works on my machine",
         "Revert 'Revert 'Revert",
@@ -23,6 +27,11 @@ export default function Header() {
             setQuote(newQuote);
         } else drawNewQuote();
     }
+    useEffect(() => {
+        if (isAudioActive) {
+            setQuote("go bills")
+        }
+    }, [isAudioActive])
 
     return (
         <div className="bg-zinc-900 p-4 flex justify-between">
