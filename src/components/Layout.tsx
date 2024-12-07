@@ -1,7 +1,7 @@
 import Header from "./Header"
 import Footer from "./Footer"
 import Snow from "./Snow"
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export default function Layout({
     children
