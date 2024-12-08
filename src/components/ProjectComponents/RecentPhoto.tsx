@@ -35,9 +35,6 @@ export default function RecentPhoto() {
             setErrorState(e.message)
         })
     }, []);
-    useEffect(() => {
-        console.log(data)
-    }, [data])
 
     if (data && !loading) {
         return (
@@ -47,7 +44,6 @@ export default function RecentPhoto() {
                 projectHeader={data.name}
                 projectSubheader={`Taken on ${new Date(data.dateTaken).toLocaleDateString()}`}
                 projectImage={data.imageUrl}
-                projectImageSize={"85"}
             />
         )
     } else {

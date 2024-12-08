@@ -62,7 +62,6 @@ export default function RecentBook() {
                 projectSubheader={getDateString(data.startedOn, data.finished)}
                 url={"https://tracker.alexav.gg/?type=books&id=" + data.id}
                 projectImage={data.imageKey}
-                projectImageSize={"30"}
             />
         )
     } else {

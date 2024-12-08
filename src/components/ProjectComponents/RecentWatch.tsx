@@ -62,7 +62,6 @@ export default function RecentWatch() {
                 projectSubheader={ getSubheaderText() }
                 url={"https://tracker.alexav.gg/?type=tv&id=" + data.id}
                 projectImage={data.imageKey}
-                projectImageSize={"30"}
             />
         )
     } else {

@@ -34,7 +34,6 @@ export default function RecentListens() {
                 projectHeader={data[0].name}
                 projectSubheader={data[0].artist["#text"]}
                 projectImage={data[0].image.filter((v) => v.size === "medium")[0]["#text"]}
-                projectImageSize={"50"}
             />
         )
     } else {

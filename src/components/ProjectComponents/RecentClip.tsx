@@ -57,7 +57,6 @@ export default function RecentClip() {
                 projectHeader={data[0].contentTitle}
                 projectSubheader={`${data[0].contentLikes} ${likeOrLikes(data[0].contentLikes)} | ${data[0].contentViews} ${viewOrViews(data[0].contentViews)}`}
                 projectImage={data[0].contentThumbnail}
-                projectImageSize={"80"}
             />
         )
     } else {

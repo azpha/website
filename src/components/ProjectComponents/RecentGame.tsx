@@ -50,7 +50,6 @@ export default function RecentGame() {
                     : `Started on ${getTime(data.startedOn)}`
                 }
                 projectImage={"https://storage.alexav.gg/content/933d5523-5e20-4040-9fe9-b73552eac8ab.png"}
-                projectImageSize={"40"}
             />
         )
     } else {

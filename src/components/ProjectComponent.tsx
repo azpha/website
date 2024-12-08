@@ -3,15 +3,13 @@ export default function ProjectComponent({
     header,
     projectHeader,
     projectSubheader,
-    projectImage,
-    projectImageSize = "100"
+    projectImage
 }: {
     url: string,
     header: string,
     projectHeader: string,
     projectSubheader: string,
     projectImage?: string,
-    projectImageSize?: string
 }) {
     return (
         <a href={url} target="_blank">
@@ -21,7 +19,7 @@ export default function ProjectComponent({
                 <div className="block">
                     <div className="flex items-center">
                         {
-                            projectImage && <img alt="Project Image" src={projectImage} width={projectImageSize} className="flex-shrink-0" />
+                            projectImage && <img alt="Project Image" src={projectImage} width={100} height={100} className="w-[80px] h-[50px] object-cover" />
                         }
 
                         <div className="flex flex-col mx-2 min-w-0 flex-grow">
