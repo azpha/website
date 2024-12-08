@@ -18,7 +18,7 @@ export default function Links() {
                     <CustomButton icon={<Bluesky />} to="https://bsky.app/profile/alexav.gg">Bluesky</CustomButton>
                     <CustomButton icon={<GitHub />} to="https://github.com/azpha">GitHub</CustomButton>
                     <CustomButton icon={<LastFM />} to="https://last.fm/user/lulawex">Last.fm</CustomButton>
-                    <CustomButton icon={<LinkedIn />} to="https://last.fm/user/lulawex">LinkedIn</CustomButton>
+                    <CustomButton icon={<LinkedIn />} to="https://linkedin.com/in/thatalex">LinkedIn</CustomButton>
                 </div>
             </div>
         </div>
