@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 export default function PrivacyPage() {
     return (
         <Layout>
-            <div className="mb-6 text-left w-full pl-4 lg:w-1/4 lg:pl-0 mx-auto">
+            <div className="my-6 text-left w-full lg:w-1/4 mx-auto">
                 <h1 className="text-2xl font-bold">Privacy</h1>
                 <h1>This site doesn't collect anything on you. No cookies (although tasty), no ominous advertisements, nothing.</h1>
 
@@ -17,8 +17,8 @@ export default function PrivacyPage() {
                 <h1>I use a self-hosted instance in the US that doesn't use cookies.</h1>
 
                 <h1 className="my-2 font-bold text-2xl">Cloudflare</h1>
-                <h1>I use <a className="underline" href="https://plausible.io" target="_blank">Cloudflare</a> for DNS. Most of my sites
-                are proxied through Cloudflare. You can view their privacy policy <a className="underline" href="https://cloudflare.com/privacy" target="_blank">here</a>.</h1>
+                <h1>I use <a className="underline" href="https://pages.cloudflare.com" target="_blank">Cloudflare Pages</a> for this site. Most of my sites
+                are proxied through Cloudflare as well. You can view their privacy policy <a className="underline" href="https://cloudflare.com/privacy" target="_blank">here</a>.</h1>
 
                 <h1 className="my-2 font-bold text-2xl">Email</h1>
                 <h1>When you submit a contact request on my page, it is sent to Discord via a webhook & my own API.</h1>

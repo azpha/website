@@ -17,9 +17,12 @@ export default function Footer() {
         <div className="lg:w-1/2 md:w-full mx-auto rounded-t-lg text-center p-4 select-none">
             <h1 className="font-bold text-sm">&copy; {new Date().getFullYear()}, Alex Frantz. All Rights Reserved</h1>
             <p>All logos & images on this page belong to their respective owners.</p>
-            <RouterLink to={"/privacy"}>
-                <p className="underline">Privacy</p>
-            </RouterLink>
+
+            <div className="max-w-fit mx-auto">
+                <RouterLink to={"/privacy"}>
+                    <p className="underline">Privacy</p>
+                </RouterLink>
+            </div>
 
             <hr className="my-2 w-1/2 mx-auto" />
 
