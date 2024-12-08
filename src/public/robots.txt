@@ -1,0 +1,4 @@
+# allow all crawlers idc
+
+User-Agent: *
+Disallow:

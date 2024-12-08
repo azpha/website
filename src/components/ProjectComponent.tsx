@@ -21,7 +21,7 @@ export default function ProjectComponent({
                 <div className="block">
                     <div className="flex items-center">
                         {
-                            projectImage && <img src={projectImage} width={projectImageSize} className="flex-shrink-0" />
+                            projectImage && <img alt="Project Image" src={projectImage} width={projectImageSize} className="flex-shrink-0" />
                         }
 
                         <div className="flex flex-col mx-2 min-w-0 flex-grow">
