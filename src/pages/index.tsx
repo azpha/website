@@ -39,6 +39,9 @@ export default function Home() {
                             <LinkedIn />
                         </a>
                     </div>
+                    <a href="/links" className="opacity-40 text-sm">
+                        <p className="underline">and more..</p>
+                    </a>
                 </div>
             </section>
 

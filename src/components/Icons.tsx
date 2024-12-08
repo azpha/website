@@ -3,7 +3,7 @@ export const GitHub = () => {
         <svg 
             role="img" 
             viewBox="0 0 24 24" 
-            className="w-7 mt-2 mx-auto bg-white p-1 rounded-lg inline"
+            className="w-7 mx-auto bg-white p-1 rounded-lg inline"
             xmlns="http://www.w3.org/2000/svg">
                 <title>GitHub</title>
                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 
@@ -22,7 +22,7 @@ export const LastFM = () => {
         <svg 
             role="img" 
             viewBox="0 0 24 24" 
-            className="w-7 mt-2 mx-auto bg-white p-1 rounded-lg inline"
+            className="w-7 mx-auto bg-white p-1 rounded-lg inline"
             xmlns="http://www.w3.org/2000/svg">
             <title>Last.fm</title>
             <path d="M10.584 17.21l-.88-2.392s-1.43 1.594-3.573 1.594c-1.897 0-3.244-1.649-3.244-4.288 0-3.382 1.704-4.591 3.381-4.591 
@@ -39,7 +39,7 @@ export const Twitter = () => {
         <svg 
             role="img" 
             viewBox="0 0 24 24" 
-            className="w-7 mt-2 mx-auto bg-white p-1 rounded-lg inline"
+            className="w-7 mx-auto bg-white p-1 rounded-lg inline"
             xmlns="http://www.w3.org/2000/svg">
             <title>X</title>
             <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 
@@ -50,7 +50,7 @@ export const Twitter = () => {
 
 export const Medal = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 mt-2 mx-auto bg-white p-1 rounded-lg inline" x="0px" y="0px" viewBox="0,0,256,256">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 mx-auto bg-white p-1 rounded-lg inline" x="0px" y="0px" viewBox="0,0,256,256">
             <g fill="none" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" 
             strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none"
             >
@@ -78,7 +78,7 @@ export const Medal = () => {
 
 export const Link = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 mt-2 h-7 mx-auto bg-white p-1 rounded-lg inline" viewBox="0 0 24 24" width="24" height="24">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 mx-auto bg-white p-1 rounded-lg inline" viewBox="0 0 24 24" width="24" height="24">
             <path fill="none" stroke="black" strokeWidth="2" d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
             <path fill="none" stroke="black" strokeWidth="2" d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
         </svg>
@@ -87,7 +87,7 @@ export const Link = () => {
 
 export const LinkedIn = () => {
     return (
-        <svg className="w-7 mt-2 h-7 mx-auto bg-white p-1 rounded-lg inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg className="w-7 h-7 mx-auto bg-white p-1 rounded-lg inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path 
                 fill="#000000"
                 d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
@@ -98,7 +98,7 @@ export const LinkedIn = () => {
 
 export const Bluesky = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 mt-2 h-7 mx-auto bg-white p-1 rounded-lg inline" viewBox="0 0 568 501" width="568" height="501">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 mx-auto bg-white p-1 rounded-lg inline" viewBox="0 0 568 501" width="568" height="501">
             <path 
                 fill="black" 
                 d="M123.121 33.6637C188.241 82.5526 258.281 181.681 284 234.873C309.719 181.681 379.759 82.5526 444.879 33.6637C491.866 -1.61183 568 -28.9064 568 57.9464C568 75.2916 558.055 203.659 552.222 224.501C531.947 296.954 458.067 315.434 392.347 304.249C507.222 323.8 536.444 388.56 473.333 453.32C353.473 576.312 301.061 422.461 287.631 383.039C285.169 375.812 284.017 372.431 284 375.306C283.983 372.431 282.831 375.812 280.369 383.039C266.939 422.461 214.527 576.312 94.6667 453.32C31.5556 388.56 60.7778 323.8 175.653 304.249C109.933 315.434 36.0535 296.954 15.7778 224.501C9.94525 203.659 0 75.2916 0 57.9464C0 -28.9064 76.1345 -1.61183 123.121 33.6637Z" />
