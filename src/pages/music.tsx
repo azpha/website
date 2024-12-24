@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { MusicAPIResponse, MusicData } from '../utils/types';
+import type { MusicData } from '../utils/types';
 
 export default function MusicWidget() {
     const [ data, setData ] = useState<MusicData | null>(null);
@@ -10,7 +10,7 @@ export default function MusicWidget() {
         })   
         .then(async (res) => {
             if (res.ok) {
-                const data = await res.json() as MusicAPIResponse;
+                const data = await res.json()
                 setData(data.data.tracks[0]);
             } else {
                 console.error("Failed to get music data!", res.status);
