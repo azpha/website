@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ProjectComponent from '../ProjectComponent';
-import type { MusicData, MusicAPIResponse } from '../../utils/types';
+import type { MusicData } from '../../utils/types';
 
 export default function RecentListens() {
     const [ data, setData ] = useState<MusicData[]>();
@@ -13,7 +13,7 @@ export default function RecentListens() {
         })
         .then(async (res) => {
             if (res.ok) {
-                const data = await res.json() as MusicAPIResponse
+                const data = await res.json()
                 setData(data.data.tracks);
             } else {
                 setErrorState("Failed to load! :(")
