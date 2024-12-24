@@ -1,9 +1,4 @@
-type MusicAPIResponse = {
-    data: {
-        tracks: MusicData[]
-    }
-}
-
+// music type
 type MusicData = {
     artist: {
         mbid: string,
@@ -18,13 +13,29 @@ type MusicData = {
     url: string,
     image: MusicImage[]
 }
-
 type MusicImage = {
     size: string,
     "#text": string
 }
 
+// tracker type
+type ContentTrackerItem = {
+    id: number,
+    title: string,
+    author?: string,
+    description: string,
+    episode?: string,
+    image: string,
+    type: "tv" | "book" | "game",
+    tmdbId?: string,
+    yearReleased: number,
+    updatedAt: Date,
+    genre: string,
+    startedOn: Date,
+    finished: boolean
+}
+
 export type {
-    MusicAPIResponse,
-    MusicData
+    MusicData,
+    ContentTrackerItem
 }

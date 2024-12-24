@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react';
 import ProjectComponent from '../ProjectComponent';
 
-type WatchDataResponse = {
-    status: number,
-    data: WatchData
-};
 type WatchData = {
     id: number,
     title: string,
     description: string,
-    imageKey: string,
-    currentEpisode: string,
-    tmdbID: string,
+    author?: string,
+    image: string,
+    episode?: string,
+    tmdbId?: string,
     finished: boolean,
-    startedOn: Date,
+    startedOn?: Date,
     createdAt: Date,
     updatedAt: Date,
     createdById: string   
@@ -25,12 +22,12 @@ export default function RecentWatch() {
     const [ errorState, setErrorState ] = useState<string>("");
 
     useEffect(() => {
-        fetch("https://api.alexav.gg/v4/social/watch", {
+        fetch("https://api.alexav.gg/v4/tracker/latest/tv", {
             method: 'get'
         })
         .then(async (res) => {    
             if (res.ok) {
-                const json = await res.json() as WatchDataResponse;
+                const json = await res.json();
                 setData(json.data);
                 setLoading(false)
             } else {
@@ -48,7 +45,7 @@ export default function RecentWatch() {
         if (data?.finished) {
             return "Finished!"
         } else if (data?.startedOn) {
-            return "Started on " + new Date(data.startedOn).toLocaleDateString()
+            return "Last update on " + new Date(data.updatedAt).toLocaleDateString()
         } else {
             return "Just Added"
         }
@@ -61,7 +58,7 @@ export default function RecentWatch() {
                 projectHeader={data.title}
                 projectSubheader={ getSubheaderText() }
                 url={"https://tracker.alexav.gg/?type=tv&id=" + data.id}
-                projectImage={data.imageKey}
+                projectImage={data.image}
             />
         )
     } else {

@@ -1,37 +1,21 @@
 import { useState, useEffect } from 'react';
 import ProjectComponent from '../ProjectComponent';
-
-type BookDataResponse = {
-    status: number,
-    data: BookData
-};
-type BookData = {
-    id: number,
-    title: string,
-    author: string,
-    description: string,
-    imageKey: string,
-    finished: boolean,
-    startedOn: Date,
-    createdAt: Date,
-    updatedAt: Date,
-    createdById: string   
-}
+import type { ContentTrackerItem } from '../../utils/types';
 
 export default function RecentBook() {
-    const [ data, setData ] = useState<BookData | null>(null);
+    const [ data, setData ] = useState<ContentTrackerItem | null>(null);
     const [ loading, setLoading ] = useState<boolean>(true);
     const [ errorState, setErrorState ] = useState<string>("");
 
     useEffect(() => {
-        fetch("https://api.alexav.gg/v4/social/books", {
+        fetch("https://api.alexav.gg/v4/tracker/latest/book", {
             method: 'get'
         })
         .then(async (res) => {    
             if (res.ok) {
-                const json = await res.json() as BookDataResponse;
+                const json = await res.json();
                 setData(json.data);
-                setLoading(false)
+                setLoading(false);
             } else {
                 setErrorState("Failed to fetch data!");
                 setLoading(false);
@@ -61,7 +45,7 @@ export default function RecentBook() {
                 projectHeader={data.title}
                 projectSubheader={getDateString(data.startedOn, data.finished)}
                 url={"https://tracker.alexav.gg/?type=books&id=" + data.id}
-                projectImage={data.imageKey}
+                projectImage={data.image}
             />
         )
     } else {
