@@ -1,6 +1,5 @@
 import Header from "./Header"
 import Footer from "./Footer"
-import Firework from "./Firework";
 import { useState, useEffect, useCallback } from 'react';
 
 export default function Layout({
@@ -49,7 +48,6 @@ export default function Layout({
     return (
         <main className="bg-black select-none text-white min-h-screen">
             <Header isAudioActive={shouldShowAudio} />
-            <Firework />
             {children}
             <Footer />
             {shouldShowAudio && <audio onEnded={() => setShouldShowAudio(false)} autoPlay={true} src={"https://storage.alexav.gg/content/0f4ce103-62d0-4ff1-8b8b-e38becced35d.mp3"} />}
