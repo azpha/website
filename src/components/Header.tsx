@@ -15,7 +15,10 @@ export default function Header({
         "go bills",
         "josh allen is my goat",
         "lets go buffalo",
-        "oorah"
+        "oorah",
+        "how bout them bills??",
+        "where else would you rather be..",
+        "..than right here, right now?!"
     ]
     const [ quote, setQuote ] = useState<string>(quoteArray[Math.floor(Math.random() * quoteArray.length)]);
 
