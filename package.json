@@ -4,12 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev:ssr": "ts-node --esm server.ts",
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "tsc && vite build && serve -p 8099 -s ./dist"
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "cross-env SSR=true vite build --outDir dist/server"
   },
   "dependencies": {
     "@types/express": "^5.0.0",
