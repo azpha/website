@@ -20,8 +20,11 @@ export default function Header({
         "where else would you rather be..",
         "..than right here, right now?!"
     ]
-    const [ quote, setQuote ] = useState<string>(quoteArray[Math.floor(Math.random() * quoteArray.length)]);
+    const [ quote, setQuote ] = useState<string>(quoteArray[0]);
 
+    useEffect(() => {
+        setQuote(quoteArray[Math.floor(Math.random() * quoteArray.length)])
+    }, [])
     const drawNewQuote = () => {
         const newQuote = quoteArray[Math.floor(Math.random() * quoteArray.length)]
 
