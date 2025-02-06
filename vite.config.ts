@@ -4,6 +4,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   publicDir: './src/public',
+  server: {
+    allowedHosts: [
+      "alexav.gg",
+      "www.alexav.gg"
+    ]
+  },
   build: {
     copyPublicDir: !!process.env.SSR,
     ssr: !!process.env.SSR,
