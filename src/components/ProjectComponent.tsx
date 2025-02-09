@@ -1,31 +1,27 @@
 export default function ProjectComponent({
-    url,
-    header,
-    projectHeader,
-    projectSubheader,
-    projectImage
+    urlTo,
+    description,
+    name,
+    tags
 }: {
-    url: string,
-    header: string,
-    projectHeader: string,
-    projectSubheader: string,
-    projectImage?: string,
+    urlTo: string,
+    description: string,
+    name: string,
+    tags: string[]
 }) {
     return (
-        <a href={url} target="_blank">
-            <div className="bg-white rounded-lg text-black p-2">
-                <h1 className="text-center font-semibold">{header}</h1>
+        <a href={urlTo} target="_blank">
+            <div className="bg-white text-black mx-auto rounded-lg overflow-hidden">
+                <div className="p-4 space-y-2">
+                    <h1 className="font-bold text-xl">{name}</h1>
+                    <p>{description}</p>
 
-                <div className="block">
-                    <div className="flex items-center">
+                    <div className="space-x-2">
                         {
-                            projectImage && <img alt="Project Image" src={projectImage} width={100} height={100} className="w-[80px] h-[50px] object-cover" />
+                            tags.map((v, k) => (
+                                <div className="bg-zinc-600 inline max-w-fit p-[5px] text-xs font-bold rounded-xl bg-opacity-20" key={k}>{v}</div>
+                            ))
                         }
-
-                        <div className="flex flex-col mx-2 min-w-0 flex-grow">
-                            <h1 className="font-bold text-left truncate">{projectHeader}</h1>
-                            <h1 className="text-left truncate">{projectSubheader}</h1>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -1,47 +1,30 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import InputBox from './InputBox';
+import { submitContact } from '@/actions/contact';
 
 export default function ContactForm() {
     const [ error, setError ] = useState<string>("");
     const [ success, setSuccess ] = useState<boolean>(false);
-    const [ inputState, setInputState ] = useState<{name: string, email: string, subject: string, message: string}>({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-    });
+    const [ pending, setPending ] = useState<boolean>(false);
 
-    const onSubmit = () => {
-        if (
-            inputState.name === ""
-            || inputState.email === ""
-            || inputState.subject === ""
-            || inputState.message === ""
-        ) {
-            setError("A required field was missing")
-        } else {
-            console.log("Form submitted")
+    const handleSubmission = async (formData: FormData) => {
+        setPending(true)
 
-            fetch(import.meta.env.VITE_API_BASE_URL + "/contact", {
-                method: "post",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(inputState)
-            }).then((res) => {
-                if (res.ok) {
-                    setSuccess(true)
-                } else {
-                    if (res.status === 429) {
-                        setError("Too many tries! Try again later")
-                    } else {
-                        setError("An error occurred while submitting your info.")
-                    }
-                }
-            }).catch((e) => {
-                console.error(e)
-                setError("An error occurred while submitting your info.")
-            })
+        try {
+            const result = await submitContact(formData)
+            
+            if (result.error || !result.success) {
+                setError('An unexpected error occurred')
+            } else setSuccess(true)
+
+            const form = document.getElementById('contact-form') as HTMLFormElement
+            form.reset()
+        } catch (e) {
+            setError('An unexpected error occurred')
+        } finally {
+            setPending(false)
         }
     }
 
@@ -60,82 +43,54 @@ export default function ContactForm() {
         <div className="rounded-lg p-2 w-full md:w-[50%] mx-auto">
             <h1 className="text-2xl font-bold text-center pb-8">Contact Me</h1>
 
-            <div className="space-y-2 text-center">
+            <form id="contact-form" action={handleSubmission} className="space-y-2 text-center">
                 <InputBox 
                     isText={true}
                     name="name"
                     placeholder="Your name.."
-                    onChange={(value: string) => {
-                        setInputState((prevState) => {
-                            return {
-                                ...prevState,
-                                name: value
-                            }
-                        })
-                    }}
+                    disabled={pending}
                 />
                 <InputBox 
                     name="email"
+                    type="email"
                     isText={true}
                     placeholder="your@supercool.email"
-                    onChange={(value: string) => {
-                        setInputState((prevState) => {
-                            return {
-                                ...prevState,
-                                email: value
-                            }
-                        })
-                    }}
+                    disabled={pending}
                 />
                 <InputBox 
                     isText={true}
                     name="subject"
                     placeholder="Subject.."
-                    onChange={(value: string) => {
-                        setInputState((prevState) => {
-                            return {
-                                ...prevState,
-                                subject: value
-                            }
-                        })
-                    }}
+                    disabled={pending}
                 />
                 <InputBox 
                     isText={false}
                     name="message"
                     placeholder="Your message here.."
-                    onChange={(value: string) => {
-                        setInputState((prevState) => {
-                            return {
-                                ...prevState,
-                                message: value
-                            }
-                        })
-                    }}
+                    disabled={pending}
                 />
-            </div>
 
-            <div className="block text-center">
-                <button
-                    type="button"
-                    className="bg-white w-full text-black font-bold rounded-lg max-w-fit p-2"
-                    onClick={onSubmit}
-                >
-                    Submit
-                </button>
-                
-                {
-                    error && (
-                        <p className="text-red-400 font-bold text-center pt-2">{error}</p>
-                    )
-                }
+                <div className="block text-center">
+                    <button
+                        type="submit"
+                        className="bg-white w-full text-black font-bold rounded-lg max-w-fit p-2"
+                    >
+                        Submit
+                    </button>
+                    
+                    {
+                        error && (
+                            <p className="text-red-400 font-bold text-center pt-2">{error}</p>
+                        )
+                    }
 
-                {
-                    success && (
-                        <p className="font-bold text-green-500 text-center pt-2">Success! Your message has been received</p>
-                    )
-                }
-            </div>
+                    {
+                        success && (
+                            <p className="font-bold text-green-500 text-center pt-2">Success! Your message has been received</p>
+                        )
+                    }
+                </div>
+            </form>
         </div>
     )
 }
