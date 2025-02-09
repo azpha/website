@@ -1,38 +1,27 @@
 {
   "name": "website",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "vite build --outDir dist/client",
-    "build:server": "cross-env SSR=true vite build --outDir dist/server"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.13.1",
-    "compression": "^1.7.5",
-    "express": "^4.21.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.26.2"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.1.6"
   },
   "devDependencies": {
-    "@types/compression": "^1.7.5",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.19",
-    "cross-env": "^7.0.3",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "@eslint/eslintrc": "^3"
   }
 }

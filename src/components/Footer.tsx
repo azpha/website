@@ -1,5 +1,6 @@
+"use client";
+
 import { useState, useEffect } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 
 export default function Footer() {
     // states
@@ -18,12 +19,6 @@ export default function Footer() {
             <h1 className="font-bold text-sm">&copy; {new Date().getFullYear()}, Alex Frantz. All Rights Reserved</h1>
             <p>All logos & images on this page belong to their respective owners.</p>
 
-            <div className="max-w-fit mx-auto">
-                <RouterLink to={"/privacy"}>
-                    <p className="underline">Privacy</p>
-                </RouterLink>
-            </div>
-
             <hr className="my-2 w-1/2 mx-auto" />
 
             {
@@ -34,8 +29,8 @@ export default function Footer() {
                 ) : (
                     <button onClick={() => {
                         setMailState(true)
-                        navigator.clipboard.writeText("alex@alexav.gg")
-                    }} className="hover:underline">alex@alexav.gg</button>
+                        navigator.clipboard.writeText("alex@vierfrantz.com")
+                    }} className="hover:underline">alex@vierfrantz.com</button>
                 )
             }
         </div>
