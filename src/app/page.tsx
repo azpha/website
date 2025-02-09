@@ -6,7 +6,7 @@ import ContactForm from '@/components/ContactForm';
 import RecentWatch from "@/components/DataComponents/RecentWatch";
 import RecentListen from "@/components/DataComponents/RecentListen";
 import RecentGame from "@/components/DataComponents/RecentGame";
-import RecentClip from "@/components/DataComponents/RecentClip";
+// import RecentClip from "@/components/DataComponents/RecentClip";
 import RecentBook from "@/components/DataComponents/RecentBook";
 
 export default function Home() {
