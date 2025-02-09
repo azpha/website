@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Alex Frantz",
   description: "I am Alex Frantz, a junior developer working primarily as QA at Medal.tv. I do JavaScript and Python alongside learning Java and more.",
-  keywords: "alex frantz, frantz, alex, qa, javascript, html, react, python, java",
+  keywords: "alex frantz, frantz, alex, qa, javascript, html, react, python, java, alexavier frantz, alexavier, alexav, alexfrantz",
   openGraph: {
     title: "Alex Frantz",
     url: "https://alexav.gg",
