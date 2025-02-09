@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const quoteArray = [
     "It works on my machine",
     "Revert 'Revert 'Revert",
@@ -24,9 +26,9 @@ export default async function Header() {
     return (
         <div className="bg-zinc-900 p-4 flex justify-between">
             <div>
-                <a href="/" className="hover:underline">
+                <Link href="/" className="hover:underline">
                     <h1 className="text-2xl font-bold">Alex Frantz</h1>
-                </a>
+                </Link>
                 <p className="opacity-50 italic select-none">{quote}</p>
             </div>
             <div className="space-x-2 items-center justify-center flex select-none">

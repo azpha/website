@@ -22,6 +22,7 @@ export default function ContactForm() {
             const form = document.getElementById('contact-form') as HTMLFormElement
             form.reset()
         } catch (e) {
+            console.error(e)
             setError('An unexpected error occurred')
         } finally {
             setPending(false)

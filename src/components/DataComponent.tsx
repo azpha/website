@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default async function DataComponent({
     url,
     header,
@@ -19,7 +21,7 @@ export default async function DataComponent({
                 <div className="block">
                     <div className="flex items-center">
                         {
-                            projectImage && <img alt="Project Image" src={projectImage} width={100} height={100} className="w-[80px] h-[50px] object-cover" />
+                            projectImage && <Image alt="Project Image" src={projectImage} width={100} height={100} className="w-[80px] h-[50px] object-cover" />
                         }
 
                         <div className="flex flex-col mx-2 min-w-0 flex-grow">
