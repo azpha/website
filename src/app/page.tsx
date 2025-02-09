@@ -87,7 +87,7 @@ export default function Home() {
                     <RecentWatch />
                     <RecentListen />
                     <RecentGame />
-                    <RecentClip />
+                    {/* <RecentClip /> */}
                     <RecentBook />
                 </div>
             </div>
