@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: [
+      'storage.alexav.gg',
+      'cdn.medal.tv',
+      'lastfm.freetls.fastly.net'
+    ]
+  }
 };
 
 export default nextConfig;
