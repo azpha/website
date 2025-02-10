@@ -1,27 +1,28 @@
+"use client"
+import { useState, useEffect } from 'react';
 import Link from "next/link"
 
-const quoteArray = [
-    "It works on my machine",
-    "Revert 'Revert 'Revert",
-    "'fuck the tests'",
-    "this is so cooked",
-    "Professional Production Tester",
-    "I break hearts to save lives.",
-    "go bills",
-    "josh allen is my goat",
-    "lets go buffalo",
-    "oorah",
-    "how bout them bills??",
-    "where else would you rather be..",
-    "..than right here, right now?!"
-]
+export default function Header() {
+    const quoteArray = [
+        "It works on my machine",
+        "Revert 'Revert 'Revert",
+        "'fuck the tests'",
+        "this is so cooked",
+        "Professional Production Tester",
+        "I break hearts to save lives.",
+        "go bills",
+        "josh allen is my goat",
+        "lets go buffalo",
+        "oorah",
+        "how bout them bills??",
+        "where else would you rather be..",
+        "..than right here, right now?!"
+    ]
+    const [ quote, setQuote ] = useState<string>(quoteArray[0])
 
-async function getQuote(index: number) {
-    return quoteArray[index]
-}
-
-export default async function Header() {
-    const quote = await getQuote(Math.floor(Math.random() * quoteArray.length))
+    useEffect(() => {
+        setQuote(quoteArray[Math.floor(Math.random() * quoteArray.length)]);
+    }, [])
 
     return (
         <div className="bg-zinc-900 p-4 flex justify-between">

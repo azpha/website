@@ -27,23 +27,23 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     title: "Alex Frantz",
-    startupImage: "https://alexav.gg/apple-touch-icon.png"
+    startupImage: "/apple-touch-icon.png"
   },
   icons: [
     {
       rel: "icon",
       type: "image/png",
       sizes: "32x32",
-      url: "https://alexav.gg/favicon-32x32.png"
+      url: "/favicon-32x32.png"
     },
     {
       rel: "icon",
       type: "image/png",
       sizes: "16x16",
-      url: "https://alexav.gg/favicon-16x16.png"
+      url: "/favicon-16x16.png"
     }
   ],
-  manifest: "https://alexav.gg/site.webmanifest"
+  manifest: "/site.webmanifest"
 };
 
 export default function RootLayout({
