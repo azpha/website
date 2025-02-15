@@ -3,7 +3,8 @@ import type { WatchData } from '@/utils/types';
 
 const fetchData = async () => {
     const data = await fetch("https://api.alexav.gg/v4/tracker/latest/tv", {
-        method: 'get'
+        method: 'get',
+        next: { revalidate: 60 }
     });
     return await data.json()
 }

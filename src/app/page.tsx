@@ -12,7 +12,7 @@ import RecentBook from "@/components/DataComponents/RecentBook";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="select-none">
       <section id="about">
         <div className="mx-auto text-center p-10">
             <div className="mx-auto grid gap-4 grid-cols-1 lg:grid-cols-2 lg:w-1/2">

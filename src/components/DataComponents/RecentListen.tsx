@@ -3,8 +3,10 @@ import type { MusicData } from '@/utils/types';
 
 const fetchData = async () => {
     const { data } = await fetch("https://api.alexav.gg/v4/social/music", {
-        method: 'get'
+        method: 'get',
+        next: { revalidate: 60 }
     }).then((res) => res.json())
+
     return data.tracks[0]
 }
 

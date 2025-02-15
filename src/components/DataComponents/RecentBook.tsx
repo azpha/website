@@ -3,7 +3,8 @@ import type { ContentTrackerItem } from '@/utils/types';
 
 const fetchData = async () => {
     const { data } = await fetch("https://api.alexav.gg/v4/tracker/latest/book", {
-        method: 'get'
+        method: 'get',
+        next: { revalidate: 60 }
     }).then((res) => res.json())
     return data
 }
