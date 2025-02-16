@@ -29,7 +29,7 @@ export default async function RecentBook() {
                 header={"What I'm reading"}
                 projectHeader={data.title}
                 projectSubheader={getDateString(data.startedOn, data.finished)}
-                url={"https://tracker.alexav.gg/?type=books&id=" + data.id}
+                url={"https://tracker.alexav.gg/?type=book&id=" + data.id}
                 projectImage={data.image}
             />
         )
