@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <PlausibleProvider domain={"alexav.gg"} customDomain={'https://metrics.alexav.gg/js/script.js'}>
+    <PlausibleProvider domain={"alexav.gg"} customDomain={'https://metrics.alexav.gg'}>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}

@@ -17,7 +17,7 @@ export default function Home() {
         <div className="mx-auto text-center p-10">
             <div className="mx-auto grid gap-4 grid-cols-1 lg:grid-cols-2 lg:w-1/2">
                 <div className="flex justify-center">
-                    <Image className="rounded-full" src={"https://storage.alexav.gg/content/picture.jpg"} alt="Profile Picture" width={250} height={250} />
+                    <Image priority className="rounded-full" src={"https://storage.alexav.gg/content/picture.jpg"} alt="Profile Picture" width={250} height={250} />
                 </div>
                 <div className="text-center lg:text-left lg:my-10 w-full">
                     <h1 className="text-4xl font-bold">Hi, I&apos;m Alex</h1>
