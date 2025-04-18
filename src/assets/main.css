@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+    --breakpoint-xs: 400px
+}
+
 body {
     font-family: 'Pathway Gothic One', sans-serif;
 }

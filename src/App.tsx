@@ -129,7 +129,7 @@ export default function MouseFlashlight() {
       onTouchEnd={handleTouchEnd}
     >
       <div className="min-h-screen flex flex-col justify-center items-center mx-auto">
-            <div className="border border-white border-solid p-2 rounded-lg w-[500px] mb-4">
+            <div className="border border-white border-solid p-2 rounded-lg w-full sm:w-[500px] mb-4">
                 <div className="flex items-center justify-between">
                     <div className="ml-2" onClick={() => setIsFlashlightEnabled(!isFlashlightEnabled)}>
                         {
@@ -140,10 +140,10 @@ export default function MouseFlashlight() {
                 </div>
             </div>
 
-            <div className="border border-white border-solid p-2 rounded-lg w-[500px]">
-                <div className="grid grid-cols-2">
-                    <div>
-                        <div className="p-4">
+            <div className="border border-white border-solid rounded-lg w-full sm:w-[500px]">
+                <div className="grid grid-cols-1 xs:grid-cols-2 p-2">
+                    <div className="mx-auto">
+                        <div>
                             <h1 className="text-2xl font-bold italic opacity-95 inline">alex, 17</h1>
                             <img src="https://storage.alexav.gg/content/picturev2.jpg" width="150" className="rounded-md" alt="Profile" />
 
@@ -155,7 +155,7 @@ export default function MouseFlashlight() {
                             </div>
                         </div>
                     </div>
-                    <div className="p-4">
+                    <div className="mx-auto">
                         <h1 className="font-bold text-2xl italic">what i do</h1>
                         <p>
                             qa @ <a href="https://medal.tv" target="_blank" rel="noopener noreferrer" className="hover:underline">medal.tv</a>, game, code
