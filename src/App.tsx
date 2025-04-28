@@ -142,8 +142,8 @@ export default function MouseFlashlight() {
           </div>
         </div>
 
-        <div className="border border-white border-solid rounded-lg w-full sm:w-[500px]">
-          <div className="grid grid-cols-1 xs:grid-cols-2 p-2">
+        <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] p-2">
+          <div className="grid grid-cols-1 xs:grid-cols-2">
             <div className="mx-auto">
               <div>
                 <h1 className="text-2xl font-bold italic opacity-95 inline">
