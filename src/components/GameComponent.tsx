@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 
 type GameObject = {
-  name: string;
-  location: string;
-  startedOn: number;
-  finished: boolean;
+  gameextrainfo?: string;
+  gameid?: string;
 };
 
 export default function GameComponent() {
@@ -13,14 +11,12 @@ export default function GameComponent() {
 
   useEffect(() => {
     async function fetchGame() {
-      const response = await fetch(
-        "https://api.alexav.gg/v4/tracker/latestGame"
-      );
+      const response = await fetch("https://api.alexav.gg/v4/social/steam");
       if (response.ok) {
         const data = await response.json();
-        if (data.data && data.data.length <= 0) {
-          setFailedFetch(true);
-        } else setGame(data.data as GameObject);
+        if (data.data && data.data.gameextrainfo) {
+          setGame(data.data as GameObject);
+        } else setFailedFetch(true);
       } else setFailedFetch(true);
     }
 
@@ -38,9 +34,7 @@ export default function GameComponent() {
           href={`https://medal.tv/u/alexav`}
           target="_blank"
         >
-          <h1 className="lowercase">
-            {!game.finished ? "playing" : "last played"} {game.name}
-          </h1>
+          <h1 className="lowercase">playing {game.gameextrainfo}</h1>
         </a>
       </div>
     );
@@ -48,7 +42,7 @@ export default function GameComponent() {
     if (failedFetch) {
       return (
         <div>
-          <p>failed to get game :(</p>
+          <p>not playing anything</p>
         </div>
       );
     } else {

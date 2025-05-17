@@ -22,7 +22,7 @@ export default function TVComponent() {
   useEffect(() => {
     async function fetchMusic() {
       const response = await fetch(
-        "https://api.alexav.gg/v4/tracker/items?type=tv&sort=desc"
+        "https://api.alexav.gg/v4/tracker/items?type=tv&sort=desc&limit=1"
       );
       if (response.ok) {
         const data = await response.json();
