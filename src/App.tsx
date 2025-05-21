@@ -56,24 +56,6 @@ export default function App() {
             <h1 className="font-bold text-2xl italic">status</h1>
             <TVComponent />
             <GameComponent />
-
-            <h1 className="font-bold text-2xl italic">socials</h1>
-            <div className="space-x-2">
-              <a
-                href="https://twitter.com/carlgrimesdupe"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter className="inline" />
-              </a>
-              <a
-                href="https://github.com/azpha"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="inline" />
-              </a>
-            </div>
           </div>
         </div>
       </div>
