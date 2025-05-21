@@ -1,4 +1,3 @@
-import { Twitter, Github } from "lucide-react";
 import MusicComponent from "./components/MusicComponent";
 import TVComponent from "./components/TVComponent";
 import Layout from "./components/Layout";
