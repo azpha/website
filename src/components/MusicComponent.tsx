@@ -1,21 +1,8 @@
 import { useState, useEffect } from "react";
-
-type MusicObject = {
-  artist: {
-    mbid: string;
-    "#text": string;
-  };
-  name: string;
-  image: ImageObject[];
-  url: string;
-};
-type ImageObject = {
-  size: "small" | "medium" | "large" | "extralarge";
-  "#text": string;
-};
+import type { LastFMMusicObject } from "../utils/types";
 
 export default function MusicComponent() {
-  const [music, setMusic] = useState<MusicObject | null>(null);
+  const [music, setMusic] = useState<LastFMMusicObject | null>(null);
   const [failedFetch, setFailedFetch] = useState(false);
 
   useEffect(() => {
@@ -23,7 +10,7 @@ export default function MusicComponent() {
       const response = await fetch("https://api.alexav.gg/v4/social/music");
       if (response.ok) {
         const data = await response.json();
-        setMusic(data.data.tracks[0] as MusicObject);
+        setMusic(data.data.tracks[0] as LastFMMusicObject);
       } else setFailedFetch(true);
     }
 

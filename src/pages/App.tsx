@@ -1,8 +1,8 @@
-import MusicComponent from "./components/MusicComponent";
-import TVComponent from "./components/TVComponent";
-import Layout from "./components/Layout";
-import GameComponent from "./components/GameComponent";
-import RandomLyric from "./components/RandomLyric";
+import Layout from "../components/Layout";
+import MusicComponent from "../components/MusicComponent";
+import TVComponent from "../components/TVComponent";
+import GameComponent from "../components/GameComponent";
+import RandomLyric from "../components/RandomLyric";
 
 export default function App() {
   return (
