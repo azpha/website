@@ -7,6 +7,7 @@ type TVObject = {
   author: string | null;
   description: string;
   image: string;
+  paused: boolean;
   episode: string;
   tmdbId: string;
   finished: boolean;
@@ -47,7 +48,8 @@ export default function TVComponent() {
           target="_blank"
         >
           <h1 className="lowercase">
-            {show.title} - {show.finished ? "finished" : show.episode}
+            {show.title} -{" "}
+            {show.finished ? "finished" : show.paused ? "paused" : show.episode}
           </h1>
         </a>
       </div>
