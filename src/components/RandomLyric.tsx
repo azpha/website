@@ -32,6 +32,10 @@ const lyrics: LyricItem[] = [
     string: "it ain't the whiskey that gets me",
     url: "https://open.spotify.com/track/0AsrOS8HktHe9TaB1i9W3v?si=c186a29f4e804d05",
   },
+  {
+    string: "i wrote a song for you",
+    url: "https://open.spotify.com/track/744zwLqGKbOZW3RnxkRfHE?si=4d2230964fcc4f2f",
+  },
 ];
 
 type LyricItem = {
