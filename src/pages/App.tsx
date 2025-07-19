@@ -16,9 +16,8 @@ export default function App() {
               </h1>
               <RandomLyric speed={0.2} />
               <img
-                src="https://storage.alexav.gg/content/picture.gif"
-                width="150"
-                className="rounded-md"
+                src="https://storage.alexav.gg/content/yeehaw.jpg"
+                className="rounded-md w-[150px]"
                 alt="Profile"
               />
 
@@ -50,11 +49,16 @@ export default function App() {
             </p>
 
             <h1 className="font-bold text-2xl italic">obsessed with</h1>
-            <p>tlou, twd, rdr, dexter</p>
+            <p>dexter, tlou, twd</p>
 
             <h1 className="font-bold text-2xl italic">status</h1>
             <TVComponent />
             <GameComponent />
+
+            <h1 className="font-bold text-2xl italic">reach me</h1>
+            <a href="mailto:alex@vierfrantz.com">
+              <p className="underline">alex@vierfrantz.com</p>
+            </a>
           </div>
         </div>
       </div>

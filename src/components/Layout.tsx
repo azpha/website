@@ -1,6 +1,6 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { Flashlight, FlashlightOff } from "lucide-react";
-import CordycepsImage from "../assets/cordyceps.png";
+import SplatterImage from "../assets/splatter.png";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const [pointerPosition, setPointerPosition] = useState({ x: 500, y: 500 });
@@ -161,13 +161,19 @@ export default function Layout({ children }: { children: ReactNode }) {
             }}
           >
             <img
-              src={CordycepsImage}
+              src={SplatterImage}
               className="absolute bottom-0 select-none"
               draggable={false}
               alt="Cordyceps"
             />
+            <img
+              src={SplatterImage}
+              className="absolute top-0 right-0 select-none"
+              draggable={false}
+              alt="Cordyceps"
+            />
           </div>
-          <audio loop autoPlay={true} src={"/clicker-sounds.mp3"} />
+          <audio loop autoPlay={true} src={"/dexter-theme.mp3"} />
         </>
       )}
     </div>
