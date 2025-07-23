@@ -1,6 +1,7 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { Flashlight, FlashlightOff } from "lucide-react";
 import SplatterImage from "../assets/splatter.png";
+import Countdown from "./Countdown";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const [pointerPosition, setPointerPosition] = useState({ x: 500, y: 500 });
@@ -139,6 +140,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             <h1 className="text-2xl font-bold">welcome !</h1>
           </div>
         </div>
+        <Countdown />
         {children}
       </div>
 

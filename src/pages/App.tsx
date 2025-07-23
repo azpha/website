@@ -41,7 +41,7 @@ export default function App() {
                 href="https://medal.tv"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:underline text-[#bff83e]"
               >
                 medal.tv
               </a>

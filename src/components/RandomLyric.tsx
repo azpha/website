@@ -36,6 +36,10 @@ const lyrics: LyricItem[] = [
     string: "i wrote a song for you",
     url: "https://open.spotify.com/track/744zwLqGKbOZW3RnxkRfHE?si=4d2230964fcc4f2f",
   },
+  {
+    string: "oh madeline, how you been?",
+    url: "https://open.spotify.com/track/2DDo2QqElDO9PgOHeGtQiy?si=0fdcbaeb64694249",
+  },
 ];
 
 type LyricItem = {
