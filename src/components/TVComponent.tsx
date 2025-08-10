@@ -44,7 +44,7 @@ export default function TVComponent() {
       <div className="flex align-middle">
         <a
           className="hover:underline"
-          href={`https://tracker.alexav.gg/?id=${show.id}&type=${show.type}`}
+          href={`https://tracker.alexav.gg/info/${show.id}`}
           target="_blank"
         >
           <h1 className="lowercase">
