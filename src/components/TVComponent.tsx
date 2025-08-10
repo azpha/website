@@ -48,7 +48,8 @@ export default function TVComponent() {
           target="_blank"
         >
           <h1 className="lowercase">
-            {show.title} -{" "}
+            {show.title}
+            <br />
             {show.finished ? "finished" : show.paused ? "paused" : show.episode}
           </h1>
         </a>
