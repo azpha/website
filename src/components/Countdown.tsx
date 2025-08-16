@@ -20,10 +20,10 @@ export default function Countdown() {
 
       if (countdownRef?.current) {
         let timerString = "";
-        if (days) timerString += `${days}d, `;
-        if (hours) timerString += `${hours}h, `;
-        if (minutes) timerString += `${minutes}m, `;
-        if (seconds) timerString += `${seconds}s`;
+        timerString += `${days || "0"}d, `;
+        timerString += `${hours || "0"}h, `;
+        timerString += `${minutes || "0"}m, `;
+        timerString += `${seconds || "0"}s`;
 
         if (
           days <= 0 &&
