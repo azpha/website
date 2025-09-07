@@ -62,10 +62,10 @@ export default function FantasyStatus() {
   }, [nflState]);
 
   return (
-    <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] mb-4 overflow-hidden overflow-x-scroll p-2">
+    <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] mb-4 p-2">
       <h1 className="text-2xl font-bold">Fantasy</h1>
 
-      <div className="space-y-2 space-x-2 overflow-x-hidden whitespace-nowrap w-fit">
+      <div className="space-y-2 space-x-2 whitespace-nowrap overflow-x-scroll">
         {players?.map((v, k) => {
           return (
             <div className="inline-block" key={k}>
