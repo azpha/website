@@ -40,6 +40,14 @@ const lyrics: LyricItem[] = [
     string: "oh madeline, how you been?",
     url: "https://open.spotify.com/track/2DDo2QqElDO9PgOHeGtQiy?si=0fdcbaeb64694249",
   },
+  {
+    string: "she makes this country boy feel like a king",
+    url: "https://open.spotify.com/track/091Ibwvg7tTp7eNGLlT7cT?si=67be323416b24729",
+  },
+  {
+    string: "ain't in it for my health",
+    url: "https://open.spotify.com/track/5Mz9T6QGwScq6Yt7DAXxi8?si=f51ff7f76dd24b00",
+  },
 ];
 
 type LyricItem = {
