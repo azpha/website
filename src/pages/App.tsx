@@ -3,10 +3,14 @@ import MusicComponent from "../components/MusicComponent";
 import TVComponent from "../components/TVComponent";
 import GameComponent from "../components/GameComponent";
 import RandomLyric from "../components/RandomLyric";
+import FantasyStatus from "../components/FantasyStatus";
+import Countdown from "../components/Countdown";
 
 export default function App() {
   return (
     <Layout>
+      <Countdown />
+      <FantasyStatus />
       <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] p-2">
         <div className="grid grid-cols-1 xs:grid-cols-2">
           <div className="mx-auto">

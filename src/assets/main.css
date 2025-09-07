@@ -7,6 +7,17 @@
 body {
     font-family: 'Pathway Gothic One', sans-serif;
     overflow: hidden;
+
+    ::-webkit-scrollbar {
+        width:50px;
+        height:10px;
+        border-radius: var(--radius-lg);
+        background-color:white;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color:gray;
+        border-radius: var(--radius-lg);
+    }
 }
 
 @keyframes scroll {
