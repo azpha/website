@@ -63,7 +63,9 @@ export default function FantasyStatus() {
 
   return (
     <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] mb-4 p-2">
-      <h1 className="text-2xl font-bold">Fantasy</h1>
+      <a href="https://sleeper.com/leagues/1263620000418119680" target="_blank">
+        <h1 className="text-2xl font-bold underline">Fantasy</h1>
+      </a>
 
       <div className="space-y-2 space-x-2 whitespace-nowrap overflow-x-scroll">
         {players?.map((v, k) => {
