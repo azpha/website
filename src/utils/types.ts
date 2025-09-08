@@ -21,8 +21,9 @@ interface NFLState {
 interface NFLRosterState {
   league_id: string;
   owner_id: string;
-  players: string[];
-  starters: string[];
+  matchup: NFLMatchupState;
+  players: NFLPlayer[];
+  user: SleeperUser;
 }
 interface NFLMatchupState {
   points: number;
@@ -39,6 +40,14 @@ interface NFLPlayer {
   team: string;
   player_id: string;
 }
+interface SleeperUser {
+  avatar: string;
+  name: string;
+  metadata: {
+    team_name: string;
+    avatar: string;
+  };
+}
 
 export type {
   LastFMMusicObject,
@@ -47,4 +56,5 @@ export type {
   NFLRosterState,
   NFLPlayer,
   NFLMatchupState,
+  SleeperUser,
 };
