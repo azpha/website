@@ -62,7 +62,6 @@ const RandomLyric: FC<AutoScrollingTextProps> = ({ speed = 0.5 }) => {
 
   const getRandomLyric = () => {
     const randomNumber = Math.floor(Math.random() * lyrics.length);
-    console.log(randomNumber);
     setLyric(lyrics[randomNumber]);
   };
   useEffect(() => {

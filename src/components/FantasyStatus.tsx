@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import PlayerCell from "./fantasy/PlayerCell";
 import {
   NFLMatchupState,
-  NFLPlayer,
-  SleeperUsers,
+  SleeperUser,
   type NFLRosterState,
   type NFLState,
 } from "../utils/types";
@@ -26,10 +25,6 @@ export default function FantasyStatus() {
   const [opposingRoster, setOpposingRoster] = useState<NFLRosterState | null>(
     null
   );
-  const [nflState, setNflState] = useState<NFLState | null>(null);
-  // const [roster, setRoster] = useState<NFLRosterState | null>(null);
-  // const [players, setPlayers] = useState<NFLPlayer[] | null>(null);
-  // const [matchup, setMatchup] = useState<NFLMatchupState | null>(null);
 
   // fetch roster information
   useEffect(() => {
@@ -58,7 +53,6 @@ export default function FantasyStatus() {
         PLAYERS_URL + "?players=" + oppMatchup.starters
       ).then((res) => res.json());
 
-      setNflState(nflState);
       setPersonalRoster({
         ...rosters.filter((v) => v.owner_id === USER_ID)[0],
         matchup: matchups[1],
@@ -75,9 +69,6 @@ export default function FantasyStatus() {
 
     fetchData();
   }, []);
-  useEffect(() => {
-    console.log(personalRoster, opposingRoster);
-  }, [personalRoster, opposingRoster]);
 
   return (
     <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] mb-4 p-2">
