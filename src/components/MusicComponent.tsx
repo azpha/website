@@ -7,11 +7,16 @@ export default function MusicComponent() {
 
   useEffect(() => {
     async function fetchMusic() {
-      const response = await fetch("https://api.alexav.gg/v4/social/music");
-      if (response.ok) {
-        const data = await response.json();
-        setMusic(data.data.tracks[0] as LastFMMusicObject);
-      } else setFailedFetch(true);
+      try {
+        const response = await fetch("https://api.alexav.gg/v4/social/music");
+        if (response.ok) {
+          const data = await response.json();
+          setMusic(data.data as LastFMMusicObject);
+        } else setFailedFetch(true);
+      } catch (e) {
+        console.error("Failed to fetch music!", e);
+        setFailedFetch(true);
+      }
     }
 
     setTimeout(() => {
@@ -23,10 +28,10 @@ export default function MusicComponent() {
   if (music) {
     return (
       <div className="flex align-middle">
-        <img width="50" src={music.image[1]["#text"]} />
+        <img width="50" src={music.images[1]?.url} />
         <div className="pl-2 max-w-25">
-          <h1 className="truncate">{music.name}</h1>
-          <p className="truncate">{music.artist["#text"]}</p>
+          <h1 className="truncate">{music.title}</h1>
+          <p className="truncate">{music.artist}</p>
         </div>
       </div>
     );

@@ -1,15 +1,12 @@
 type LastFMMusicObject = {
-  artist: {
-    mbid: string;
-    "#text": string;
-  };
-  name: string;
-  image: LastFMImageObject[];
+  artist: string;
+  title: string;
+  images: LastFMImageObject[];
   url: string;
 };
 type LastFMImageObject = {
   size: "small" | "medium" | "large" | "extralarge";
-  "#text": string;
+  url: string;
 };
 
 // nfl stuff
