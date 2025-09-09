@@ -13,24 +13,24 @@ type LastFMImageObject = {
 };
 
 // nfl stuff
+interface NFLAPIData {
+  nflState: NFLState;
+  matchups: NFLMatchupState[];
+  users: SleeperUser[];
+}
+interface NFLMatchupState {
+  owner: SleeperUser;
+  points: number;
+  players: string[];
+  playerInfo: NFLPlayer[];
+  starters: string[];
+  starters_points: number[];
+  players_points: object;
+}
 interface NFLState {
   week: number;
   season_type: "pre" | "post" | "regular";
   display_week: number;
-}
-interface NFLRosterState {
-  league_id: string;
-  owner_id: string;
-  matchup: NFLMatchupState;
-  players: NFLPlayer[];
-  user: SleeperUser;
-}
-interface NFLMatchupState {
-  points: number;
-  players: string[];
-  starters: string[];
-  starters_points: number[];
-  players_points: object;
 }
 interface NFLPlayer {
   last_name: string;
@@ -53,8 +53,8 @@ export type {
   LastFMMusicObject,
   LastFMImageObject,
   NFLState,
-  NFLRosterState,
-  NFLPlayer,
   NFLMatchupState,
   SleeperUser,
+  NFLAPIData,
+  NFLPlayer,
 };

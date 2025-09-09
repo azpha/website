@@ -1,50 +1,27 @@
 import { useEffect, useState } from "react";
 import PlayerCell from "./fantasy/PlayerCell";
-import {
-  NFLMatchupState,
-  SleeperUser,
-  type NFLRosterState,
-  type NFLState,
-} from "../utils/types";
+import { type NFLAPIData, type NFLMatchupState } from "../utils/types";
 
 export default function FantasyStatus() {
-  const USER_ID = "1263620186439696384";
-  const OPP_USER_ID = "1032518341627600896";
-  const LEAGUE_BASE_URL =
-    "https://api.sleeper.app/v1/league/1263620000418119680/rosters";
-  const NFL_STATE_URL = "https://api.sleeper.app/v1/state/nfl";
-  const MATCHUPS_URL =
-    "https://api.sleeper.app/v1/league/1263620000418119680/matchups/";
-  const LEAGUE_USERS =
-    "https://api.sleeper.app/v1/league/1263620000418119680/users";
   const PLAYERS_URL = "https://api.alexav.gg/v4/football/players";
 
-  const [personalRoster, setPersonalRoster] = useState<NFLRosterState | null>(
+  const [personalRoster, setPersonalRoster] = useState<NFLMatchupState | null>(
     null
   );
-  const [opposingRoster, setOpposingRoster] = useState<NFLRosterState | null>(
+  const [opposingRoster, setOpposingRoster] = useState<NFLMatchupState | null>(
     null
   );
 
   // fetch roster information
   useEffect(() => {
     async function fetchData() {
-      const nflState = (await fetch(NFL_STATE_URL).then((res) =>
-        res.json()
-      )) as NFLState;
-      const rosters = (await fetch(LEAGUE_BASE_URL).then((res) =>
-        res.json()
-      )) as NFLRosterState[];
-      const matchups = (await fetch(MATCHUPS_URL + nflState.week).then((res) =>
-        res.json()
-      )) as NFLMatchupState[];
-      const users = (await fetch(LEAGUE_USERS).then((res) =>
-        res.json()
-      )) as SleeperUser[];
+      const data = (await fetch("https://api.alexav.gg/v4/football/data").then(
+        (res) => res.json()
+      )) as NFLAPIData;
 
       // rosters
-      const ownMatchup = matchups[1];
-      const oppMatchup = matchups[0];
+      const ownMatchup = data.matchups[1] as NFLMatchupState;
+      const oppMatchup = data.matchups[0] as NFLMatchupState;
 
       const ownMatchupPlayers = await fetch(
         PLAYERS_URL + "?players=" + ownMatchup.starters
@@ -54,16 +31,14 @@ export default function FantasyStatus() {
       ).then((res) => res.json());
 
       setPersonalRoster({
-        ...rosters.filter((v) => v.owner_id === USER_ID)[0],
-        matchup: matchups[1],
-        players: ownMatchupPlayers.playerInfo,
-        user: users[1],
+        ...ownMatchup,
+        playerInfo: ownMatchupPlayers.playerInfo,
+        owner: data.users[1],
       });
       setOpposingRoster({
-        ...rosters.filter((v) => v.owner_id === OPP_USER_ID)[0],
-        matchup: matchups[0],
-        players: oppMatchupPlayers.playerInfo,
-        user: users[0],
+        ...oppMatchup,
+        playerInfo: oppMatchupPlayers.playerInfo,
+        owner: data.users[0],
       });
     }
 
@@ -84,19 +59,19 @@ export default function FantasyStatus() {
           <img
             width="30"
             className="rounded-lg"
-            src={personalRoster?.user.metadata.avatar}
+            src={personalRoster?.owner.metadata.avatar}
           />
           <h1 className="flex justify-center items-center mx-2 font-semibold">
-            {personalRoster?.user.metadata.team_name} |{" "}
-            {personalRoster?.matchup.points}
+            {personalRoster?.owner.metadata.team_name} |{" "}
+            {personalRoster?.points}
           </h1>
         </div>
 
         <div className="space-y-2 space-x-2 whitespace-nowrap overflow-x-scroll">
-          {personalRoster?.players?.map((v, k) => {
+          {personalRoster?.playerInfo?.map((v, k) => {
             return (
               <div className="inline-block" key={k}>
-                <PlayerCell matchupData={personalRoster.matchup} player={v} />
+                <PlayerCell matchupData={personalRoster} player={v} />
               </div>
             );
           })}
@@ -106,19 +81,19 @@ export default function FantasyStatus() {
           <img
             width="30"
             className="rounded-lg"
-            src={opposingRoster?.user.metadata.avatar}
+            src={opposingRoster?.owner.metadata.avatar}
           />
           <h1 className="flex justify-center items-center mx-2 font-semibold">
-            {opposingRoster?.user.metadata.team_name} |{" "}
-            {opposingRoster?.matchup.points}
+            {opposingRoster?.owner.metadata.team_name} |{" "}
+            {opposingRoster?.points}
           </h1>
         </div>
 
         <div className="space-y-2 space-x-2 whitespace-nowrap overflow-x-scroll">
-          {opposingRoster?.players?.map((v, k) => {
+          {opposingRoster?.playerInfo?.map((v, k) => {
             return (
               <div className="inline-block" key={k}>
-                <PlayerCell matchupData={opposingRoster.matchup} player={v} />
+                <PlayerCell matchupData={opposingRoster} player={v} />
               </div>
             );
           })}
