@@ -3,8 +3,6 @@ import PlayerCell from "./fantasy/PlayerCell";
 import { type NFLAPIData, type NFLMatchupState } from "../utils/types";
 
 export default function FantasyStatus() {
-  const PLAYERS_URL = "https://api.alexav.gg/v4/football/players";
-
   const [personalRoster, setPersonalRoster] = useState<NFLMatchupState | null>(
     null
   );
@@ -15,7 +13,7 @@ export default function FantasyStatus() {
   // fetch roster information
   useEffect(() => {
     async function fetchData() {
-      const data = (await fetch("https://api.alexav.gg/v4/football/data").then(
+      const data = (await fetch("https://api.alexav.gg/v4/football").then(
         (res) => res.json()
       )) as NFLAPIData;
 
@@ -23,21 +21,12 @@ export default function FantasyStatus() {
       const ownMatchup = data.matchups[1] as NFLMatchupState;
       const oppMatchup = data.matchups[0] as NFLMatchupState;
 
-      const ownMatchupPlayers = await fetch(
-        PLAYERS_URL + "?players=" + ownMatchup.starters
-      ).then((res) => res.json());
-      const oppMatchupPlayers = await fetch(
-        PLAYERS_URL + "?players=" + oppMatchup.starters
-      ).then((res) => res.json());
-
       setPersonalRoster({
         ...ownMatchup,
-        playerInfo: ownMatchupPlayers.playerInfo,
         owner: data.users[1],
       });
       setOpposingRoster({
         ...oppMatchup,
-        playerInfo: oppMatchupPlayers.playerInfo,
         owner: data.users[0],
       });
     }
@@ -68,10 +57,10 @@ export default function FantasyStatus() {
         </div>
 
         <div className="space-y-2 space-x-2 whitespace-nowrap overflow-x-scroll">
-          {personalRoster?.playerInfo?.map((v, k) => {
+          {personalRoster?.starters.map((v, k) => {
             return (
               <div className="inline-block" key={k}>
-                <PlayerCell matchupData={personalRoster} player={v} />
+                <PlayerCell player={v} />
               </div>
             );
           })}
@@ -90,10 +79,10 @@ export default function FantasyStatus() {
         </div>
 
         <div className="space-y-2 space-x-2 whitespace-nowrap overflow-x-scroll">
-          {opposingRoster?.playerInfo?.map((v, k) => {
+          {opposingRoster?.starters.map((v, k) => {
             return (
               <div className="inline-block" key={k}>
-                <PlayerCell matchupData={opposingRoster} player={v} />
+                <PlayerCell player={v} />
               </div>
             );
           })}

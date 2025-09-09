@@ -16,11 +16,9 @@ interface NFLAPIData {
   users: SleeperUser[];
 }
 interface NFLMatchupState {
-  owner: SleeperUser;
   points: number;
-  players: string[];
-  playerInfo: NFLPlayer[];
-  starters: string[];
+  owner: SleeperUser;
+  starters: NFLPlayer[];
   starters_points: number[];
   players_points: object;
 }
@@ -32,10 +30,12 @@ interface NFLState {
 interface NFLPlayer {
   last_name: string;
   injury_status: string | null;
+  abv_name: string;
   position: string;
   full_name: string;
   team: string;
   player_id: string;
+  points: number;
 }
 interface SleeperUser {
   avatar: string;
