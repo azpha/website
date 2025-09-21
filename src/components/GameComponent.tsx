@@ -14,6 +14,8 @@ export default function GameComponent() {
   const [game, setGame] = useState<GameObject | null>(null);
 
   useEffect(() => {
+    if (game) return;
+
     async function fetchGame() {
       const response = await fetch(
         "https://api.alexav.gg/v4/tracker/latestGame"
@@ -27,9 +29,6 @@ export default function GameComponent() {
       }
     }
 
-    setTimeout(() => {
-      fetchGame();
-    }, 60000);
     fetchGame();
   }, []);
 
@@ -70,9 +69,9 @@ export default function GameComponent() {
           <>
             <h1 className="text-2xl font-bold italic">previously played</h1>
             <div className="flex flex-wrap space-x-2">
-              {game.history.splice(0, 5).map((v) => {
+              {game.history.splice(0, 5).map((v, k) => {
                 return (
-                  <div>
+                  <div key={k}>
                     <p className="font-semibold">{v.game}</p>
                     <p>{dateOrTime(v)}</p>
                   </div>
