@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Pathway Gothic One', sans-serif;
-    overflow: hidden;
 
     ::-webkit-scrollbar {
         width:50px;

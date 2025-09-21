@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ScrollingText from "./ScrollingText";
 import type { LastFMMusicObject } from "../utils/types";
 
 export default function MusicComponent() {
@@ -30,7 +31,7 @@ export default function MusicComponent() {
       <div className="flex align-middle">
         <img width="50" src={music.images[1]?.url} />
         <div className="pl-2 max-w-25">
-          <h1 className="truncate">{music.title}</h1>
+          <ScrollingText size="24" speed={0.1} text={music.title} />
           <p className="truncate">{music.artist}</p>
         </div>
       </div>
