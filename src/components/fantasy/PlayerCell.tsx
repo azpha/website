@@ -1,17 +1,26 @@
 import type { NFLPlayer } from "../../utils/types";
+import { useMemo } from "react";
 
 export default function PlayerCell({ player }: { player: NFLPlayer | null }) {
+  const injuryStatus = useMemo(() => {
+    if (player && player.injury_status) {
+      if (player.injury_status.toLowerCase() === "ir") {
+        return player.injury_status;
+      } else {
+        return `${player.injury_status[0]}.`;
+      }
+    }
+  }, [player?.injury_status]);
+
   if (player && player.full_name) {
     return (
       <div className="flex-wrap flex space-x-2">
         <div>
           <h1 className="font-semibold text-1xl">{player.abv_name}</h1>
           <p>
-            {player?.position} · {player?.team} {player?.injury_status && "·"}{" "}
+            {player?.position} · {player?.team} {injuryStatus && "·"}{" "}
             {player?.injury_status && (
-              <span className="text-red-500 font-semibold">
-                {player?.injury_status}
-              </span>
+              <span className="text-red-500 font-semibold">{injuryStatus}</span>
             )}
           </p>
         </div>

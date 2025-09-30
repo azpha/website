@@ -45,8 +45,18 @@ export default function FantasyStatus() {
           <h1 className="font-semibold text-2xl mb-2">fantasy</h1>
         </a>
 
-        {personalRoster && <TeamRow roster={personalRoster} />}
-        {opposingRoster && <TeamRow roster={opposingRoster} />}
+        {personalRoster && opposingRoster && (
+          <>
+            <TeamRow
+              isWinning={personalRoster.points > opposingRoster.points}
+              roster={personalRoster}
+            />
+            <TeamRow
+              isWinning={opposingRoster.points > personalRoster.points}
+              roster={opposingRoster}
+            />
+          </>
+        )}
       </div>
     </div>
   );
