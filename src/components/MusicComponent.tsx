@@ -12,7 +12,7 @@ export default function MusicComponent() {
         const response = await fetch("https://api.alexav.gg/v4/social/music");
         if (response.ok) {
           const data = await response.json();
-          setMusic(data.data as LastFMMusicObject);
+          setMusic(data as LastFMMusicObject);
         } else setFailedFetch(true);
       } catch (e) {
         console.error("Failed to fetch music!", e);

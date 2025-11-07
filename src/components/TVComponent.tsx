@@ -27,9 +27,9 @@ export default function TVComponent() {
       );
       if (response.ok) {
         const data = await response.json();
-        if (data.data && data.data.length <= 0) {
+        if (data && data.length <= 0) {
           setFailedFetch(true);
-        } else setShow(data.data[0] as TVObject);
+        } else setShow(data[0] as TVObject);
       } else setFailedFetch(true);
     }
 

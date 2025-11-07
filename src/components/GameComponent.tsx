@@ -23,8 +23,8 @@ export default function GameComponent() {
       if (response.ok) {
         const data = await response.json();
 
-        if (data.data) {
-          setGame(data.data as GameObject);
+        if (data) {
+          setGame(data as GameObject);
         }
       }
     }
