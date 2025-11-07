@@ -10,9 +10,9 @@ export default function Overlay({
   return (
     <div
       onClick={onClose}
-      className="absolute bg-black/50 min-h-screen w-full z-1 overflow-hidden flex justify-center items-center"
+      className="absolute bg-black/50 w-full h-full z-1 overflow-hidden flex justify-center items-center"
     >
-      <div className="max-w-fit max-h-fit">{children}</div>
+      {children}
     </div>
   );
 }

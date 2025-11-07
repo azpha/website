@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Overlay from "../Overlay";
 import Picture from "../Picture";
 
 const images = [
@@ -10,34 +8,22 @@ const images = [
   "https://storage.alexav.gg/content/2f36c1dd-eaf8-4fd3-a3cd-1d25fe8f5a07.jpg",
 ];
 
-export default function PictureCarousel() {
-  const [selectedImage, setSelectedImage] = useState<string>("");
-
+export default function PictureCarousel({
+  onClick,
+}: {
+  onClick: (url: string) => void;
+}) {
   return (
-    <>
-      {selectedImage !== "" && (
-        <Overlay onClose={() => setSelectedImage("")}>
-          <img width="400" height="400" src={selectedImage} />
-        </Overlay>
-      )}
+    <div className="border border-white border-solid rounded-lg p-2">
+      <h1 className="text-2xl font-bold italic">pictures</h1>
 
-      <div className="border border-white border-solid rounded-lg p-2">
-        <h1 className="text-2xl font-bold italic">pictures</h1>
-
-        <div className="whitespace-nowrap overflow-x-auto">
-          <div className="my-2 space-x-2">
-            {images.map((v, k) => {
-              return (
-                <Picture
-                  key={k}
-                  image={v}
-                  onClick={() => setSelectedImage(v)}
-                />
-              );
-            })}
-          </div>
+      <div className="whitespace-nowrap overflow-x-auto">
+        <div className="my-2 space-x-2">
+          {images.map((v, k) => {
+            return <Picture key={k} image={v} onClick={() => onClick(v)} />;
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 }

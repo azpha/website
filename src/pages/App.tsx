@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Layout from "../components/Layout";
+import Overlay from "../components/Overlay";
 import MusicComponent from "../components/MusicComponent";
 import TVComponent from "../components/TVComponent";
 import GameComponent from "../components/GameComponent";
@@ -6,14 +8,28 @@ import FantasyStatus from "../components/FantasyStatus";
 import PictureCarousel from "../components/modules/PictureCarousel";
 
 export default function App() {
+  const [selectedImage, setSelectedImage] = useState<string>("");
+
   return (
     <Layout>
+      {selectedImage !== "" && (
+        <Overlay onClose={() => setSelectedImage("")}>
+          <img
+            draggable={false}
+            className="select-none"
+            width="400"
+            height="400"
+            src={selectedImage}
+          />
+        </Overlay>
+      )}
+
       <div className="my-2 space-y-4">
+        <PictureCarousel onClick={(url) => setSelectedImage(url)} />
+
         <div className="border border-white border-solid p-2 rounded-lg flex justify-between">
           <h1 className="text-2xl font-bold">welcome to my site !</h1>
         </div>
-
-        <PictureCarousel />
         <GameComponent />
 
         <div className="border border-white border-solid rounded-lg p-2">
