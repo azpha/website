@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import ScrollingText from "./ScrollingText";
-import type { LastFMMusicObject } from "../utils/types";
+import ScrollingText from "../ScrollingText";
+import type { LastFMMusicObject } from "../../utils/types";
 
 export default function MusicComponent() {
   const [music, setMusic] = useState<LastFMMusicObject | null>(null);

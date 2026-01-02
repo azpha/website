@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function Countdown() {
+export default function CountdownModule() {
   const countdownRef = useRef<HTMLParagraphElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 

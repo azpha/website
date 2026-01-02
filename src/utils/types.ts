@@ -46,6 +46,38 @@ interface SleeperUser {
   };
 }
 
+// scores
+type BillsScore = {
+  name: string;
+  date: string;
+  score: string;
+};
+type SabresScore = {
+  gameDate: string;
+  wonInRegulation: boolean;
+  sabresScore: number;
+  oppScore: number;
+  homeTeam: NHLTeam;
+  awayTeam: NHLTeam;
+};
+type NHLTeam = {
+  id: number;
+  name: {
+    default: string;
+    fr: string;
+  };
+  commonName: {
+    default: string;
+  };
+  placeNameWithPreposition: {
+    default: string;
+    fr: string;
+  };
+  abbrev: string;
+  score: number;
+  logo: string;
+};
+
 export type {
   LastFMMusicObject,
   LastFMImageObject,
@@ -54,4 +86,6 @@ export type {
   SleeperUser,
   NFLAPIData,
   NFLPlayer,
+  BillsScore,
+  SabresScore,
 };
