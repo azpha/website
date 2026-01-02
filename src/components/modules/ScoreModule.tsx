@@ -38,7 +38,7 @@ export default function ScoreModule({ type }: { type: "sabres" | "bills" }) {
   }, []);
 
   return (
-    <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] mb-4">
+    <div className="border border-white border-solid rounded-lg w-full mb-4">
       <div className="flex justify-between">
         <div>
           <img width="100" className="p-4" src={IMAGES[type]} />

@@ -5,7 +5,7 @@ export default function InfoModule() {
   return (
     <div className="border border-white border-solid rounded-lg p-2">
       <div className="flex flex-wrap justify-between p-2 space-y-2">
-        <div>
+        <div className="space-y-2">
           <h1 className="text-2xl font-bold italic opacity-95">alex, 18</h1>
           <img
             src="https://storage.alexav.gg/content/6d87f5ac-e7f0-413c-84a6-6838e590b7d9.png"
@@ -14,13 +14,6 @@ export default function InfoModule() {
           />
           <div className="pt-2">
             <MusicComponent />
-            <a
-              href="https://last.fm/user/lulawex"
-              target="_blank"
-              className="hover:underline w-fit opacity-50"
-            >
-              powered by last.fm
-            </a>
           </div>
         </div>
         <div>
@@ -38,7 +31,7 @@ export default function InfoModule() {
             , game, code
           </p>
           <h1
-            className="italic opacity-50 font-semibold underline"
+            className="italic opacity-50 font-semibold select-text underline"
             onClick={() => navigator.clipboard.writeText("alex@vierfrantz.com")}
           >
             alex@vierfrantz.com

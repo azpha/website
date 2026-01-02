@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import ScrollingText from "../ScrollingText";
 import type { LastFMMusicObject } from "../../utils/types";
 
 export default function MusicComponent() {
@@ -28,13 +27,23 @@ export default function MusicComponent() {
 
   if (music) {
     return (
-      <div className="flex align-middle">
-        <img width="50" src={music.images[1]?.url} />
-        <div className="pl-2 max-w-25">
-          <ScrollingText size="24" speed={0.1} text={music.title} />
-          <p className="truncate">{music.artist}</p>
+      <a href="https://last.fm/user/lulawex" target="_blank">
+        <div className="flex flex-col">
+          <div className="flex align-middle">
+            <img width="50" src={music.images[1]?.url} />
+            <div className="pl-2 max-w-25">
+              <div className="overflow-hidden whitespace-nowrap">
+                <div className="inline-block animate-scroll-left">
+                  <p>{music.title}</p>
+                </div>
+              </div>
+
+              <p className="truncate">{music.artist}</p>
+            </div>
+          </div>
+          <p className="hover:underline w-fit opacity-50">powered by last.fm</p>
         </div>
-      </div>
+      </a>
     );
   } else {
     if (failedFetch) {

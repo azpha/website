@@ -35,7 +35,7 @@ export default function FantasyStatus() {
   }, []);
 
   return (
-    <div className="border border-white border-solid rounded-lg w-full sm:w-[500px] p-2">
+    <div className="border border-white border-solid rounded-lg w-full p-2">
       <div className="mb-4 space-y-4">
         <a
           href="https://sleeper.com/leagues/1263620000418119680/matchup"

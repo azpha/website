@@ -41,7 +41,7 @@ export default function CountdownModule() {
   }, []);
 
   return (
-    <div className="border border-white bg-blue-800 border-solid rounded-lg w-full sm:w-[500px] mb-4">
+    <div className="border border-white bg-blue-800 border-solid rounded-lg w-full mb-4">
       <div className="flex items-center justify-between p-2">
         <img
           onClick={() => {

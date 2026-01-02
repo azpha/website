@@ -27,8 +27,8 @@ export default function App() {
         </Overlay>
       )}
 
-      <div className="my-2 flex flex-col items-center sm:justify-center">
-        <div className="space-y-4 sm:w-[500px]">
+      <div className="my-2 mx-auto w-full sm:w-[500px]">
+        <div className="space-y-4">
           <img
             className="rounded-lg"
             src={
