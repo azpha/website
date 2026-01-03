@@ -1,5 +1,4 @@
 import MusicComponent from "../info/MusicComponent";
-import TVComponent from "../info/TVComponent";
 
 export default function InfoModule() {
   return (
@@ -41,11 +40,6 @@ export default function InfoModule() {
 
           <h1 className="font-bold text-2xl italic">obsessed with</h1>
           <p>dexter, tlou, twd</p>
-
-          <hr className="my-2" />
-
-          <h1 className="font-bold text-2xl italic">status</h1>
-          <TVComponent />
         </div>
       </div>
     </div>

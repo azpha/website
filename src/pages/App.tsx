@@ -7,6 +7,7 @@ import InfoModule from "../components/modules/InfoModule";
 import WelcomeModule from "../components/modules/WelcomeModule";
 import FantasyStatus from "../components/FantasyStatus";
 import ScoreModule from "../components/modules/ScoreModule";
+import StatModule from "../components/modules/StatModule";
 
 export default function App() {
   const [selectedImage, setSelectedImage] = useState<string>("");
@@ -38,6 +39,7 @@ export default function App() {
 
           <WelcomeModule />
           <InfoModule />
+          <StatModule />
           <PictureCarousel onClick={(url) => setSelectedImage(url)} />
           <GameComponent />
           <ScoreModule type={"bills"} />
