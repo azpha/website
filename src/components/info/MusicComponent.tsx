@@ -32,9 +32,10 @@ export default function MusicComponent() {
           <div className="flex align-middle">
             <img width="50" src={music.images[1]?.url} />
             <div className="pl-2 max-w-25">
-              <div className="overflow-hidden whitespace-nowrap">
-                <div className="inline-block animate-scroll-left">
-                  <p>{music.title}</p>
+              <div className="marquee">
+                <div className="marquee-content">
+                  <span>{music.title}&nbsp;&nbsp;</span>
+                  <span>{music.title}&nbsp;&nbsp;</span>
                 </div>
               </div>
 
