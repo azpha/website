@@ -41,7 +41,7 @@ export default function App() {
           <StatModule />
           <PictureCarousel onClick={(url) => setSelectedImage(url)} />
           <GameComponent />
-          <ScoreModule type={"bills"} />
+          <ScoreModule type={"sabres"} />
           {/* <FantasyStatus /> */}
         </div>
       </div>

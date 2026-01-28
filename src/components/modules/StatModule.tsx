@@ -49,33 +49,37 @@ export default function StatModule() {
   return (
     <div className="border border-white border-solid rounded-lg w-full mb-4">
       <div className="grid grid-cols-3 gap-2">
-        {data?.map((v, k) => {
-          return (
-            <div key={k} className="text-center p-2 space-y-2">
-              <img
-                src={v?.image}
-                className="object-cover w-full h-[50px] object-top"
-              />
-              <a
-                className="hover:underline"
-                href={`https://tracker.alexav.gg/info/${v?.id}`}
-                target="_blank"
-              >
-                <h1 className="font-semibold">{v?.title}</h1>
-                <p>
-                  {" "}
-                  {v?.finished
-                    ? "finished"
-                    : v?.paused
-                      ? "paused"
-                      : v.startedOn
-                        ? "started"
-                        : "not started"}
-                </p>
-              </a>
-            </div>
-          );
-        })}
+        {data && data.length > 0 && !failedFetch ? (
+          data?.map((v, k) => {
+            return (
+              <div key={k} className="text-center p-2 space-y-2">
+                <img
+                  src={v?.image}
+                  className="object-cover w-full h-[50px] object-top"
+                />
+                <a
+                  className="hover:underline"
+                  href={`https://tracker.alexav.gg/info/${v?.id}`}
+                  target="_blank"
+                >
+                  <h1 className="font-semibold">{v?.title}</h1>
+                  <p>
+                    {" "}
+                    {v?.finished
+                      ? "finished"
+                      : v?.paused
+                        ? "paused"
+                        : v.startedOn
+                          ? "started"
+                          : "not started"}
+                  </p>
+                </a>
+              </div>
+            );
+          })
+        ) : (
+          <ErrorState />
+        )}
       </div>
     </div>
   );
