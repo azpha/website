@@ -48,6 +48,7 @@ export default function StatModule() {
 
   return (
     <div className="border border-white border-solid rounded-lg w-full mb-4">
+      <h1 className="text-2xl font-bold italic p-2">recent watches</h1>
       <div className="grid grid-cols-3 gap-2">
         {data && data.length > 0 && !failedFetch ? (
           data?.map((v, k) => {
