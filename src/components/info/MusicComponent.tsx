@@ -32,12 +32,16 @@ export default function MusicComponent() {
           <div className="flex align-middle">
             <img width="50" src={music.images[1]?.url} />
             <div className="pl-2 max-w-25">
-              <div className="marquee">
-                <div className="marquee-content">
-                  <span>{music.title}&nbsp;&nbsp;</span>
-                  <span>{music.title}&nbsp;&nbsp;</span>
+              {music.title.length > 15 ? (
+                <div className="marquee">
+                  <div className="marquee-content">
+                    <span>{music.title}&nbsp;&nbsp;</span>
+                    <span>{music.title}&nbsp;&nbsp;</span>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <h1>{music.title}</h1>
+              )}
 
               <p className="truncate">{music.artist}</p>
             </div>
