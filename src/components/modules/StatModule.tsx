@@ -33,7 +33,7 @@ export default function StatModule() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://api.alexav.gg/v4/tracker/items?sort=desc&limit=3&started=true",
+        "https://api.alexav.gg/v4/tracker/items?sort=desc&limit=3",
       );
       if (response.ok) {
         const data = await response.json();
