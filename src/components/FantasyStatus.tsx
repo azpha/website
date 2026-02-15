@@ -4,17 +4,17 @@ import { TeamRow } from "./fantasy/TeamRow";
 
 export default function FantasyStatus() {
   const [personalRoster, setPersonalRoster] = useState<NFLMatchupState | null>(
-    null
+    null,
   );
   const [opposingRoster, setOpposingRoster] = useState<NFLMatchupState | null>(
-    null
+    null,
   );
 
   // fetch roster information
   useEffect(() => {
     async function fetchData() {
       const data = (await fetch("https://api.alexav.gg/v4/football").then(
-        (res) => res.json()
+        (res) => res.json(),
       )) as NFLAPIData;
 
       // rosters
@@ -35,12 +35,12 @@ export default function FantasyStatus() {
   }, []);
 
   return (
-    <div className="border border-white border-solid rounded-lg w-full p-2">
+    <div className="p-2 text-black">
       <div className="mb-4 space-y-4">
         <a
           href="https://sleeper.com/leagues/1263620000418119680/matchup"
           target="_blank"
-          className="underline"
+          className="hover:underline"
         >
           <h1 className="font-semibold text-2xl mb-2">fantasy</h1>
         </a>

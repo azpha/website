@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-    --breakpoint-xs: 400px;
-}
-
 body {
     font-family: 'Pathway Gothic One', sans-serif;
     background-color: black;
@@ -18,27 +14,4 @@ body {
         background-color:gray;
         border-radius: var(--radius-lg);
     }
-}
-
-.marquee {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.marquee-content {
-  display: inline-block;
-  animation: scroll 10s linear infinite;
-}
-
-.marquee-content span {
-  display: inline-block;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }

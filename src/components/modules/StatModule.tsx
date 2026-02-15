@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ErrorState from "../ErrorState";
 
 type ContentObject = {
   id: number;
@@ -17,18 +18,8 @@ type ContentObject = {
 };
 
 export default function StatModule() {
-  const [data, setData] = useState<ContentObject[] | null>(null);
-
+  const [data, setData] = useState<ContentObject | null>(null);
   const [failedFetch, setFailedFetch] = useState<boolean>(false);
-
-  const ErrorState = () => {
-    return (
-      <div className="text-center p-2">
-        <h1 className="text-lg font-semibold">Uh oh :(</h1>
-        <p>Something went wrong loading this stat</p>
-      </div>
-    );
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -39,49 +30,46 @@ export default function StatModule() {
         const data = await response.json();
         if (data && data.length <= 0) {
           setFailedFetch(true);
-        } else setData(data.data as ContentObject[]);
+        } else setData(data.data[0] as ContentObject);
       } else setFailedFetch(true);
     }
 
     fetchData();
   }, []);
 
-  return (
-    <div className="border border-white border-solid rounded-lg w-full mb-4">
-      <h1 className="text-2xl font-bold italic p-2">recent watches</h1>
-      <div className="grid grid-cols-3 gap-2">
-        {data && data.length > 0 && !failedFetch ? (
-          data?.map((v, k) => {
-            return (
-              <div key={k} className="text-center p-2 space-y-2">
-                <img
-                  src={v?.image}
-                  className="object-cover w-full h-[50px] object-top"
-                />
-                <a
-                  className="hover:underline"
-                  href={`https://tracker.alexav.gg/info/${v?.id}`}
-                  target="_blank"
-                >
-                  <h1 className="font-semibold">{v?.title}</h1>
-                  <p>
-                    {" "}
-                    {v?.finished
-                      ? "finished"
-                      : v?.paused
-                        ? "paused"
-                        : v.startedOn
-                          ? "started"
-                          : "not started"}
-                  </p>
-                </a>
+  if (!failedFetch) {
+    if (data) {
+      return (
+        <a href={`https://tracker.alexav.gg/info/${data?.id}`} target="_blank">
+          <div className="flex flex-col bg-black border border-black text-white">
+            <div className="flex">
+              <div className="pl-2 pr-1">
+                <p className="w-[150px] truncate flex justify-end overflow-hidden whitespace-nowrap">
+                  {data?.title}
+                </p>
+                <p className="flex justify-end">
+                  {" "}
+                  {data?.finished
+                    ? "finished"
+                    : data?.paused
+                      ? "paused"
+                      : data?.startedOn
+                        ? "started"
+                        : "not started"}
+                </p>
               </div>
-            );
-          })
-        ) : (
-          <ErrorState />
-        )}
-      </div>
-    </div>
-  );
+              <img
+                className="w-[50px] h-[50px] object-cover"
+                src={data?.image}
+              />
+            </div>
+          </div>
+        </a>
+      );
+    } else {
+      return <ErrorState type="loading" />;
+    }
+  } else {
+    return <ErrorState type="error" />;
+  }
 }

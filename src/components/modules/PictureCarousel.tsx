@@ -1,5 +1,3 @@
-import Picture from "../Picture";
-
 const images = [
   "https://storage.alexav.gg/content/1f822215-0768-424d-893a-13bcd10aa98b.jpg",
   "https://storage.alexav.gg/content/de890eaf-fc73-42a4-9fbe-a62313394a4c.jpg",
@@ -8,19 +6,19 @@ const images = [
   "https://storage.alexav.gg/content/2f36c1dd-eaf8-4fd3-a3cd-1d25fe8f5a07.jpg",
 ];
 
-export default function PictureCarousel({
-  onClick,
-}: {
-  onClick: (url: string) => void;
-}) {
+export default function PictureCarousel() {
   return (
     <div className="border border-white border-solid rounded-lg p-2">
-      <h1 className="text-2xl font-bold italic">pictures</h1>
-
       <div className="whitespace-nowrap overflow-x-auto">
         <div className="my-2 space-x-2">
           {images.map((v, k) => {
-            return <Picture key={k} image={v} onClick={() => onClick(v)} />;
+            return (
+              <img
+                key={k}
+                src={v}
+                className="inline w-[200px] max-h-[100px] object-cover"
+              />
+            );
           })}
         </div>
       </div>
