@@ -29,7 +29,7 @@ export default function MusicComponent() {
   if (!failedFetch) {
     if (music) {
       return (
-        <a href="https://last.fm/user/lulawex" target="_blank">
+        <a href="https://koito.fntz.net" target="_blank">
           <div className="flex flex-col bg-black border border-black text-white">
             <div className="flex align-middle">
               <img
