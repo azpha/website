@@ -50,7 +50,7 @@ export default function App() {
                     </a>
                     and write mediocre code sometimes
                   </p>
-                  <p className="text-sm space-x-1">
+                  <div className="block space-x-1">
                     <a
                       href="https://twitter.com/lostinmyyabyss_"
                       className="hover:underline"
@@ -74,7 +74,24 @@ export default function App() {
                     >
                       tiktok
                     </a>
-                  </p>
+                  </div>
+                  <div className="block space-x-2">
+                    <a
+                      className="hover:underline"
+                      href="https://steamcommunity.com/id/bayharborsmoocher/"
+                      target="_blank"
+                    >
+                      steam
+                    </a>
+                    <span>•</span>
+                    <a
+                      className="hover:underline"
+                      href="https://medal.tv/u/alexav"
+                      target="_blank"
+                    >
+                      medal
+                    </a>
+                  </div>
                 </div>
                 <div className="text-2xl">
                   <div>
