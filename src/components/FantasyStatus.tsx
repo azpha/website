@@ -37,14 +37,6 @@ export default function FantasyStatus() {
   return (
     <div className="p-2 text-black">
       <div className="mb-4 space-y-4">
-        <a
-          href="https://sleeper.com/leagues/1263620000418119680/matchup"
-          target="_blank"
-          className="hover:underline"
-        >
-          <h1 className="font-semibold text-2xl mb-2">fantasy</h1>
-        </a>
-
         {personalRoster && opposingRoster && (
           <>
             <TeamRow
