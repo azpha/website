@@ -1,4 +1,11 @@
 const images = [
+  "https://storage.alexav.gg/content/1b81a43e-7b6b-4969-944a-f2f334405477.jpg",
+  "https://storage.alexav.gg/content/91bce3da-36c3-497f-aaa9-b782d60c9cd7.jpg",
+  "https://storage.alexav.gg/content/8ce1c14f-864e-4915-bff4-4cbf73247023.jpg",
+  "https://storage.alexav.gg/content/6687d643-fb69-42f6-8480-51869cdb7efb.jpg",
+  "https://storage.alexav.gg/content/f8252684-eb5a-4344-baa1-46f4eab46916.jpg",
+  "https://storage.alexav.gg/content/363308c8-ecb6-4b2f-8dba-1c7f7f26f087.jpg",
+  "https://storage.alexav.gg/content/1aca5645-0d3d-43bf-a7b7-bd34bcc374b4.png",
   "https://storage.alexav.gg/content/1f822215-0768-424d-893a-13bcd10aa98b.jpg",
   "https://storage.alexav.gg/content/de890eaf-fc73-42a4-9fbe-a62313394a4c.jpg",
   "https://storage.alexav.gg/content/d057af80-3d03-45ca-88b2-680c1e7c63c1.jpg",
