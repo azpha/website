@@ -15,13 +15,12 @@ export default function App() {
   return (
     <Layout>
       {overlayImage && (
-        <div className="absolute min-h-screen min-w-screen bg-black/75">
+        <div
+          onClick={() => setOverlayImage(null)}
+          className="absolute min-h-screen min-w-screen bg-black/75"
+        >
           <div className="flex justify-center items-center h-screen">
-            <img
-              onClick={() => setOverlayImage(null)}
-              className="w-[400px]"
-              src={overlayImage}
-            />
+            <img className="w-[400px]" src={overlayImage} />
           </div>
         </div>
       )}
