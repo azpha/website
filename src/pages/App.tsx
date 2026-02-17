@@ -50,6 +50,7 @@ export default function App() {
                     </a>
                     and write mediocre code sometimes
                   </p>
+                  <hr />
                   <div className="block space-x-1">
                     <a
                       href="https://twitter.com/lostinmyyabyss_"
