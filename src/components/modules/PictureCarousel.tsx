@@ -6,7 +6,11 @@ const images = [
   "https://storage.alexav.gg/content/2f36c1dd-eaf8-4fd3-a3cd-1d25fe8f5a07.jpg",
 ];
 
-export default function PictureCarousel() {
+export default function PictureCarousel({
+  onClick,
+}: {
+  onClick: (url: string) => void;
+}) {
   return (
     <div className="border border-white border-solid rounded-lg p-2">
       <div className="whitespace-nowrap overflow-x-auto">
@@ -15,6 +19,7 @@ export default function PictureCarousel() {
             return (
               <img
                 key={k}
+                onClick={() => onClick(v)}
                 src={v}
                 className="inline w-[200px] max-h-[100px] object-cover"
               />

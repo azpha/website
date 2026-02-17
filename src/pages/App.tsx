@@ -10,9 +10,22 @@ import MusicComponent from "../components/info/MusicComponent";
 
 export default function App() {
   const [tab, setTab] = useState<string>("home");
+  const [overlayImage, setOverlayImage] = useState<string | null>(null);
 
   return (
     <Layout>
+      {overlayImage && (
+        <div className="absolute min-h-screen min-w-screen bg-black/75">
+          <div className="flex justify-center items-center h-screen">
+            <img
+              onClick={() => setOverlayImage(null)}
+              className="w-[400px]"
+              src={overlayImage}
+            />
+          </div>
+        </div>
+      )}
+
       <div className="min-h-screen flex justify-center items-center">
         <div className="border-3 bg-[#ebebeb] border-black w-full sm:w-[500px]">
           <div className="] text-black">
@@ -164,7 +177,9 @@ export default function App() {
             </div>
           </div>
           {tab === "fantasy" && <FantasyStatus />}
-          {tab === "pictures" && <PictureCarousel />}
+          {tab === "pictures" && (
+            <PictureCarousel onClick={(url: string) => setOverlayImage(url)} />
+          )}
           {tab === "scores" && <ScoreModule type="sabres" />}
         </div>
       </div>
