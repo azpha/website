@@ -58,14 +58,14 @@ export default function App() {
                       href="https://medal.tv/u/alexav"
                       target="_blank"
                     >
-                      Medal.tv{" "}
+                      Medal.tv
                     </a>
-                    and write mediocre code sometimes
+                    {" "}and write mediocre code sometimes
                   </p>
                   <hr />
                   <div className="block space-x-1">
                     <a
-                      href="https://twitter.com/lostinmyyabyss_"
+                      href="https://twitter.com/carlgrimesdupe"
                       className="hover:underline"
                       target="_blank"
                     >
