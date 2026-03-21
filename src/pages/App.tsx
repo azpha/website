@@ -110,11 +110,11 @@ export default function App() {
                   <div>
                     {" "}
                     <span className="bg-black text-white px-1">shows</span>{" "}
-                    dexter, the pitt, tlou, twd
+                    dexter, pitt, tlou, twd, ystone
                   </div>
                   <div>
                     <span className="bg-black text-white px-1">music</span> ptv,
-                    treaty oak, zach top, she wants revenge
+                    treaty oak, zach top, zach bryan, type o
                   </div>
                 </div>
               </div>
@@ -125,11 +125,11 @@ export default function App() {
                 <div>
                   <h1 className="text-2xl font-bold">about me</h1>
                   <p>
-                    born & raised western new yorker. i've been doing QA work
-                    for the past 4 years and learning software engineering in
-                    between. i also play acoustic guitar, am really into gaming
-                    and love travelling to NYC. i am also incredibly awkward,
-                    but that's besides the point
+                    born and raised buffalonian + wnyer. doing qa work for 4
+                    years and learning software engineering on the side. i also
+                    play acoustic guitar, been gaming since i was 4 and love
+                    going to games in Buffalo. incredibly awkward, but that's
+                    besides the point
                   </p>
                 </div>
                 <div className="mx-auto">
