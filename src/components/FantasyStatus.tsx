@@ -35,7 +35,7 @@ export default function FantasyStatus() {
   }, []);
 
   return (
-    <div className="p-2 text-black">
+    <div className="p-2">
       <div className="mb-4 space-y-4">
         {personalRoster && opposingRoster && (
           <>

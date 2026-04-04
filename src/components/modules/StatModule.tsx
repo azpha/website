@@ -41,13 +41,13 @@ export default function StatModule() {
     if (data) {
       return (
         <a href={`https://tracker.alexav.gg/info/${data?.id}`} target="_blank">
-          <div className="flex flex-col bg-black border border-black text-white">
+          <div className="flex flex-col bg-black border border-black">
             <div className="flex">
               <div className="pl-2 pr-1">
-                <p className="w-[150px] truncate flex justify-end overflow-hidden whitespace-nowrap">
+                <p className="w-[150px] truncate flex justify-end overflow-hidden whitespace-nowrap text-white">
                   {data?.title}
                 </p>
-                <p className="flex justify-end">
+                <p className="flex justify-end text-white">
                   {" "}
                   {data?.finished
                     ? "finished"

@@ -9,6 +9,7 @@ const IMAGES = {
 export default function ScoreModule({ type }: { type: "sabres" | "bills" }) {
   const [billsScore, setBillsScore] = useState<BillsScore | null>(null);
   const [sabresScore, setSabresScore] = useState<SabresScore | null>(null);
+  const [warpath, setWarpath] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchBillsScore() {
@@ -38,26 +39,46 @@ export default function ScoreModule({ type }: { type: "sabres" | "bills" }) {
   }, []);
 
   return (
-    <div className="text-black rounded-lg w-full">
+    <div className="rounded-lg w-full">
       <div className="flex justify-between">
         <div>
-          <img width="100" className="p-4" src={IMAGES[type]} />
+          <img
+            onClick={() => {
+              if (type === "sabres") {
+                setWarpath(true);
+              }
+            }}
+            width="100"
+            className="p-4"
+            src={IMAGES[type]}
+          />
         </div>
         <div className="flex justify-center items-center px-6">
           <div>
             <h1 className="text-2xl">
               {type === "bills"
                 ? billsScore?.name
-                : `${sabresScore?.awayTeam.abbrev} @ ${sabresScore?.homeTeam.abbrev}`}
+                : `${sabresScore?.awayTeam.abbrev || "BUF"} @ ${sabresScore?.homeTeam.abbrev || "BUF"}`}
             </h1>
             <p className="float-right text-[20px]">
               {type === "bills"
                 ? billsScore?.score
-                : `${sabresScore && sabresScore?.sabresScore > sabresScore?.oppScore ? "W" : "L"} ${sabresScore?.sabresScore}-${sabresScore?.oppScore}`}
+                : `${sabresScore && sabresScore?.sabresScore > sabresScore?.oppScore ? "W" : "L"} ${sabresScore?.sabresScore || 0}-${sabresScore?.oppScore || 0}`}
             </p>
           </div>
         </div>
       </div>
+      {warpath && (
+        <audio
+          src={"https://storage.alexav.gg/content/warpath.mp3"}
+          autoPlay={true}
+          onTimeUpdate={(e) => {
+            if (e.currentTarget.duration === e.currentTarget.currentTime) {
+              setWarpath(false);
+            }
+          }}
+        />
+      )}
     </div>
   );
 }

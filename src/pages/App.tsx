@@ -25,20 +25,24 @@ export default function App() {
         </div>
       )}
 
-      <div className="min-h-screen flex justify-center items-center">
-        <div className="border-3 bg-[#ebebeb] border-black w-full sm:w-[500px]">
-          <div className="] text-black">
-            <div className="bg-black w-full text-white">
+      {/* bg-[#ebebeb] */}
+      <div className="min-h-screen flex justify-center items-center text-white">
+        <div className="border-3 bg-gradient-to-t from-[#003087] to-[#FFB81C] border-black w-full sm:w-[500px]">
+          <div>
+            <div className="bg-[#003087] w-full">
               <div className="grid grid-cols-3 gap-2 p-2 text-2xl">
-                <h1 className="font-semibold">welcome</h1>
+                <h1 className="font-semibold text-white">welcome</h1>
                 <Clock />
-                <h1 className="text-right">let it rip</h1>
+                <h1 className="text-right text-transparent font-bold bg-clip-text bg-gradient-to-t from-[#003087] to-[#FFB81C]">
+                  GO SABRES!
+                </h1>
               </div>
             </div>
 
             <img
-              className="h-[100px] object-[25%_75%] w-full object-cover"
-              src="https://storage.alexav.gg/content/1f822215-0768-424d-893a-13bcd10aa98b.jpg"
+              className="h-[100px] object-[25%_35%] w-full object-cover"
+              // src="https://storage.alexav.gg/content/1f822215-0768-424d-893a-13bcd10aa98b.jpg"
+              src="https://storage.alexav.gg/content/sabres-board.jpg"
             />
             <hr className="border-black" />
             <div className="p-2">
@@ -52,15 +56,18 @@ export default function App() {
                 <div>
                   <h1 className="text-2xl font-semibold">hi, i'm alex!</h1>
                   <p className="text-lg">
-                    i do QA stuff at{" "}
+                    qa stuff & things at{" "}
                     <a
                       className="underline"
                       href="https://medal.tv/u/alexav"
                       target="_blank"
                     >
                       Medal.tv
-                    </a>
-                    {" "}and write mediocre code sometimes
+                    </a>{" "}
+                    <br />
+                    sabres szn ticket holder
+                    <br />
+                    master of shenanigans
                   </p>
                   <hr />
                   <div className="block space-x-1">
@@ -148,7 +155,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="grid grid-cols-4 text-center border-b">
+            <div className="grid grid-cols-4 text-center border-b border-b-black">
               <h1
                 onClick={() => setTab("home")}
                 className={`border-r-1 border-t-1 border-black hover:cursor-pointer ${tab === "home" && "underline"}`}
@@ -169,7 +176,7 @@ export default function App() {
               </h1>
               <h1
                 onClick={() => setTab("scores")}
-                className={`border-r-1 border-t-1 border-black hover:cursor-pointer ${tab === "scores" && "underline"}`}
+                className={`border-t-1 border-black hover:cursor-pointer ${tab === "scores" && "underline"}`}
               >
                 scores
               </h1>

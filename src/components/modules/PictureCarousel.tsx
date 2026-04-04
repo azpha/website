@@ -19,7 +19,7 @@ export default function PictureCarousel({
   onClick: (url: string) => void;
 }) {
   return (
-    <div className="border border-white border-solid rounded-lg p-2">
+    <div className="rounded-lg p-2">
       <div className="whitespace-nowrap overflow-x-auto">
         <div className="my-2 space-x-2">
           {images.map((v, k) => {
