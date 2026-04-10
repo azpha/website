@@ -72,7 +72,7 @@ export default function App() {
                   <hr />
                   <div className="block space-x-1">
                     <a
-                      href="https://twitter.com/carlgrimesdupe"
+                      href="https://twitter.com/onelonesabre"
                       className="hover:underline"
                       target="_blank"
                     >
