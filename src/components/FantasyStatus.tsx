@@ -13,7 +13,7 @@ export default function FantasyStatus() {
   // fetch roster information
   useEffect(() => {
     async function fetchData() {
-      const data = (await fetch("https://api.alexav.gg/v4/football").then(
+      const data = (await fetch("https://api.alexav.gg/v4/sports/fantasy").then(
         (res) => res.json(),
       )) as NFLAPIData;
 

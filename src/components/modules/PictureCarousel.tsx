@@ -19,20 +19,19 @@ export default function PictureCarousel({
   onClick: (url: string) => void;
 }) {
   return (
-    <div className="rounded-lg p-2">
-      <div className="whitespace-nowrap overflow-x-auto">
-        <div className="my-2 space-x-2">
-          {images.map((v, k) => {
-            return (
-              <img
-                key={k}
-                onClick={() => onClick(v)}
-                src={v}
-                className="inline w-[200px] max-h-[100px] object-cover"
-              />
-            );
-          })}
-        </div>
+    <div className="rounded-lg">
+      <div className="my-2 space-x-2 space-y-2">
+        {images.map((v, k) => {
+          return (
+            <img
+              key={k}
+              loading="lazy"
+              onClick={() => onClick(v)}
+              src={v}
+              className="inline w-[200px] max-h-[100px] object-cover"
+            />
+          );
+        })}
       </div>
     </div>
   );

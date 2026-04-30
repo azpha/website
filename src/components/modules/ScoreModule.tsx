@@ -1,19 +1,14 @@
 import { useEffect, useState } from "react";
 import { BillsScore, SabresScore } from "../../utils/types";
 
-const IMAGES = {
-  bills: "https://storage.alexav.gg/content/bills.png",
-  sabres: "https://storage.alexav.gg/content/sabres.png",
-};
-
-export default function ScoreModule({ type }: { type: "sabres" | "bills" }) {
+export default function ScoreModule() {
   const [billsScore, setBillsScore] = useState<BillsScore | null>(null);
   const [sabresScore, setSabresScore] = useState<SabresScore | null>(null);
   const [warpath, setWarpath] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchBillsScore() {
-      const res = await fetch("https://api.alexav.gg/v4/scores/bills");
+      const res = await fetch("https://api.alexav.gg/v4/sports/scores/bills");
       if (res.ok) {
         const data = await res.json();
         setBillsScore(data);
@@ -22,7 +17,7 @@ export default function ScoreModule({ type }: { type: "sabres" | "bills" }) {
       }
     }
     async function fetchSabresScore() {
-      const res = await fetch("https://api.alexav.gg/v4/scores/sabres");
+      const res = await fetch("https://api.alexav.gg/v4/sports/scores/sabres");
       if (res.ok) {
         const data = await res.json();
         setSabresScore(data);
@@ -31,16 +26,81 @@ export default function ScoreModule({ type }: { type: "sabres" | "bills" }) {
       }
     }
 
-    if (type == "bills" && !billsScore) {
-      fetchBillsScore();
-    } else if (type === "sabres" && !sabresScore) {
-      fetchSabresScore();
-    }
+    fetchBillsScore();
+    fetchSabresScore();
   }, []);
 
   return (
-    <div className="rounded-lg w-full">
-      <div className="flex justify-between">
+    <div className="rounded-lg w-full mb-2">
+      <div className="flex flex-row justify-between">
+        <div className="flex flex-row py-2">
+          <img
+            onClick={() => {
+              if (sabresScore?.homeTeam.abbreviation === "BUF")
+                setWarpath(true);
+            }}
+            width="80"
+            className="shrink-0"
+            src={sabresScore?.homeTeam.logo}
+          />
+          <img
+            onClick={() => {
+              if (sabresScore?.awayTeam.abbreviation === "BUF")
+                setWarpath(true);
+            }}
+            width="80"
+            className="shrink-0"
+            src={sabresScore?.awayTeam.logo}
+          />
+        </div>
+        <div className="p-2 text-2xl flex items-end flex-col">
+          <p>
+            {sabresScore?.homeTeam.abbreviation} {sabresScore?.homeTeam.score} -{" "}
+            {sabresScore?.awayTeam.abbreviation} {sabresScore?.awayTeam.score}
+          </p>
+          <p className="text-sm">
+            {sabresScore?.venue} -{" "}
+            {new Date(sabresScore?.date || Date.now()).toLocaleDateString()}
+          </p>
+        </div>
+
+        {warpath && (
+          <audio
+            src={"https://storage.alexav.gg/content/warpath.mp3"}
+            autoPlay={true}
+            onTimeUpdate={(e) => {
+              if (e.currentTarget.duration === e.currentTarget.currentTime) {
+                setWarpath(false);
+              }
+            }}
+          />
+        )}
+      </div>
+      <div className="flex flex-row justify-between">
+        <div className="flex flex-row space-x-6 px-4 items-center">
+          <img
+            width="80"
+            className="w-full h-[50px]"
+            src={billsScore?.homeTeam.logo}
+          />
+          <img
+            width="80"
+            className="w-full h-[50px]"
+            src={billsScore?.awayTeam.logo}
+          />
+        </div>
+        <div className="p-2 text-2xl flex items-end flex-col">
+          <p>
+            {billsScore?.homeTeam.abbreviation} {billsScore?.homeTeam.score} -{" "}
+            {billsScore?.awayTeam.abbreviation} {billsScore?.awayTeam.score}
+          </p>
+          <p className="text-sm">
+            {billsScore?.venue} -{" "}
+            {new Date(billsScore?.gameDay || Date.now()).toLocaleDateString()}
+          </p>
+        </div>
+      </div>
+      {/* <div className="flex justify-between">
         <div>
           <img
             onClick={() => {
@@ -68,17 +128,7 @@ export default function ScoreModule({ type }: { type: "sabres" | "bills" }) {
           </div>
         </div>
       </div>
-      {warpath && (
-        <audio
-          src={"https://storage.alexav.gg/content/warpath.mp3"}
-          autoPlay={true}
-          onTimeUpdate={(e) => {
-            if (e.currentTarget.duration === e.currentTarget.currentTime) {
-              setWarpath(false);
-            }
-          }}
-        />
-      )}
+       */}
     </div>
   );
 }

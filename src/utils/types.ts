@@ -48,32 +48,31 @@ interface SleeperUser {
 
 // scores
 type BillsScore = {
-  name: string;
-  date: string;
-  score: string;
+  season: string;
+  gameType: string;
+  week: string;
+  gameDay: string;
+  gameTime: string;
+  venue: string;
+  homeTeam: NFLTeam;
+  awayTeam: NFLTeam;
 };
 type SabresScore = {
-  gameDate: string;
-  wonInRegulation: boolean;
-  sabresScore: number;
-  oppScore: number;
-  homeTeam: NHLTeam;
+  date: string;
+  venue: string;
   awayTeam: NHLTeam;
+  homeTeam: NHLTeam;
+};
+type NFLTeam = {
+  abbreviation: string;
+  score: string;
+  name: string;
+  nickname: string;
+  logo: string;
 };
 type NHLTeam = {
-  id: number;
-  name: {
-    default: string;
-    fr: string;
-  };
-  commonName: {
-    default: string;
-  };
-  placeNameWithPreposition: {
-    default: string;
-    fr: string;
-  };
-  abbrev: string;
+  abbreviation: string;
+  name: string;
   score: number;
   logo: string;
 };

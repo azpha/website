@@ -8,6 +8,137 @@ import FantasyStatus from "../components/FantasyStatus";
 import Clock from "../components/modules/Clock";
 import MusicComponent from "../components/info/MusicComponent";
 
+const HomePage = () => {
+  return (
+    <>
+      <div className="p-2">
+        <div className="grid grid-cols-3 gap-2">
+          <div>
+            <img
+              className="h-40 w-50 object-cover object-top"
+              src="https://storage.alexav.gg/content/f49b355a-25cd-48ba-8421-da702620fcc6.jpeg"
+            />
+          </div>
+          <div>
+            <h1 className="text-2xl font-semibold">hi, i'm alex!</h1>
+            <p className="text-lg">
+              qa stuff & things at{" "}
+              <a
+                className="underline"
+                href="https://medal.tv/u/alexav"
+                target="_blank"
+              >
+                Medal.tv
+              </a>{" "}
+              <br />
+              sabres szn ticket holder
+              <br />
+              master of shenanigans
+            </p>
+            <hr />
+            <div className="block space-x-1">
+              <a
+                href="https://twitter.com/onelonesabre"
+                className="hover:underline"
+                target="_blank"
+              >
+                twt
+              </a>
+              <span>•</span>
+              <a
+                className="hover:underline"
+                href="https://instagram.com/alexfrantz07"
+                target="_blank"
+              >
+                instagram
+              </a>
+              <span>•</span>
+              <a
+                className="hover:underline"
+                href="https://tiktok.com/@lostinherabyss_"
+                target="_blank"
+              >
+                tiktok
+              </a>
+            </div>
+            <div className="block space-x-2">
+              <a
+                className="hover:underline"
+                href="https://steamcommunity.com/id/bayharborsmoocher/"
+                target="_blank"
+              >
+                steam
+              </a>
+              <span>•</span>
+              <a
+                className="hover:underline"
+                href="https://medal.tv/u/alexav"
+                target="_blank"
+              >
+                medal
+              </a>
+            </div>
+          </div>
+          <div className="text-2xl">
+            <div>
+              {" "}
+              <span className="bg-black text-white px-1">shows</span> dexter,
+              pitt, tlou, twd, ystone
+            </div>
+            <div>
+              <span className="bg-black text-white px-1">music</span> ptv,
+              treaty oak, zach top, zach bryan, type o
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr className="border-black" />
+      <div className="px-2">
+        <div className="grid grid-cols-2">
+          <div>
+            <h1 className="text-2xl font-bold">about me</h1>
+            <p>
+              born and raised buffalonian + wnyer. doing qa work for 4 years and
+              learning software engineering on the side. i also play acoustic
+              guitar, been gaming since i was 4 and love going to games in
+              Buffalo. incredibly awkward, but that's besides the point
+            </p>
+          </div>
+          <div className="mx-auto">
+            <div className="p-2">
+              <div className="mb-2">
+                <MusicComponent />
+              </div>
+              <div className="mb-2">
+                <StatModule />
+              </div>
+              <div>
+                <GameComponent />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const PicturesPage = ({
+  setOverlayImage,
+}: {
+  setOverlayImage: (v: string | null) => void;
+}) => {
+  return (
+    <div className="p-2 flex flex-col justify-center">
+      <h1 className="text-2xl font-bold">pictures</h1>
+
+      <div className="h-96 overflow-y-auto">
+        <PictureCarousel onClick={(url: string) => setOverlayImage(url)} />
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   const [tab, setTab] = useState<string>("home");
   const [overlayImage, setOverlayImage] = useState<string | null>(null);
@@ -45,115 +176,13 @@ export default function App() {
               src="https://storage.alexav.gg/content/sabres-board.jpg"
             />
             <hr className="border-black" />
-            <div className="p-2">
-              <div className="grid grid-cols-3 gap-2">
-                <div>
-                  <img
-                    className="h-40 w-50 object-cover object-top"
-                    src="https://storage.alexav.gg/content/f49b355a-25cd-48ba-8421-da702620fcc6.jpeg"
-                  />
-                </div>
-                <div>
-                  <h1 className="text-2xl font-semibold">hi, i'm alex!</h1>
-                  <p className="text-lg">
-                    qa stuff & things at{" "}
-                    <a
-                      className="underline"
-                      href="https://medal.tv/u/alexav"
-                      target="_blank"
-                    >
-                      Medal.tv
-                    </a>{" "}
-                    <br />
-                    sabres szn ticket holder
-                    <br />
-                    master of shenanigans
-                  </p>
-                  <hr />
-                  <div className="block space-x-1">
-                    <a
-                      href="https://twitter.com/onelonesabre"
-                      className="hover:underline"
-                      target="_blank"
-                    >
-                      twt
-                    </a>
-                    <span>•</span>
-                    <a
-                      className="hover:underline"
-                      href="https://instagram.com/alexfrantz07"
-                      target="_blank"
-                    >
-                      instagram
-                    </a>
-                    <span>•</span>
-                    <a
-                      className="hover:underline"
-                      href="https://tiktok.com/@lostinherabyss_"
-                      target="_blank"
-                    >
-                      tiktok
-                    </a>
-                  </div>
-                  <div className="block space-x-2">
-                    <a
-                      className="hover:underline"
-                      href="https://steamcommunity.com/id/bayharborsmoocher/"
-                      target="_blank"
-                    >
-                      steam
-                    </a>
-                    <span>•</span>
-                    <a
-                      className="hover:underline"
-                      href="https://medal.tv/u/alexav"
-                      target="_blank"
-                    >
-                      medal
-                    </a>
-                  </div>
-                </div>
-                <div className="text-2xl">
-                  <div>
-                    {" "}
-                    <span className="bg-black text-white px-1">shows</span>{" "}
-                    dexter, pitt, tlou, twd, ystone
-                  </div>
-                  <div>
-                    <span className="bg-black text-white px-1">music</span> ptv,
-                    treaty oak, zach top, zach bryan, type o
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr className="border-black" />
-            <div className="px-2">
-              <div className="grid grid-cols-2">
-                <div>
-                  <h1 className="text-2xl font-bold">about me</h1>
-                  <p>
-                    born and raised buffalonian + wnyer. doing qa work for 4
-                    years and learning software engineering on the side. i also
-                    play acoustic guitar, been gaming since i was 4 and love
-                    going to games in Buffalo. incredibly awkward, but that's
-                    besides the point
-                  </p>
-                </div>
-                <div className="mx-auto">
-                  <div className="p-2">
-                    <div className="mb-2">
-                      <MusicComponent />
-                    </div>
-                    <div className="mb-2">
-                      <StatModule />
-                    </div>
-                    <div>
-                      <GameComponent />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+            {tab === "home" && <HomePage />}
+            {tab === "fantasy" && <FantasyStatus />}
+            {tab === "pictures" && (
+              <PicturesPage setOverlayImage={setOverlayImage} />
+            )}
+            {tab === "scores" && <ScoreModule />}
 
             <div className="grid grid-cols-4 text-center border-b border-b-black">
               <h1
@@ -161,12 +190,6 @@ export default function App() {
                 className={`border-r-1 border-t-1 border-black hover:cursor-pointer ${tab === "home" && "underline"}`}
               >
                 home
-              </h1>
-              <h1
-                onClick={() => setTab("fantasy")}
-                className={`border-r-1 border-t-1 border-black hover:cursor-pointer ${tab === "fantasy" && "underline"}`}
-              >
-                fantasy
               </h1>
               <h1
                 onClick={() => setTab("pictures")}
@@ -180,13 +203,14 @@ export default function App() {
               >
                 scores
               </h1>
+              <h1
+                onClick={() => setTab("fantasy")}
+                className={`border-l-1 border-t-1 border-black hover:cursor-pointer ${tab === "fantasy" && "underline"}`}
+              >
+                fantasy
+              </h1>
             </div>
           </div>
-          {tab === "fantasy" && <FantasyStatus />}
-          {tab === "pictures" && (
-            <PictureCarousel onClick={(url: string) => setOverlayImage(url)} />
-          )}
-          {tab === "scores" && <ScoreModule type="sabres" />}
         </div>
       </div>
     </Layout>
