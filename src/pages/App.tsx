@@ -1,9 +1,7 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
-import GameComponent from "../components/info/GameComponent";
 import PictureCarousel from "../components/modules/PictureCarousel";
 import ScoreModule from "../components/modules/ScoreModule";
-import StatModule from "../components/modules/StatModule";
 import FantasyStatus from "../components/FantasyStatus";
 import Clock from "../components/modules/Clock";
 import MusicComponent from "../components/info/MusicComponent";
@@ -12,90 +10,78 @@ const HomePage = () => {
   return (
     <>
       <div className="p-2">
-        <div className="grid grid-cols-3 gap-2">
+        <div className="flex flex-row space-x-2">
+          <img
+            className="h-40 w-40 object-cover object-top rounded-lg"
+            src="https://storage.alexav.gg/content/f49b355a-25cd-48ba-8421-da702620fcc6.jpeg"
+          />
           <div>
-            <img
-              className="h-40 w-50 object-cover object-top"
-              src="https://storage.alexav.gg/content/f49b355a-25cd-48ba-8421-da702620fcc6.jpeg"
-            />
-          </div>
-          <div>
-            <h1 className="text-2xl font-semibold">hi, i'm alex!</h1>
-            <p className="text-lg">
-              qa stuff & things at{" "}
-              <a
-                className="underline"
-                href="https://medal.tv/u/alexav"
-                target="_blank"
-              >
-                Medal.tv
-              </a>{" "}
-              <br />
-              sabres szn ticket holder
-              <br />
-              master of shenanigans
-            </p>
+            <p className="text-lg">@onelonesabre -- alex</p>
             <hr />
-            <div className="block space-x-1">
-              <a
-                href="https://twitter.com/onelonesabre"
-                className="hover:underline"
-                target="_blank"
-              >
-                twt
-              </a>
-              <span>•</span>
-              <a
-                className="hover:underline"
-                href="https://instagram.com/alexfrantz07"
-                target="_blank"
-              >
-                instagram
-              </a>
-              <span>•</span>
-              <a
-                className="hover:underline"
-                href="https://tiktok.com/@lostinherabyss_"
-                target="_blank"
-              >
-                tiktok
-              </a>
-            </div>
-            <div className="block space-x-2">
-              <a
-                className="hover:underline"
-                href="https://steamcommunity.com/id/bayharborsmoocher/"
-                target="_blank"
-              >
-                steam
-              </a>
-              <span>•</span>
-              <a
-                className="hover:underline"
-                href="https://medal.tv/u/alexav"
-                target="_blank"
-              >
-                medal
-              </a>
-            </div>
+            <p>
+              professional yapper
+              <br />
+              qa stuff @ medal
+            </p>
           </div>
-          <div className="text-2xl">
-            <div>
-              {" "}
-              <span className="bg-black text-white px-1">shows</span> dexter,
-              pitt, tlou, twd, ystone
-            </div>
-            <div>
-              <span className="bg-black text-white px-1">music</span> ptv,
-              treaty oak, zach top, zach bryan, type o
-            </div>
+          <div className="flex flex-col">
+            <h1 className="text-2xl font-bold">links</h1>
+            <table className="border border-white border-solid sm:w-42 h-fit">
+              <tr className="border-b border-white border-solid flex">
+                <a
+                  href="https://twitter.com/onelonesabre"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  <td className="px-2">twitter</td>
+                </a>
+              </tr>
+              <tr className="border-b border-white border-solid flex">
+                <a
+                  href="https://instagram.com/alexfrantz07"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  <td className="px-2">instagram</td>
+                </a>
+              </tr>
+              <tr className="border-b border-white border-solid flex">
+                <a
+                  href="https://medal.tv/u/alexav"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  <td className="px-2">medal</td>
+                </a>
+              </tr>
+              <tr className="border-b border-white border-solid flex">
+                <a
+                  href="https://steampowered.com/id/bayharborsmoocher"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  <td className="px-2">steam</td>
+                </a>
+              </tr>
+              <tr className="border-b border-white border-solid flex">
+                <a
+                  href="https://open.spotify.com/user/vdcj47vkp0cp9jkusnz5nckbj?si=c2a6473dc2294317"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  <td className="px-2">spotify</td>
+                </a>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
+
       <hr className="border-black" />
-      <div className="px-2">
-        <div className="grid grid-cols-2">
-          <div>
+
+      <div>
+        <div className="grid grid-cols-2 mt-2">
+          <div className="px-2 pb-2">
             <h1 className="text-2xl font-bold">about me</h1>
             <p>
               born and raised buffalonian + wnyer. doing qa work for 4 years and
@@ -104,20 +90,19 @@ const HomePage = () => {
               Buffalo. incredibly awkward, but that's besides the point
             </p>
           </div>
-          <div className="mx-auto">
-            <div className="p-2">
-              <div className="mb-2">
-                <MusicComponent />
-              </div>
-              <div className="mb-2">
-                <StatModule />
-              </div>
-              <div>
-                <GameComponent />
-              </div>
+          <div className="text-2xl w-[200px] mx-auto my-auto">
+            <div>
+              <span className="bg-black text-white px-1">shows</span> dexter,
+              pitt, tlou, twd, yellowstone
+            </div>
+            <div>
+              <span className="bg-black text-white px-1">music</span> ptv, 5sos,
+              treaty oak, zach top, zach bryan
             </div>
           </div>
         </div>
+
+        <MusicComponent />
       </div>
     </>
   );

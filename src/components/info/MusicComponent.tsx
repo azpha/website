@@ -30,17 +30,14 @@ export default function MusicComponent() {
     if (music) {
       return (
         <a href="https://koito.fntz.net" target="_blank">
-          <div className="flex flex-col bg-black border border-black text-white">
+          <div className="w-full bg-zinc-800">
             <div className="flex align-middle">
-              <img
-                className="w-[50px] h-[50px] object-cover"
-                src={music.images[1]?.url}
-              />
               <div className="pl-2 pr-1">
-                <p className="w-[150px] truncate overflow-hidden whitespace-nowrap">
-                  {music.title}
+                <p>
+                  <span className="font-semibold">Currently Playing</span>:{" "}
+                  <span className="underline">{music.title}</span> by{" "}
+                  <span className="underline">{music.artist}</span>
                 </p>
-                <p> {music.artist}</p>
               </div>
             </div>
           </div>
@@ -52,41 +49,4 @@ export default function MusicComponent() {
   } else {
     return <ErrorState type="error" />;
   }
-
-  // if (music) {
-  //   return (
-  //     <a href="https://last.fm/user/lulawex" target="_blank">
-  //       <div className="flex flex-col bg-black border border-black text-white">
-  //         <div className="flex align-middle">
-  //           <img
-  //             className="w-[50px] h-[50px] object-cover"
-  //             src={music.images[1]?.url}
-  //           />
-  //           <div className="pl-2 pr-1">
-  //             <p className="w-[150px] truncate overflow-hidden whitespace-nowrap">
-  //               {music.title}
-  //             </p>
-  //             <p> {music.artist}</p>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </a>
-  //   );
-  // } else {
-  //   if (failedFetch) {
-  //     return (
-  //       <div>
-  //         <h1>uh oh!</h1>
-  //         <p>failed to get music :(</p>
-  //       </div>
-  //     );
-  //   } else {
-  //     return (
-  //       <div>
-  //         <h1>loading music..</h1>
-  //         <p>loading artist..</p>
-  //       </div>
-  //     );
-  //   }
-  // }
 }

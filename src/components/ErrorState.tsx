@@ -5,27 +5,24 @@ export default function ErrorState({
 }) {
   if (type === "error") {
     return (
-      <div className="flex flex-col bg-black border border-black text-white">
+      <div className="flex flex-col bg-zinc-800 text-white">
         <div className="px-2">
-          <h1 className="text-lg font-semibold">uh oh :(</h1>
-          <p>something went wrong loading this stat</p>
+          <p>whoops, something went wrong</p>
         </div>
       </div>
     );
   } else if (type === "loading") {
     return (
-      <div className="flex flex-col bg-black border border-black text-white">
+      <div className="flex flex-col bg-zinc-800 text-white">
         <div className="px-2">
-          <h1 className="text-lg font-semibold">loading..</h1>
-          <p>hang tight..</p>
+          <h1 className="font-semibold">loading..</h1>
         </div>
       </div>
     );
   } else if (type === "unavailable") {
     return (
-      <div className="flex flex-col bg-black border border-black text-white">
+      <div className="flex flex-col bg-zinc-800 text-white">
         <div className="px-2">
-          <h1 className="text-lg font-semibold">nothing here :(</h1>
           <p>no game launched recently</p>
         </div>
       </div>
