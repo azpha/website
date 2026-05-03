@@ -30,11 +30,11 @@ export default function MusicComponent() {
     if (music) {
       return (
         <a href="https://koito.fntz.net" target="_blank">
-          <div className="w-full bg-zinc-800">
-            <div className="flex align-middle">
+          <div className="w-full bg-black">
+            <div className="text-center">
               <div className="pl-2 pr-1">
-                <p>
-                  <span className="font-semibold">Currently Playing</span>:{" "}
+                <p className="text-lg">
+                  <span className="font-semibold">Currently Playing - </span>
                   <span className="underline">{music.title}</span> by{" "}
                   <span className="underline">{music.artist}</span>
                 </p>

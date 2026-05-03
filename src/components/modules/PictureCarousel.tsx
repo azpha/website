@@ -13,11 +13,7 @@ const images = [
   "https://storage.alexav.gg/content/2f36c1dd-eaf8-4fd3-a3cd-1d25fe8f5a07.jpg",
 ];
 
-export default function PictureCarousel({
-  onClick,
-}: {
-  onClick: (url: string) => void;
-}) {
+export default function PictureCarousel() {
   return (
     <div className="rounded-lg">
       <div className="my-2 space-x-2 space-y-2">
@@ -26,7 +22,6 @@ export default function PictureCarousel({
             <img
               key={k}
               loading="lazy"
-              onClick={() => onClick(v)}
               src={v}
               className="inline w-[200px] max-h-[100px] object-cover"
             />
