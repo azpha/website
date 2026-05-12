@@ -68,7 +68,7 @@ export default function Home() {
             </div>
             <div>
               <span className="bg-black text-white px-1">teams</span> bills,
-              sabres, jays
+              sabres, yanks
             </div>
           </div>
         </div>
