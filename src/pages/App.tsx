@@ -3,9 +3,7 @@ import Layout from "../components/Layout";
 import Clock from "../components/modules/Clock";
 import Button from "../components/Button";
 import Home from "./Home";
-import ScoreModule from "../components/modules/ScoreModule";
 import PicturesPage from "./Pictures";
-import FantasyStatus from "../components/FantasyStatus";
 import Sports from "./Sports";
 
 export default function App() {
