@@ -6,7 +6,7 @@ body {
 
   ::-webkit-scrollbar {
     width: 5px;
-    height: 10px;
+    height: 5px;
     border-radius: var(--radius-lg);
     background-color: white;
   }

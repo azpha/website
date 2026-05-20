@@ -1,6 +1,64 @@
 import { useEffect, useState } from "react";
 import { BillsScore, SabresScore } from "../../utils/types";
 
+interface TeamRowProps {
+  functionClick?: () => void;
+  width?: number;
+  venue: string;
+  date: string;
+  homeTeam: {
+    name: string;
+    abbreviation: string;
+    score: number;
+    logo: string;
+  };
+  awayTeam: {
+    name: string;
+    abbreviation: string;
+    score: number;
+    logo: string;
+  };
+}
+function TeamRow({
+  homeTeam,
+  awayTeam,
+  width = 50,
+  venue,
+  date,
+  functionClick,
+}: TeamRowProps) {
+  return (
+    <div className="flex flex-row justify-between">
+      <div className="flex flex-row py-2 space-x-2">
+        <img width={width} className="object-cover h-20" src={homeTeam.logo} />
+        <img
+          onClick={() => {
+            if (
+              (awayTeam.abbreviation === "BUF" ||
+                homeTeam.abbreviation === "BUF") &&
+              functionClick
+            ) {
+              functionClick();
+            }
+          }}
+          width={width}
+          className="object-cover h-20"
+          src={awayTeam.logo}
+        />
+      </div>
+      <div className="p-2 text-2xl flex items-end flex-col justify-center">
+        <p>
+          {homeTeam.abbreviation} {homeTeam.score} - {awayTeam.abbreviation}{" "}
+          {awayTeam.score}
+        </p>
+        <p className="text-sm">
+          {venue} - {new Date(date || Date.now()).toLocaleDateString()}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function ScoreModule() {
   const [billsScore, setBillsScore] = useState<BillsScore | null>(null);
   const [sabresScore, setSabresScore] = useState<SabresScore | null>(null);
@@ -31,104 +89,37 @@ export default function ScoreModule() {
   }, []);
 
   return (
-    <div className="rounded-lg w-full mb-2">
-      <div className="flex flex-row justify-between">
-        <div className="flex flex-row py-2">
-          <img
-            onClick={() => {
-              if (sabresScore?.homeTeam.abbreviation === "BUF")
-                setWarpath(true);
-            }}
-            width="80"
-            className="shrink-0"
-            src={sabresScore?.homeTeam.logo}
-          />
-          <img
-            onClick={() => {
-              if (sabresScore?.awayTeam.abbreviation === "BUF")
-                setWarpath(true);
-            }}
-            width="80"
-            className="shrink-0"
-            src={sabresScore?.awayTeam.logo}
-          />
-        </div>
-        <div className="p-2 text-2xl flex items-end flex-col">
-          <p>
-            {sabresScore?.homeTeam.abbreviation} {sabresScore?.homeTeam.score} -{" "}
-            {sabresScore?.awayTeam.abbreviation} {sabresScore?.awayTeam.score}
-          </p>
-          <p className="text-sm">
-            {sabresScore?.venue} -{" "}
-            {new Date(sabresScore?.date || Date.now()).toLocaleDateString()}
-          </p>
-        </div>
+    <div className="rounded-lg w-full">
+      {sabresScore?.homeTeam && sabresScore.awayTeam && (
+        <TeamRow
+          homeTeam={sabresScore.homeTeam}
+          awayTeam={sabresScore.awayTeam}
+          date={sabresScore.date}
+          venue={sabresScore.venue}
+          functionClick={() => setWarpath(true)}
+        />
+      )}
+      {billsScore?.homeTeam && billsScore.awayTeam && (
+        <TeamRow
+          homeTeam={billsScore.homeTeam}
+          awayTeam={billsScore.awayTeam}
+          width={50}
+          date={billsScore.gameDay}
+          venue={billsScore.venue}
+        />
+      )}
 
-        {warpath && (
-          <audio
-            src={"https://storage.alexav.gg/content/warpath.mp3"}
-            autoPlay={true}
-            onTimeUpdate={(e) => {
-              if (e.currentTarget.duration === e.currentTarget.currentTime) {
-                setWarpath(false);
-              }
-            }}
-          />
-        )}
-      </div>
-      <div className="flex flex-row justify-between">
-        <div className="flex flex-row space-x-6 px-4 items-center">
-          <img
-            width="80"
-            className="w-full h-[50px]"
-            src={billsScore?.homeTeam.logo}
-          />
-          <img
-            width="80"
-            className="w-full h-[50px]"
-            src={billsScore?.awayTeam.logo}
-          />
-        </div>
-        <div className="p-2 text-2xl flex items-end flex-col">
-          <p>
-            {billsScore?.homeTeam.abbreviation} {billsScore?.homeTeam.score} -{" "}
-            {billsScore?.awayTeam.abbreviation} {billsScore?.awayTeam.score}
-          </p>
-          <p className="text-sm">
-            {billsScore?.venue} -{" "}
-            {new Date(billsScore?.gameDay || Date.now()).toLocaleDateString()}
-          </p>
-        </div>
-      </div>
-      {/* <div className="flex justify-between">
-        <div>
-          <img
-            onClick={() => {
-              if (type === "sabres") {
-                setWarpath(true);
-              }
-            }}
-            width="100"
-            className="p-4"
-            src={IMAGES[type]}
-          />
-        </div>
-        <div className="flex justify-center items-center px-6">
-          <div>
-            <h1 className="text-2xl">
-              {type === "bills"
-                ? billsScore?.name
-                : `${sabresScore?.awayTeam.abbrev || "BUF"} @ ${sabresScore?.homeTeam.abbrev || "BUF"}`}
-            </h1>
-            <p className="float-right text-[20px]">
-              {type === "bills"
-                ? billsScore?.score
-                : `${sabresScore && sabresScore?.sabresScore > sabresScore?.oppScore ? "W" : "L"} ${sabresScore?.sabresScore || 0}-${sabresScore?.oppScore || 0}`}
-            </p>
-          </div>
-        </div>
-      </div>
-       */}
+      {warpath && (
+        <audio
+          src={"https://storage.alexav.gg/content/warpath.mp3"}
+          autoPlay={true}
+          onTimeUpdate={(e) => {
+            if (e.currentTarget.duration === e.currentTarget.currentTime) {
+              setWarpath(false);
+            }
+          }}
+        />
+      )}
     </div>
   );
 }

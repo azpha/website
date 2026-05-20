@@ -12,13 +12,15 @@ type LastFMImageObject = {
 // nfl stuff
 interface NFLAPIData {
   nflState: NFLState;
-  matchups: NFLMatchupState[];
+  team1: NFLMatchupState;
+  team2: NFLMatchupState;
   users: SleeperUser[];
 }
 interface NFLMatchupState {
   points: number;
   owner: SleeperUser;
   starters: NFLPlayer[];
+  players: NFLPlayer[];
   starters_points: number[];
   players_points: object;
 }
@@ -65,7 +67,7 @@ type SabresScore = {
 };
 type NFLTeam = {
   abbreviation: string;
-  score: string;
+  score: number;
   name: string;
   nickname: string;
   logo: string;

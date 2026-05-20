@@ -18,38 +18,30 @@ export default function FantasyStatus() {
       )) as NFLAPIData;
 
       // rosters
-      const ownMatchup = data.matchups[1] as NFLMatchupState;
-      const oppMatchup = data.matchups[0] as NFLMatchupState;
+      const ownMatchup = data.team2 as NFLMatchupState;
+      const oppMatchup = data.team1 as NFLMatchupState;
 
-      setPersonalRoster({
-        ...ownMatchup,
-        owner: data.users[1],
-      });
-      setOpposingRoster({
-        ...oppMatchup,
-        owner: data.users[0],
-      });
+      setPersonalRoster(ownMatchup);
+      setOpposingRoster(oppMatchup);
     }
 
     fetchData();
   }, []);
 
   return (
-    <div className="p-2">
-      <div className="mb-4 space-y-4">
-        {personalRoster && opposingRoster && (
-          <>
-            <TeamRow
-              isWinning={personalRoster.points > opposingRoster.points}
-              roster={personalRoster}
-            />
-            <TeamRow
-              isWinning={opposingRoster.points > personalRoster.points}
-              roster={opposingRoster}
-            />
-          </>
-        )}
-      </div>
+    <div className="mt-2 space-y-4">
+      {personalRoster && opposingRoster && (
+        <>
+          <TeamRow
+            isWinning={personalRoster.points > opposingRoster.points}
+            roster={personalRoster}
+          />
+          <TeamRow
+            isWinning={opposingRoster.points > personalRoster.points}
+            roster={opposingRoster}
+          />
+        </>
+      )}
     </div>
   );
 }

@@ -6,9 +6,10 @@ import Home from "./Home";
 import ScoreModule from "../components/modules/ScoreModule";
 import PicturesPage from "./Pictures";
 import FantasyStatus from "../components/FantasyStatus";
+import Sports from "./Sports";
 
 export default function App() {
-  const [tab, setTab] = useState<"home" | "scores" | "fantasy" | "pictures">(
+  const [tab, setTab] = useState<"home" | "scores" | "sports" | "pictures">(
     "home",
   );
 
@@ -37,26 +38,22 @@ export default function App() {
           <Button active={tab === "home"} onClick={() => setTab("home")}>
             home
           </Button>
-          <Button active={tab === "scores"} onClick={() => setTab("scores")}>
-            scores
-          </Button>
           <Button
             active={tab === "pictures"}
             onClick={() => setTab("pictures")}
           >
             pictures
           </Button>
-          <Button active={tab === "fantasy"} onClick={() => setTab("fantasy")}>
-            fantasy
+          <Button active={tab === "sports"} onClick={() => setTab("sports")}>
+            sports
           </Button>
         </div>
 
         <hr className="border-black border-1" />
 
         {tab === "home" && <Home />}
-        {tab === "scores" && <ScoreModule />}
         {tab === "pictures" && <PicturesPage />}
-        {tab === "fantasy" && <FantasyStatus />}
+        {tab === "sports" && <Sports />}
       </div>
     </Layout>
   );
