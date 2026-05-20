@@ -16,7 +16,7 @@ const images = [
 export default function PictureCarousel() {
   return (
     <div className="rounded-lg">
-      <div className="my-2 space-x-2 space-y-2">
+      <div className="my-2 space-x-2 space-y-2 text-center">
         {images.map((v, k) => {
           return (
             <img
