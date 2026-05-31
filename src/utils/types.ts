@@ -65,6 +65,14 @@ type SabresScore = {
   awayTeam: NHLTeam;
   homeTeam: NHLTeam;
 };
+type YankeesScore = {
+  season: number;
+  week: number;
+  date: string;
+  venue: string;
+  awayTeam: MLBTeam;
+  homeTeam: MLBTeam;
+};
 type NFLTeam = {
   abbreviation: string;
   score: number;
@@ -78,6 +86,12 @@ type NHLTeam = {
   score: number;
   logo: string;
 };
+type MLBTeam = {
+  name: string;
+  abbreviation: string;
+  logo: string;
+  score: number;
+};
 
 export type {
   LastFMMusicObject,
@@ -89,4 +103,5 @@ export type {
   NFLPlayer,
   BillsScore,
   SabresScore,
+  YankeesScore,
 };

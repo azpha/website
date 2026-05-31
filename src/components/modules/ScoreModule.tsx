@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BillsScore, SabresScore } from "../../utils/types";
+import { BillsScore, SabresScore, YankeesScore } from "../../utils/types";
 
 interface TeamRowProps {
   functionClick?: () => void;
@@ -48,8 +48,8 @@ function TeamRow({
       </div>
       <div className="p-2 text-2xl flex items-end flex-col justify-center">
         <p>
-          {homeTeam.abbreviation} {homeTeam.score} - {awayTeam.abbreviation}{" "}
-          {awayTeam.score}
+          {awayTeam.abbreviation} {awayTeam.score} - {homeTeam.abbreviation}{" "}
+          {homeTeam.score}
         </p>
         <p className="text-sm">
           {venue} - {new Date(date || Date.now()).toLocaleDateString()}
@@ -62,6 +62,7 @@ function TeamRow({
 export default function ScoreModule() {
   const [billsScore, setBillsScore] = useState<BillsScore | null>(null);
   const [sabresScore, setSabresScore] = useState<SabresScore | null>(null);
+  const [yankeesScore, setYankeesScore] = useState<YankeesScore | null>(null);
   const [warpath, setWarpath] = useState<boolean>(false);
 
   useEffect(() => {
@@ -80,10 +81,20 @@ export default function ScoreModule() {
         const data = await res.json();
         setSabresScore(data);
       } else {
-        console.error("Failed to fetch Sabresscore; " + res.statusText);
+        console.error("Failed to fetch Sabres score; " + res.statusText);
+      }
+    }
+    async function fetchYankeesScore() {
+      const res = await fetch("https://api.alexav.gg/v4/sports/scores/yankees");
+      if (res.ok) {
+        const data = await res.json();
+        setYankeesScore(data);
+      } else {
+        console.error("Failed to fetch Yankees score; " + res.statusText);
       }
     }
 
+    fetchYankeesScore();
     fetchBillsScore();
     fetchSabresScore();
   }, []);
@@ -106,6 +117,14 @@ export default function ScoreModule() {
           width={50}
           date={billsScore.gameDay}
           venue={billsScore.venue}
+        />
+      )}
+      {yankeesScore?.homeTeam && yankeesScore.awayTeam && (
+        <TeamRow
+          homeTeam={yankeesScore.homeTeam}
+          awayTeam={yankeesScore.awayTeam}
+          venue={yankeesScore.venue}
+          date={yankeesScore.date}
         />
       )}
 
