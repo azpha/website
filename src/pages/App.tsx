@@ -13,14 +13,12 @@ export default function App() {
 
   return (
     <Layout>
-      <div className="border-3 bg-gradient-to-t from-[#003087] to-[#FFB81C] border-black w-full sm:w-[500px]">
-        <div className="bg-[#003087] w-full">
+      <div className="border-3 bg-zinc-700 border-black w-full sm:w-[500px]">
+        <div className="w-full">
           <div className="grid grid-cols-3 gap-2 p-2 text-2xl">
             <h1 className="font-semibold text-white">welcome</h1>
             <Clock />
-            <h1 className="text-right text-transparent font-bold bg-clip-text bg-gradient-to-t from-[#003087] to-[#FFB81C]">
-              GO SABRES!
-            </h1>
+            <h1 className="text-right font-bold">welcome</h1>
           </div>
         </div>
 
@@ -29,7 +27,7 @@ export default function App() {
           style={{
             objectPosition: "",
           }}
-          src="https://storage.alexav.gg/content/sabres-board.jpg"
+          src="https://storage.alexav.gg/content/59c4bbeba39eb04cf91b81aa0c2e519ad6cf6f95725f9bd9cc8238523aea9529.webp"
         />
 
         <div className="flex flex-row space-x-2 justify-center text-2xl my-2">
