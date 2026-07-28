@@ -1,12 +1,18 @@
 import fs from "node:fs/promises";
+import path from "node:path";
 import express from "express";
 
 const isProduction = process.env.NODE_ENV === "production";
 const port = process.env.PORT || 5173;
 const base = process.env.BASE || "/";
 
+// resolve against this file rather than the working directory, so the server
+// boots the same whether it is started from the repo root or anywhere else
+const root = import.meta.dirname;
+const clientDir = path.resolve(root, "dist/client");
+
 const templateHtml = isProduction
-  ? await fs.readFile("./dist/client/index.html", "utf-8")
+  ? await fs.readFile(path.resolve(clientDir, "index.html"), "utf-8")
   : "";
 
 const app = express();
@@ -24,7 +30,17 @@ if (!isProduction) {
   const compression = (await import("compression")).default;
   const sirv = (await import("sirv")).default;
   app.use(compression());
-  app.use(base, sirv("./dist/client", { extensions: [] }));
+  app.use(base, sirv(clientDir, { extensions: [] }));
+  // a hashed asset that sirv did not find is genuinely gone, usually a stale
+  // cached document asking for a previous build. 404 it here, otherwise it
+  // falls through to the catch-all and answers a .js request with html
+  app.use(base, (req, res, next) => {
+    if (req.path.startsWith("/assets/")) {
+      res.status(404).end();
+      return;
+    }
+    next();
+  });
 }
 
 app.use("*all", async (req, res) => {
@@ -34,7 +50,7 @@ app.use("*all", async (req, res) => {
     let template;
     let render;
     if (!isProduction) {
-      template = await fs.readFile("./index.html", "utf-8");
+      template = await fs.readFile(path.resolve(root, "index.html"), "utf-8");
       template = await vite.transformIndexHtml(url, template);
       render = (await vite.ssrLoadModule("/src/entry-server.tsx")).render;
     } else {
