@@ -24,7 +24,7 @@ export function TeamRow({
         </h1>
       </div>
 
-      <div className="space-y-2 space-x-2 whitespace-nowrap overflow-x-scroll">
+      <div className="space-x-2 whitespace-nowrap overflow-x-auto pb-2">
         {roster?.starters.map((v, k) => {
           return (
             <div className="inline-block" key={k}>

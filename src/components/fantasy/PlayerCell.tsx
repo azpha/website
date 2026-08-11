@@ -14,9 +14,9 @@ export default function PlayerCell({ player }: { player: NFLPlayer | null }) {
 
   if (player && player.full_name) {
     return (
-      <div className="flex-wrap flex space-x-2">
+      <div className="flex items-center gap-2">
         <div>
-          <h1 className="font-semibold text-1xl">{player.full_name}</h1>
+          <h1 className="font-semibold text-base">{player.full_name}</h1>
           <p>
             {player?.position} · {player?.team} {injuryStatus && "·"}{" "}
             {player?.injury_status && (

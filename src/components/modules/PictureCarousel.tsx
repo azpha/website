@@ -15,19 +15,17 @@ const images = [
 
 export default function PictureCarousel() {
   return (
-    <div className="rounded-lg">
-      <div className="my-2 space-x-2 space-y-2 text-center">
-        {images.map((v, k) => {
-          return (
-            <img
-              key={k}
-              loading="lazy"
-              src={v}
-              className="inline w-[200px] max-h-[100px] object-cover"
-            />
-          );
-        })}
-      </div>
+    <div className="my-2 grid grid-cols-2 sm:grid-cols-3 gap-2">
+      {images.map((v, k) => {
+        return (
+          <img
+            key={k}
+            loading="lazy"
+            src={v}
+            className="w-full h-24 object-cover rounded-md"
+          />
+        );
+      })}
     </div>
   );
 }

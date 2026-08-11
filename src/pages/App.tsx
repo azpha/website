@@ -1,28 +1,16 @@
-import { useState } from "react";
 import Layout from "../components/Layout";
-import Clock from "../components/modules/Clock";
-import Button from "../components/Button";
-import Home from "./Home";
-import PicturesPage from "./Pictures";
-import Sports from "./Sports";
 import ProjectCard from "../components/ProjectCard";
 import FantasyStatus from "../components/FantasyStatus";
-import GameComponent from "../components/info/GameComponent";
-import MusicComponent from "../components/info/MusicComponent";
 import PictureCarousel from "../components/modules/PictureCarousel";
 import Footer from "../components/Footer";
 
 export default function App() {
-  const [tab, setTab] = useState<"home" | "scores" | "sports" | "pictures">(
-    "home",
-  );
-
   return (
     <Layout>
-      <main className="my-24">
+      <main className="my-12 sm:my-20">
         <div className="py-2">
           <p className="opacity-85 text-sm text-left">HI, I'M ALEX</p>
-          <h1 className="w-full whitespace-break-spaces text-4xl py-2">
+          <h1 className="text-3xl sm:text-4xl text-balance py-2">
             I write software sometimes, then I spend twice as long breaking it
           </h1>
         </div>
@@ -89,10 +77,12 @@ export default function App() {
             link="https://git.alexav.gg/alex/homelab"
             pills={["Docker", "Ansible", "Python", "Automation"]}
           />
+        </div>
 
-          <hr className="my-4 border-zinc-800" />
-          <p className="opacity-85 text-sm text-left pb-2">FUN STUFF</p>
+        <hr className="my-4 border-zinc-800" />
 
+        <p className="opacity-85 text-sm text-left pb-2">FUN STUFF</p>
+        <div className="my-2 space-y-6">
           <div>
             <h1 className="text-sm opacity-85 font-semibold">Fantasy</h1>
             <FantasyStatus />
@@ -103,9 +93,11 @@ export default function App() {
             </h1>
             <PictureCarousel />
           </div>
-
-          <Footer />
         </div>
+
+        <hr className="my-4 border-zinc-800" />
+
+        <Footer />
       </main>
     </Layout>
   );
