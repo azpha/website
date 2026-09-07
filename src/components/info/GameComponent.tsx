@@ -34,29 +34,17 @@ export default function GameComponent() {
     fetchGame();
   }, []);
 
-  if (game) {
-    return (
-      <a href={`https://medal.tv/u/alexav`} target="_blank">
-        <div className="flex flex-col bg-black border border-black text-white">
-          <div className="flex">
-            <Gamepad className="w-full h-full bg-white text-black" />
-            <div className="pl-2 pr-1">
-              <p className="w-[150px] truncate overflow-hidden whitespace-nowrap">
-                {game.currentlyPlaying.game}
-              </p>
-              <p>
-                {" "}
-                since{" "}
-                {new Date(
-                  game.currentlyPlaying.startedPlayingAt,
-                ).toLocaleTimeString()}
-              </p>
-            </div>
+  return (
+    <a href="https://medal.tv/u/alexav" target="_blank">
+      <div className="bg-white p-2 rounded-lg w-full min-h-full flex justify-center text-black">
+        <div className="flex justify-center items-center">
+          <div className="px-2">
+            <p className="text-sm font-semibold">
+              {game?.currentlyPlaying.game || "Nothing playing"}
+            </p>
           </div>
         </div>
-      </a>
-    );
-  } else {
-    return <ErrorState type="unavailable" />;
-  }
+      </div>
+    </a>
+  );
 }

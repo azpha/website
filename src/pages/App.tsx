@@ -3,6 +3,9 @@ import ProjectCard from "../components/ProjectCard";
 import FantasyStatus from "../components/FantasyStatus";
 import PictureCarousel from "../components/modules/PictureCarousel";
 import Footer from "../components/Footer";
+import BlogRow from "../components/BlogRow";
+import GameComponent from "../components/info/GameComponent";
+import MusicComponent from "../components/info/MusicComponent";
 
 export default function App() {
   return (
@@ -40,6 +43,15 @@ export default function App() {
             Java, C#. Pointless software for funzies is my passion.
           </p>
         </div>
+
+        <hr className="my-4 border-zinc-800" />
+
+        <p className="opacity-85 text-sm text-left pb-2 underline">
+          <a href="https://blog.alexav.gg" target="_blank">
+            LATEST BLOG POST
+          </a>
+        </p>
+        <BlogRow />
 
         <hr className="my-4 border-zinc-800" />
 
@@ -81,7 +93,13 @@ export default function App() {
 
         <hr className="my-4 border-zinc-800" />
 
-        <p className="opacity-85 text-sm text-left pb-2">FUN STUFF</p>
+        <p className="opacity-85 text-sm text-left pb-2">MY ACTIVITIES</p>
+
+        <div className="grid sm:grid-cols-2 grid-cols-1 gap-2">
+          <GameComponent />
+          <MusicComponent />
+        </div>
+
         <div className="my-2 space-y-6">
           <div>
             <h1 className="text-sm opacity-85 font-semibold">Fantasy</h1>

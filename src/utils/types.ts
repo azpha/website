@@ -93,6 +93,13 @@ type MLBTeam = {
   score: number;
 };
 
+interface BlogPost {
+  id: number;
+  title: string;
+  description: string;
+  slug: string;
+}
+
 export type {
   LastFMMusicObject,
   LastFMImageObject,
@@ -104,4 +111,5 @@ export type {
   BillsScore,
   SabresScore,
   YankeesScore,
+  BlogPost,
 };

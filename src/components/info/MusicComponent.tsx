@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import type { LastFMMusicObject } from "../../utils/types";
-import ErrorState from "../ErrorState";
 
 export default function MusicComponent() {
   const [music, setMusic] = useState<LastFMMusicObject | null>(null);
-  const [failedFetch, setFailedFetch] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchMusic() {
@@ -13,10 +11,9 @@ export default function MusicComponent() {
         if (response.ok) {
           const data = await response.json();
           setMusic(data as LastFMMusicObject);
-        } else setFailedFetch(true);
+        }
       } catch (e) {
         console.error("Failed to fetch music!", e);
-        setFailedFetch(true);
       }
     }
 
@@ -26,27 +23,23 @@ export default function MusicComponent() {
     fetchMusic();
   }, []);
 
-  if (!failedFetch) {
-    if (music) {
-      return (
-        <a href="https://koito.fntz.net" target="_blank">
-          <div className="w-full bg-black">
-            <div className="text-center">
-              <div className="pl-2 pr-1">
-                <p className="text-lg">
-                  <span className="font-semibold">Currently Playing - </span>
-                  <span className="underline">{music.title}</span> by{" "}
-                  <span className="underline">{music.artist}</span>
-                </p>
-              </div>
-            </div>
+  return (
+    <a href="https://koito.fntz.net" target="_blank">
+      <div className="bg-white p-2 rounded-lg w-full min-h-full text-black">
+        <div className="flex justify-center items-center">
+          <img
+            src={
+              music?.images.filter((v) => v.size === "medium")[0]["url"] ||
+              music?.images[0].url
+            }
+            className="border-green-500 border-2"
+          />
+          <div className="px-2">
+            <p className="text-sm font-semibold">{music?.title}</p>
+            <p className="text-xs">{music?.artist}</p>
           </div>
-        </a>
-      );
-    } else {
-      return <ErrorState type="loading" />;
-    }
-  } else {
-    return <ErrorState type="error" />;
-  }
+        </div>
+      </div>
+    </a>
+  );
 }

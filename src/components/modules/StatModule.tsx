@@ -67,9 +67,9 @@ export default function StatModule() {
         </a>
       );
     } else {
-      return <ErrorState type="loading" />;
+      return <ErrorState label="loading.." />;
     }
   } else {
-    return <ErrorState type="error" />;
+    return <ErrorState label="something went wrong! :(" />;
   }
 }
