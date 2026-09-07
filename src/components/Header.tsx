@@ -13,6 +13,13 @@ export default function Header() {
           GitHub
         </a>
         <a
+          href="https://blog.alexav.gg/"
+          target="_blank"
+          className="hover:underline"
+        >
+          Blog
+        </a>
+        <a
           href="#"
           className="hover:underline"
           onClick={() => navigator.clipboard.writeText("alex@alexav.gg")}
