@@ -1,0 +1,45 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  IMAGE: git.alexav.gg/${{ gitea.repository }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Gitea Registry
+        run: |
+          echo "${{ secrets.RUNNER_TOKEN }}" \
+            | docker login git.alexav.gg -u "${{ gitea.actor }}" --password-stdin
+
+      # The Dockerfile has two runnable stages and no sensible default: an
+      # untargeted build produces the last one (frontend) on its own, which
+      # then has nothing to proxy /api to. Both get published separately.
+      - name: Build and push
+        run: |
+          for target in backend frontend; do
+            docker build --target "$target" \
+              -t "$IMAGE:$target-latest" \
+              -t "$IMAGE:$target-$GITEA_SHA" .
+            docker push "$IMAGE:$target-latest"
+            docker push "$IMAGE:$target-$GITEA_SHA"
+          done
+        env:
+          GITEA_SHA: ${{ gitea.sha }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: https://git.alexav.gg/alex/deploy-action@main
+        with:
+          token: ${{ secrets.RUNNER_TOKEN }}
+          task: website_deploy

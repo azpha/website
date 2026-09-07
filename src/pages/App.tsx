@@ -16,7 +16,7 @@ export default function App() {
         </div>
         <div className="py-2 space-y-6">
           <p>
-            My day job is software QA at{" "}
+            My day job is Senior QA at{" "}
             <a
               className="text-lime-300 hover:underline"
               href="https://medal.tv/u/alexav"
