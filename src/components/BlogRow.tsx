@@ -23,9 +23,15 @@ export default function BlogRow() {
   if (post) {
     return (
       <div>
-        <a href="https://blog.alexav.gg">
-          <h1>{post?.title}</h1>
-          <p>{post?.description}</p>
+        <a
+          className="space-y-1 hover:underline"
+          href={`https://blog.alexav.gg/post/${post.slug}`}
+        >
+          <h1 className="font-semibold">{post?.title}</h1>
+          <p className="text-sm">{post?.description}</p>
+          <p className="text-xs opacity-50">
+            Posted {new Date(post.createdAt).toLocaleDateString()}
+          </p>
         </a>
       </div>
     );

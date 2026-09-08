@@ -98,6 +98,7 @@ interface BlogPost {
   title: string;
   description: string;
   slug: string;
+  createdAt: string;
 }
 
 export type {
