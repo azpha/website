@@ -2,3 +2,5 @@
 
 User-Agent: *
 Disallow:
+
+Sitemap: https://alexav.gg/sitemap.xml

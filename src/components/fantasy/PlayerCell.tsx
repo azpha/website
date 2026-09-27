@@ -16,7 +16,10 @@ export default function PlayerCell({ player }: { player: NFLPlayer | null }) {
     return (
       <div className="flex items-center gap-2">
         <div>
-          <h1 className="font-semibold text-base">{player.full_name}</h1>
+          {/* a player name is data, not a document section — this was an <h1>,
+              and with a full roster per team it produced most of the page's
+              heading elements */}
+          <p className="font-semibold text-base">{player.full_name}</p>
           <p>
             {player?.position} · {player?.team} {injuryStatus && "·"}{" "}
             {player?.injury_status && (

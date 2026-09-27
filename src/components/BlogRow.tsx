@@ -1,18 +1,23 @@
 import ErrorState from "./ErrorState";
 import { useState, useEffect } from "react";
 import type { BlogPost } from "../utils/types";
+import { useInitialData } from "../utils/initialData";
+import { PROFILES } from "../utils/site";
 
 export default function BlogRow() {
-  const [post, setPost] = useState<BlogPost | null>(null);
+  // seeded from the SSR payload so the post is in the served HTML, then
+  // refreshed on the client to pick up anything published since
+  const { posts } = useInitialData();
+  const [post, setPost] = useState<BlogPost | null>(posts?.[0] ?? null);
 
   useEffect(() => {
-    fetch("https://blog.alexav.gg/api/posts", {
+    fetch(`${PROFILES.blog}/api/posts`, {
       method: "GET",
     }).then(async (res) => {
       if (res.ok) {
         try {
           const data = await res.json();
-          setPost(data[0]);
+          if (Array.isArray(data) && data[0]) setPost(data[0]);
         } catch (e) {
           console.error("An error occurred fetching blog posts!", e);
         }
@@ -22,18 +27,20 @@ export default function BlogRow() {
 
   if (post) {
     return (
-      <div>
+      <article>
         <a
-          className="space-y-1 hover:underline"
-          href={`https://blog.alexav.gg/post/${post.slug}`}
+          className="block space-y-1 hover:underline"
+          href={`${PROFILES.blog}/post/${post.slug}`}
         >
-          <h1 className="font-semibold">{post?.title}</h1>
-          <p className="text-sm">{post?.description}</p>
+          <h3 className="font-semibold">{post.title}</h3>
+          <p className="text-sm">{post.description}</p>
           <p className="text-xs opacity-50">
-            Posted {new Date(post.createdAt).toLocaleDateString()}
+            <time dateTime={post.createdAt}>
+              Posted {new Date(post.createdAt).toLocaleDateString()}
+            </time>
           </p>
         </a>
-      </div>
+      </article>
     );
   } else return <ErrorState label="nothing posted yet :(" />;
 }

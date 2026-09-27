@@ -2,58 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- self-hosted font, declared in src/assets/main.css. preloading the
+         latin regular face keeps it off the discovery critical path -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/open-sans-latin-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
-    <!-- opengraph tags -->
-    <meta
-      property="og:image"
-      content="https://storage.alexav.gg/content/picturev2.jpg"
-    />
-    <meta property="og:title" content="alex" />
-    <meta
-      property="og:description"
-      content="hi, i'm alex! i'm obsessed with the last of us and i do a lot of code things. about it tbh"
-    />
-    <meta property="og:url" content="https://alexav.gg" />
-    <meta property="og:site_name" content="alex" />
+    <!-- images and live data come from these origins -->
+    <link rel="preconnect" href="https://storage.alexav.gg" crossorigin />
+    <link rel="dns-prefetch" href="https://api.alexav.gg" />
 
-    <!-- twitter tags -->
-    <meta name="twitter:title" content="alex" />
-    <meta
-      name="twitter:description"
-      content="hi, i'm alex! i'm obsessed with the last of us and i do a lot of code things. about it tbh"
-    />
-    <meta name="twitter:url" content="https://alexav.gg" />
-    <meta
-      name="twitter:image"
-      content="https://storage.alexav.gg/content/picturev2.jpg"
-    />
-    <meta name="twitter:card" content="summary" />
-
-    <!-- metadata -->
-    <meta name="title" content="alex" />
-    <meta
-      name="description"
-      content="hi, i'm alex! i'm obsessed with the last of us and i do a lot of code things. about it tbh"
-    />
-    <meta
-      name="keywords"
-      content="alex frantz, frantz, alex, qa, javascript, html, react, python, java, alexavier frantz, alexavier, alexav, alexfrantz"
-    />
-
-    <title>alex</title>
     <script
       defer
       data-domain="alexav.gg"
-      src="https://metrics.alexav.gg/js/script.js"
+      src="https://metrics.alexav.gg/js/script.hash.outbound-links.js"
     ></script>
+
+    <!-- title, description, canonical, og/twitter and JSON-LD are injected
+         per route by src/utils/seo.ts. do not add page-level tags here, or
+         they will be duplicated on every url. -->
     <!--app-head-->
   </head>
   <body>

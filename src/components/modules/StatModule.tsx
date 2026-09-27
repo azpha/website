@@ -40,7 +40,11 @@ export default function StatModule() {
   if (!failedFetch) {
     if (data) {
       return (
-        <a href={`https://tracker.alexav.gg/info/${data?.id}`} target="_blank">
+        <a
+          href={`https://tracker.alexav.gg/info/${data?.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div className="flex flex-col bg-black border border-black">
             <div className="flex">
               <div className="pl-2 pr-1">
@@ -61,6 +65,11 @@ export default function StatModule() {
               <img
                 className="w-[50px] h-[50px] object-cover"
                 src={data?.image}
+                alt={data?.title ? `${data.title} cover art` : ""}
+                width={50}
+                height={50}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

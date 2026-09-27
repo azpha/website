@@ -24,16 +24,28 @@ export default function MusicComponent() {
   }, []);
 
   return (
-    <a href="https://koito.fntz.net" target="_blank">
+    <a
+      href="https://koito.fntz.net"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="My listening history"
+    >
       <div className="bg-white p-2 rounded-lg w-full min-h-full text-black">
         <div className="flex justify-center items-center">
-          <img
-            src={
-              music?.images.filter((v) => v.size === "medium")[0]["url"] ||
-              music?.images[0].url
-            }
-            className="border-green-500 border-2"
-          />
+          {music && (
+            <img
+              src={
+                music.images.filter((v) => v.size === "medium")[0]["url"] ||
+                music.images[0].url
+              }
+              alt={`${music.title} by ${music.artist} album artwork`}
+              width={64}
+              height={64}
+              loading="lazy"
+              decoding="async"
+              className="border-green-500 border-2 h-16 w-16 object-cover"
+            />
+          )}
           <div className="px-2">
             <p className="text-sm font-semibold">{music?.title}</p>
             <p className="text-xs">{music?.artist}</p>

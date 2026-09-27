@@ -30,7 +30,15 @@ function TeamRow({
   return (
     <div className="flex flex-row justify-between">
       <div className="flex flex-row py-2 space-x-2">
-        <img width={width} className="object-cover h-20" src={homeTeam.logo} />
+        <img
+          width={width}
+          height={80}
+          loading="lazy"
+          decoding="async"
+          alt={`${homeTeam.name} logo`}
+          className="object-cover h-20"
+          src={homeTeam.logo}
+        />
         <img
           onClick={() => {
             if (
@@ -42,6 +50,10 @@ function TeamRow({
             }
           }}
           width={width}
+          height={80}
+          loading="lazy"
+          decoding="async"
+          alt={`${awayTeam.name} logo`}
           className="object-cover h-20"
           src={awayTeam.logo}
         />
@@ -84,17 +96,7 @@ export default function ScoreModule() {
         console.error("Failed to fetch Sabres score; " + res.statusText);
       }
     }
-    async function fetchYankeesScore() {
-      const res = await fetch("https://api.alexav.gg/v4/sports/scores/yankees");
-      if (res.ok) {
-        const data = await res.json();
-        setYankeesScore(data);
-      } else {
-        console.error("Failed to fetch Yankees score; " + res.statusText);
-      }
-    }
 
-    fetchYankeesScore();
     fetchBillsScore();
     fetchSabresScore();
   }, []);
@@ -117,14 +119,6 @@ export default function ScoreModule() {
           width={50}
           date={billsScore.gameDay}
           venue={billsScore.venue}
-        />
-      )}
-      {yankeesScore?.homeTeam && yankeesScore.awayTeam && (
-        <TeamRow
-          homeTeam={yankeesScore.homeTeam}
-          awayTeam={yankeesScore.awayTeam}
-          venue={yankeesScore.venue}
-          date={yankeesScore.date}
         />
       )}
 

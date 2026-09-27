@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import ErrorState from "../ErrorState";
-import { Gamepad } from "lucide-react";
+import { PROFILES } from "../../utils/site";
 
 type GameObject = {
   currentlyPlaying: CurrentlyPlaying;
@@ -35,7 +34,12 @@ export default function GameComponent() {
   }, []);
 
   return (
-    <a href="https://medal.tv/u/alexav" target="_blank">
+    <a
+      href={PROFILES.medal}
+      target="_blank"
+      rel="me noopener noreferrer"
+      aria-label="My Medal.tv profile"
+    >
       <div className="bg-white p-2 rounded-lg w-full min-h-full flex justify-center text-black">
         <div className="flex justify-center items-center">
           <div className="px-2">
