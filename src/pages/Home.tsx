@@ -7,7 +7,7 @@ import BlogRow from "../components/BlogRow";
 import GameComponent from "../components/info/GameComponent";
 import MusicComponent from "../components/info/MusicComponent";
 import EmailLink from "../components/EmailLink";
-import { PROJECTS } from "../data/projects";
+import { PROJECTS, CERTIFICATIONS } from "../data/projects";
 import { PROFILES } from "../utils/site";
 
 export default function Home() {
@@ -78,6 +78,23 @@ export default function Home() {
         <div className="my-2 space-y-2">
           {PROJECTS.map((project) => (
             <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <hr className="my-4 border-zinc-800" />
+
+      <section aria-labelledby="certifications">
+        <h2 id="certifications" className="opacity-85 text-sm text-left pb-2">
+          CERTIFICATIONS
+        </h2>
+
+        <div className="my-2 space-y-2">
+          {CERTIFICATIONS.map((project) => (
+            <ProjectCard
+              key={project.slug}
+              project={{ ...project, isCert: true }}
+            />
           ))}
         </div>
       </section>

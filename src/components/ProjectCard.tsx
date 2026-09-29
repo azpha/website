@@ -14,11 +14,25 @@ export default function ProjectCard({ project }: { project: Project }) {
     <div className="bg-neutral-800 rounded-lg p-2 border border-white">
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-base font-bold">
-          <Link to={`/projects/${project.slug}`} className="hover:underline">
+          <Link
+            to={
+              !project.isCert
+                ? `/projects/${project.slug}`
+                : `/certifications/${project.slug}`
+            }
+            className="hover:underline"
+          >
             {project.title}
           </Link>
         </h3>
-        <Link to={`/projects/${project.slug}`} className="shrink-0">
+        <Link
+          to={
+            !project.isCert
+              ? `/projects/${project.slug}`
+              : `/certifications/${project.slug}`
+          }
+          className="shrink-0"
+        >
           <button className="bg-gray-500 border border-zinc-500 rounded-lg px-2 py-1 text-sm whitespace-nowrap">
             View &gt;
           </button>

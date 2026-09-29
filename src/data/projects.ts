@@ -8,6 +8,7 @@ export type Project = {
   pills: string[];
   /** paragraphs of prose for the detail page */
   body: string[];
+  isCert?: boolean;
 };
 
 export const PROJECTS: Project[] = [
@@ -65,6 +66,36 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+export const CERTIFICATIONS: Project[] = [
+  {
+    slug: "foundational-csharp",
+    title: "Foundational C# (Microsoft)",
+    description:
+      "Foundational C# course created by Microsoft, issued by FreeCodeCamp",
+    link: "https://www.freecodecamp.org/certification/alexavf/foundational-c-sharp-with-microsoft",
+    pills: ["Software Development", "C#"],
+    body: [
+      "A course created by Microsoft, a comprehensive intro to the core concepts and the syntax of C#.",
+      "Worked with creating basic, logical console applications and how to work with data and properly debug using Visual Studio.",
+    ],
+  },
+  {
+    slug: "introduction-to-frontend-development",
+    title: "Intro to Frontend Development (Meta)",
+    description: "Intro to frontend created by Meta, issued by Coursera",
+    link: "https://coursera.org/share/df3426a13f7bcdaa9f82f88e77554425",
+    pills: ["Software Development", "JavaScript", "HTML", "CSS"],
+    body: [
+      "A course that took me through the basics of frontend development with JS, CSS, HTML and more.",
+      "Currently working on the full certification from Meta, including experience with React, Git, Figma and more.",
+    ],
+  },
+];
+
 export function findProject(slug: string | undefined) {
   return PROJECTS.find((p) => p.slug === slug);
+}
+
+export function findCertification(slug: string | undefined) {
+  return CERTIFICATIONS.find((p) => p.slug === slug);
 }

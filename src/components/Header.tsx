@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import EmailLink from "./EmailLink";
 import { PROFILES } from "../utils/site";
 
 export default function Header() {
@@ -18,8 +17,8 @@ export default function Header() {
         <Link to="/projects" className="hover:underline">
           Projects
         </Link>
-        <Link to="/sports" className="hover:underline">
-          Sports
+        <Link to="/certifications" className="hover:underline">
+          Certifications
         </Link>
         <a
           href={PROFILES.github}
@@ -32,7 +31,6 @@ export default function Header() {
         <a href={PROFILES.blog} rel="me" className="hover:underline">
           Blog
         </a>
-        <EmailLink className="hover:underline" />
       </nav>
     </header>
   );

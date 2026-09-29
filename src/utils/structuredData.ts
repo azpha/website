@@ -119,3 +119,52 @@ export function projectGraph(project: Project): object[] {
     },
   ];
 }
+
+export function certificationListGraph(certifications: Project[]): object[] {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      url: absoluteUrl("/projects"),
+      name: "Projects",
+      about: { "@id": PERSON_ID },
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: certifications.map((project, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          url: absoluteUrl(`/certifications/${project.slug}`),
+          name: project.title,
+        })),
+      },
+    },
+  ];
+}
+
+export function certificationGraph(certificate: Project): object[] {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      name: certificate.title,
+      description: certificate.description,
+      url: absoluteUrl(`/projects/${certificate.slug}`),
+      codeRepository: certificate.link,
+      programmingLanguage: certificate.pills,
+      author: { "@id": PERSON_ID },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Projects",
+          item: absoluteUrl("/certifications"),
+        },
+        { "@type": "ListItem", position: 2, name: certificate.title },
+      ],
+    },
+  ];
+}

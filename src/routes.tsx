@@ -5,13 +5,22 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Sports from "./pages/Sports";
 import Pictures from "./pages/Pictures";
 import NotFound from "./pages/NotFound";
-import { PROJECTS, findProject } from "./data/projects";
+import {
+  CERTIFICATIONS,
+  PROJECTS,
+  findProject,
+  findCertification,
+} from "./data/projects";
 import type { PageMeta } from "./utils/seo";
 import {
   profilePageGraph,
   projectListGraph,
   projectGraph,
+  certificationGraph,
+  certificationListGraph,
 } from "./utils/structuredData";
+import Certifications from "./pages/Certifications";
+import CertificationDetail from "./pages/CertificationDetail";
 
 type Params = Record<string, string | undefined>;
 
@@ -79,13 +88,42 @@ export const routes: AppRoute[] = [
     },
   },
   {
+    path: "/certifications",
+    element: <Certifications />,
+    sitemapPaths: () => ["/certifications"],
+    meta: () => ({
+      title: "Certifications — Alex Frantz",
+      description:
+        "All of my professionally-issued certifications. From software development to software testing, I am always studying something.",
+      path: "/certifications",
+      jsonLd: certificationListGraph(PROJECTS),
+    }),
+  },
+  {
+    path: "/certifications/:slug",
+    element: <CertificationDetail />,
+    sitemapPaths: () => CERTIFICATIONS.map((p) => `/certifications/${p.slug}`),
+    meta: (params) => {
+      const certification = findCertification(params.slug);
+      if (!certification) return null;
+
+      return {
+        title: `${certification.title} — Alex Frantz`,
+        description: certification.description,
+        path: `/certifications/${certification.slug}`,
+        type: "article",
+        jsonLd: certificationGraph(certification),
+      };
+    },
+  },
+  {
     path: "/sports",
     element: <Sports />,
     sitemapPaths: () => ["/sports"],
     meta: () => ({
       title: "Bills, Sabres & Yankees Scores — Alex Frantz",
       description:
-        "Live Buffalo Bills, Buffalo Sabres and New York Yankees scores, plus how my fantasy football matchup is going this week.",
+        "Live Buffalo Bills and Buffalo Sabres scores, plus how my fantasy football matchup is going this week.",
       path: "/sports",
     }),
   },
